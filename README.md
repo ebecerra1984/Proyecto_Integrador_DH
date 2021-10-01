@@ -19,7 +19,7 @@ Descripción del equipo:
 
 Eduardo Iza:
 
-Ezequiel Becerra:
+Ezequiel Becerra: 37 años. Tecnico electronico, actulamente robotista, proximamente desarrollador de software(o parecido)
 
 Gerardo Amado: 39 años. Lic. en Marketing. MBA IAEBS. Tecnólogo y familiero.
 
@@ -30,4 +30,5 @@ Sitios de Referencia
 Mercado Libre
 Amazon
 ebay
-....
+Tiendamie
+Aliexpress
