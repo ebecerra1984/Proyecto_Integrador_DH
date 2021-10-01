@@ -23,7 +23,7 @@ Ezequiel Becerra:
 
 Gerardo Amado: 39 años. Lic. en Marketing. MBA IAEBS. Tecnólogo y familiero.
 
-Mario Schiavon:
+Mario Schiavon: 36 años. Técnico Electrónico y electromecánico. desarrollo de proyectos de robótica e implementaciones en industria 4.0
 
 Sitios de Referencia
 
@@ -31,5 +31,3 @@ Mercado Libre
 Amazon
 ebay
 ....
-
-
