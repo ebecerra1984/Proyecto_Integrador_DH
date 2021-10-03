@@ -1,0 +1,23 @@
+{
+  "name": "proyecto-integrador",
+  "version": "1.0.0",
+  "description": "Proyecto integrador FULL STACK",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebecerra1984/Proyecto_Integrador_DH.git"
+  },
+  "author": "Amado-Becerra-Itza-Schiavon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ebecerra1984/Proyecto_Integrador_DH/issues"
+  },
+  "homepage": "https://github.com/ebecerra1984/Proyecto_Integrador_DH#readme"
+}
