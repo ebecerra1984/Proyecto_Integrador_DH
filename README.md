@@ -21,14 +21,23 @@ Mario Schiavon: 36 años. Técnico Electrónico y electromecánico. Desarrollo d
 Sitios de Referencia
 
 Mercado Libre: Elegido como referencia por ser el market place más grande para latinoamérica.
+
 Amazon: Elegido como referencia por su estetica, velocidad, volumnen de operación y tamaño de la compañia.
+
 ebay: Lider entre los market place, inspiracion para Mercado Libre.
+
 Tiendamia: Similitudes con los 3 anteriores más el entendimiento de la operacion internacional.
+
 Aliexpress: Mismo caso que tienda mia.
 
+
 y más específicos
+
 Epson.com.uy: Por su relacion con el producto
+
 eurobots.es Por su relacion con el producto
+
 www.repair-robots.com Por su relacion con el producto
+
 
 
