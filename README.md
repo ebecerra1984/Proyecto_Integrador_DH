@@ -17,7 +17,7 @@ El publico al que esta dirigido son los hogares con niños entre 2 y 12 años y 
 
 Descripción del equipo:
 
-Eduardo Iza:
+Eduardo Iza: 50 años. Tencnico en Adm. de Epresas. Empresario.
 
 Ezequiel Becerra: 37 años. Tecnico electronico, actulamente robotista, proximamente desarrollador de software(o parecido)
 
