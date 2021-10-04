@@ -30,5 +30,5 @@ Sitios de Referencia
 Mercado Libre
 Amazon
 ebay
-Tiendamie
+Tiendamia
 Aliexpress
