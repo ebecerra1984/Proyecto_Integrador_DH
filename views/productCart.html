@@ -14,11 +14,10 @@
     </header>
     <div class="sub-encabezado">
         <h3>Mi Carrito</h3>
-        <button id="boton_arrepentimiento">BOTON DE ARREPENTIMIENTO</button>
     </div>
     <section id="seccion-carrito">
-        <div class="opciones-compra">
-            <div class="contenedor-secciones">
+        <div class="container-fluid">
+            <div class="container-bordered">
                 <h4>1. Metodo de Pago</h4>
                 <form action="">
                     <select name="tarjetas" id="">
@@ -43,7 +42,7 @@
                     </select>
                 </form>
             </div>
-            <div class="contenedor-secciones">
+            <div class="container-bordered">
                 <h4>2. Metodo de envío</h4>
                 <form action="">
                     <label for="envio">Envío a Domicilio</label>
@@ -52,16 +51,18 @@
                     <input type="radio" value="Retiro en sucursal" name="metodo">
                 </form>
             </div>
-            <div class="contenedor-secciones">
+            <div class="container-bordered">
                 <h4>3. Detalle de productos seleccionados</h4>
             </div>
         </div>
-        <div id="finalizar-seguir">
-            <div id="resumen-compra">
+        <div class="container-fluid">
+            <div class="container-bordered">
                 <h4>Resumen de compra</h4>
             </div>
-            <button type="submit">COMPRAR</button>
-            <a href="/">Seguir comprando</a>
+            <div id="comprar-seguir">
+                <button type="submit">COMPRAR</button>
+                <a href="/">Seguir comprando</a>
+            </div>
         </div>
     </section>  
     <footer>
