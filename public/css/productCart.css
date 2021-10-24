@@ -1,0 +1,126 @@
+h4 {
+  margin: 0 0 15px;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+#seccion-carrito {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+#opciones-compra {
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+}
+
+.container-bordered {
+  width: 100wh;
+  margin-bottom: 2rem;
+  border: 2px solid #000;
+  border-radius: 5px;
+  padding: 0.5rem 1rem 1rem 0.5rem;
+}
+
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#resumen-compra {
+  margin-bottom: 2rem;
+  border: 2px solid #000;
+}
+
+#comprar-seguir {
+  padding: 2rem;
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#comprar-seguir button {
+  width: 90%;
+  padding: 1rem;
+  border-radius: 3px;
+  border: none;
+}
+
+.sub-encabezado {
+  background-color: #4c4b9b;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  border: 2px solid #000;
+  border-radius: 5px;
+}
+
+#boton_arrepentimiento {
+  margin: 1%;
+  max-height: 50%;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+}
+
+@media (min-width: 361px) {
+  #seccion-carrito {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: baseline;
+    min-height: 60vh;
+  }
+
+  #comprar-seguir {
+    padding: 2rem;
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  #comprar-seguir button {
+    width: 90%;
+    padding: 1rem;
+    border-radius: 3px;
+    border: none;
+  }
+
+  .container-bordered {
+    width: 100wh;
+  }
+
+  .container-fluid {
+    width: 45%;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 769px) {
+  .container-bordered {
+    width: 60wh;
+  }
+
+  .container-fluid {
+    width: 45%;
+    flex-direction: column;
+  }
+
+  #comprar-seguir button {
+    width: 90%;
+    padding: 1rem;
+    border-radius: 3px;
+    border: none;
+  }
+}

@@ -1,0 +1,25 @@
+header {
+  background: linear-gradient(
+    180deg,
+    rgba(180, 180, 181, 1) 0%,
+    rgba(222, 226, 230, 1) 84%
+  );
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    0deg,
+    rgba(180, 180, 181, 1) 0%,
+    rgba(222, 226, 230, 1) 84%
+  );
+}
+
+@media (min-width: 361px) {
+  footer {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+  }
+}
