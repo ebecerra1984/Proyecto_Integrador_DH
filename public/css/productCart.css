@@ -1,0 +1,53 @@
+h4 {
+  margin: 0 0 15px;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.opciones-compra {
+  width: 100%;
+}
+
+.contenedor-secciones {
+  width: 100wh;
+  margin-bottom: 2rem;
+  border: 2px solid #000;
+  padding: 0.5rem 1rem 1rem 0.5rem;
+}
+
+#seccion-carrito {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#finalzar-seguir {
+  display: block;
+  max-width: 100wh;
+  margin-bottom: 2rem;
+}
+
+#resumen-compra {
+  width: 100wh;
+  margin-bottom: 2rem;
+  border: 2px solid #000;
+}
+
+.sub-encabezado {
+  background-color: #4c4b9b;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  border: 2px solid #000;
+  border-radius: 5px;
+}
+
+#boton_arrepentimiento {
+  margin: 1%;
+  max-height: 50%;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+}
