@@ -86,6 +86,7 @@
 .desc-articulo {
   text-decoration: solid black;
   font-size: 1.2rem;
+  text-decoration-line: underline;
 }
 
 .desc-articulo p {
@@ -116,6 +117,12 @@ footer img {
 }
 /* ----------------------------------------- */
 @media (min-width: 361px) {
+  /* .img {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  } */
+
   .texto-completo {
     display: flex;
     flex-direction: column;
