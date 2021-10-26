@@ -8,6 +8,20 @@
   text-decoration: none;
 }
 
+#detalle-producto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+#comprar-seguir button {
+  width: 90%;
+  padding: 1rem;
+  border-radius: 3px;
+  border: none;
+}
+
 .footer {
   background: linear-gradient(
     0deg,
@@ -30,4 +44,26 @@
 footer img {
   width: 20px;
   padding: 2px;
+}
+
+@media (min-width: 361px) {
+  .footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px 0;
+  }
+  .texto-footer1 {
+    width: 40%;
+    text-align: left;
+    padding: 8px;
+  }
+}
+
+@media (min-width: 769px) {
+}
+@media (min-width: 1024px) {
+  .texto-footer1 {
+    width: 30%;
+  }
 }
