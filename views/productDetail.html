@@ -23,33 +23,32 @@
         <h3>Detalle de Producto</h3>
     </div>
     <section id="detalle-producto">
-        <article>
+        <article class="tarjeta-producto">
             <img height="200px" src="/static/images/Robot_1.jpg" alt="robo_1">
-            <div class="texto-articulo">
-            <p class='sku'>SKU: XXXXX</p>
-            <p class='titulo'>Título de producto</p>
-            <p class='precio'>Precio: $0000,00</p>
-            <a href="pagos">Conocé los medios de pago <i class="fas fa-solid fa-credit-card"></i></a>
-            <a href="envio">Conocé las opciones de envío y retiro <i class="fas fa-solid fa-truck"></i></a>
-            </div>
-            <div class="comprar">
-                <a href="pagos">Cantidad de unidades<i class="fas fa-solid fa-cart-plus"></i></a>
-                <!-- <select name="cantidad" id="">
-                    <option value=1>1</option>
-                    <option value=2>2</option>
-                    <option value=3>3</option>
-                    <option value=4>4</option>
-                    <option value=5>5</option>
-                </select> -->
-                <div id="comprar-seguir">
-                    <button type="submit">COMPRAR</button>
-                </div> 
-
-            </div>       
-
-
-
+            <div class="texto-completo">
+                <div class="texto-articulo">
+                <p class='sku'>SKU: XXXXX</p>
+                <p class='titulo'>Título de producto</p>
+                <p class='precio'>Precio: $0000,00</p>
+                <p><a href="pagos"><i class="fas fa-solid fa-credit-card"></i>Conocé los medios de pago </a></p>
+                <p><a href="envio"><i class="fas fa-solid fa-truck"></i>Conocé las opciones de envío y retiro </a></p>
+                </div>
+                 <div class="comprar">
+                    <a href="pagos"><i class="fas fa-solid fa-cart-plus"></i>    Cantidad de unidades</a>
+                    <label for="cantidad" class="label"></label>
+                    <input class="campo-input" type="text" name="cantidad" placeholder="1" required>
+                    <div id="comprar-seguir">
+                    <button type="submit">AÑADIR A CARRITO DE COMPRAS</button>
+                    </div> 
+                </div>
+            </div> 
         </article> 
+        <div class= "descripcion">
+            <p class='desc-articulo'>Caracteristicas técnicas del artículo</p>
+
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam officia culpa quo, ullam voluptatibus rerum nisi eius accusamus commodi earum non id maxime quasi enim neque ad vel magni temporibus!</p>
+        </div>
+
             
     </section>  
     <footer>
