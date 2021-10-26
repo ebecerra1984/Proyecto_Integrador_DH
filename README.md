@@ -2,7 +2,6 @@
 
 Nombre del sitio: Droid Store
 
-
 Breve descripcion de servicios ofrecidos:
 
 La empresa es un market place de robots industriales para mercado de manufactura.
@@ -30,7 +29,6 @@ Tiendamia: Similitudes con los 3 anteriores más el entendimiento de la operacio
 
 Aliexpress: Mismo caso que tienda mia.
 
-
 y más específicos
 
 Epson.com.uy: Por su relacion con el producto
@@ -39,5 +37,4 @@ eurobots.es Por su relacion con el producto
 
 www.repair-robots.com Por su relacion con el producto
 
-
-
+Tablero TRELLO: https://trello.com/b/0l5Cjv5I/proyecto-integrador-dh-droid-store

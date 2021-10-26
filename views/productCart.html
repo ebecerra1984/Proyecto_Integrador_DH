@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/productCart.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <header>
+        <p>Encabezado Index</p>
+    </header>
+    <div class="sub-encabezado">
+        <h3>Mi Carrito</h3>
+    </div>
+    <section id="seccion-carrito">
+        <div class="container-fluid">
+            <div class="container-bordered">
+                <h4>1. Metodo de Pago</h4>
+                <form action="">
+                    <select name="tarjetas" id="">
+                        <option value="visa">Visa</option>
+                        <option value="mastercard">Mastercard</option>
+                        <option value="americanExpress">American Express</option>
+                    </select>
+                    <select name="bancos" id="">
+                        <option value="icbc">ICBC</option>
+                        <option value="galicia">Banco Galicia</option>
+                        <option value="bbva">BBVA</option>
+                        <option value="nacion">Banco Nacion</option>
+                        <option value="ciudad">Banco Ciudad</option>
+                        <option value="santander">Banco Santander</option>
+                    </select>
+                    <select name="cuotas" id="">
+                        <option value=3>3</option>
+                        <option value=6>6</option>
+                        <option value=12>12</option>
+                        <option value=18>18</option>
+                        <option value=24>24</option>
+                    </select>
+                </form>
+            </div>
+            <div class="container-bordered">
+                <h4>2. Metodo de envío</h4>
+                <form action="">
+                    <label for="envio">Envío a Domicilio</label>
+                    <input type="radio" value="Envío a Domicilio" name="metodo">
+                    <label for="retiro">Retiro en sucursal</label>
+                    <input type="radio" value="Retiro en sucursal" name="metodo">
+                </form>
+            </div>
+            <div class="container-bordered">
+                <h4>3. Detalle de productos seleccionados</h4>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="container-bordered">
+                <h4>Resumen de compra</h4>
+            </div>
+            <div id="comprar-seguir">
+                <button type="submit">COMPRAR</button>
+                <a href="/">Seguir comprando</a>
+            </div>
+        </div>
+    </section>  
+    <footer>
+        <section class="footer">
+            <article class="texto-footer1">
+              <h3>Ubicacion</h3>
+               <p>Avenida Siempreviva 742</p>
+               <p>CP 6655 - Springfield</p>
+            </article>
+            <article class="texto-footer1">
+                <h3>Contacto</h3>
+                <p>764-84377</p>
+                <p>droid@store.com.ar</p>
+            </article>
+            <article class="texto-footer2">
+                <img  src="/static/images/logo-instagram.png" alt="instagram">
+                <img  src="/static/images/logo-linkedin.png" alt="linkedin">
+            </article>  
+        </section>
+</body>
+</html>
