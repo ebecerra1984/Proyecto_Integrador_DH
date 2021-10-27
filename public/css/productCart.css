@@ -1,22 +1,83 @@
-*{
+* {
   /*border: 1px solid red; */
-   font-family: 'Roboto', sans-serif;
-   margin: 0px;
-   padding: 0px;
-   box-sizing: border-box;
-   color:#31356e;
-   text-decoration: none;
-
-   
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  color: #31356e;
+  text-decoration: none;
+  font-size: 12px;
 }
 
+header {
+  background-image: url(/static/images/Droid-buyer.mp4);
+  background-position-x: center;
+  background-color: #ebebeb;
+  box-sizing: border-box;
+}
+nav {
+  display: none;
+}
+
+.burger-menu {
+  background-color: #0044aa;
+  border-radius: 5px;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0px;
+  padding: 5px;
+  width: 35px;
+  text-align: center;
+  line-height: 25px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.contenedor {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 200px;
+  padding: 10px;
+}
+.box-a {
+  width: auto;
+  height: 120px;
+  justify-content: space-around;
+  padding: 10px;
+  color: white;
+}
+.box-b li {
+  width: auto;
+  height: auto;
+  justify-content: space-around;
+  align-items: center;
+  height: 30px;
+  padding: 10px;
+  font-size: 50px;
+}
+#barraDeBusqueda {
+  background-color: white;
+  border-color: white;
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+}
+
+header div {
+  text-align: center;
+  width: 100vw;
+}
+header section {
+  text-align: center;
+  width: 100vw;
+}
+
+header nav ul li {
+  display: inline-block;
+}
 
 h4 {
   margin: 0 0 15px;
-}
-
-* {
-  font-family: "Roboto", sans-serif;
 }
 
 #seccion-carrito {
@@ -84,27 +145,28 @@ h4 {
   border: none;
   border-radius: 5px;
 }
-.footer{
+.footer {
   background: linear-gradient(
-      0deg, rgba(180, 180, 181, 1) 0%,
-      rgba(222, 226, 230, 1) 84%
+    0deg,
+    rgba(180, 180, 181, 1) 0%,
+    rgba(222, 226, 230, 1) 84%
   );
-  position:fixed;
-  bottom:0;
+  position: fixed;
+  bottom: 0;
   z-index: 100;
-  width:100%;
+  width: 100%;
   text-align: center;
-  font-size: .7rem;
+  font-size: 0.7rem;
 }
-.texto-footer1{
+.texto-footer1 {
   padding-top: 10px;
 }
-.texto-footer2{
+.texto-footer2 {
   padding: 10px;
 }
 footer img {
   width: 20px;
-  padding:2px;
+  padding: 2px;
 }
 
 @media (min-width: 361px) {
@@ -140,16 +202,16 @@ footer img {
     width: 45%;
     flex-direction: column;
   }
-  .footer{
-    display:flex;
+  .footer {
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding:10px 0;
+    padding: 10px 0;
   }
-  .texto-footer1{
-    width:40%;
-    text-align:left;
-    padding: 8px;;
+  .texto-footer1 {
+    width: 40%;
+    text-align: left;
+    padding: 8px;
   }
 }
 
@@ -170,8 +232,8 @@ footer img {
     border: none;
   }
 }
-@media (min-width: 1024px){
-  .texto-footer1{
-      width:30%
+@media (min-width: 1024px) {
+  .texto-footer1 {
+    width: 30%;
   }
 }
