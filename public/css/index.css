@@ -102,7 +102,7 @@ main section i {
   padding: ​5​px​;
   width: ​30​px​;
   height: ​30​px​;
-  border: ​1​px​ ​solid​ ​#39b54a;
+  border: ​1​px​ ​solid​ ​#33346c;
   background-color: #fff;
   border-radius: ​50;
   position: absolute​;
@@ -128,7 +128,7 @@ main article p {
 }
 .descuentos {
   font-size: 16px;
-  color: #39b54a;
+  color: #33346c;
 }
 
 main article span p i {
@@ -137,9 +137,9 @@ main article span p i {
   padding: 5px;
   width: 30px;
   height: 30px;
-  border: 1px solid #39b54a;
+  border: 1px solid #33346c;
   background-color: #fff;
-  color: #39b54a;
+  color: #33346c;
   border-radius: 50%;
   position: relative;
   transition: 450ms;
