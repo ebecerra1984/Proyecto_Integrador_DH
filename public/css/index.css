@@ -212,14 +212,37 @@ main article span p i:hover {
   align-items: center;
 }
 
-@media (max-width: 360px) {
-  nav {
-    display: none;
-  }
-  .detalle {
-    display: none;
-  }
+footer {
+  background: linear-gradient(
+    0deg,
+    rgba(180, 180, 181, 1) 0%,
+    rgba(222, 226, 230, 1) 84%
+  );
+  bottom: 0;
+  z-index: 100;
+  width: 100%;
+  text-align: center;
+  font-size: 0.7rem;
 }
+.texto-footer1 {
+  padding-top: 10px;
+}
+.texto-footer2 {
+  padding: 10px;
+}
+footer img {
+  width: 20px;
+  padding: 2px;
+}
+nav {
+  display: none;
+}
+.detalle {
+  display: none;
+}
+
+  
+
 
 @media (min-width: 361px) {
   .burguer-menu {
@@ -230,6 +253,17 @@ main article span p i:hover {
   }
   header nav ul li {
     display: inline-block;
+  }
+  .footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px 0;
+  }
+  .texto-footer1 {
+    width: 40%;
+    text-align: left;
+    padding: 8px;
   }
 }
 
