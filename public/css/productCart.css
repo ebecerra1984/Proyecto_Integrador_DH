@@ -167,6 +167,10 @@ footer img {
 }
 
 @media (min-width: 361px) {
+  .burger-menu {
+    display: none;
+  }
+
   #seccion-carrito {
     display: flex;
     flex-direction: row;
@@ -179,7 +183,6 @@ footer img {
   #comprar-seguir {
     padding: 2rem;
     display: flex;
-    /* flex-direction: column; */
     flex-wrap: wrap;
     justify-content: space-around;
   }
