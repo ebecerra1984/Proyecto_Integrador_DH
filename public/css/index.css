@@ -62,10 +62,6 @@ nav {
   box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
 
-
-
-
-
 /*main*/
 main {
   text-align: center;
@@ -213,7 +209,6 @@ main article span p i:hover {
   align-items: center;
 }*/
 
-
 /*footer*/
 footer {
   background: linear-gradient(
@@ -237,11 +232,6 @@ footer img {
   width: 20px;
   padding: 2px;
 }
-
-
-
-  
-
 
 @media (min-width: 361px) {
   .burguer-menu {
@@ -273,9 +263,6 @@ footer img {
 }
 
 @media (min-width: 769px) {
-  .burguer-menu {
-    display: none;
-  }
   main article {
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
   }
