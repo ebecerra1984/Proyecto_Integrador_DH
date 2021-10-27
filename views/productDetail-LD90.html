@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/productDetail.css">
+    <link rel="stylesheet" href="/static/css/styles.css">  
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class='contenedor'>
+          <section class='box-a'>
+           <a href="/"><img height="200px" src="/static/images/Droid Store-4.png" alt="Logo"></a>
+          </section>
+          <section class='box-a'>
+            <input type="search" name="keyword" id="barraDeBusqueda" placeholder="Buscar productos, marcas" style="display:inline"><button type="submit" style="font-size: 25px;"><i class="fas fa-search"></i></button>
+          </section>
+          <section class='box-a'>
+            <p> <i class="fas fa-hand-holding-usd"></i> Compra en cuotas y sin tarjeta de credito</p>
+          </section>
+        </div>
+       
+        <nav class='contenedor'>
+          <ul class='box-b'>
+            <li><a href="#">Ofertas</a></li>
+            <li><a href="#">Tiendas Oficiales</a></li>
+            <li><a href="#">Vender</a></li>
+            <li><a href="#">Ayuda</a></li>
+          </ul>
+   
+          <ul class='box-b'>
+           <li><a href="register">Creá tu cuenta <i class="fas fa-id-card" ></i></a></li>
+           <li><a href="login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
+           <li><a href="#">Mis Compras <i class="fas fa-shopping-basket"></i> </a></li>
+          </ul>
+   
+        </nav>
+   
+        <div class='burger-menu'>
+          <i class="fas fa-bars"></i>
+        </div>
+   
+        <div class= 'banner'>
+          <img width='100%' src="/static/images/1620150535068.jpeg" alt="banner"/>
+        </div>
+   
+      </header>
+    <div class="sub-encabezado">
+        <h3>Detalle de Producto</h3>
+    </div>
+    <section id="detalle-producto">
+        <article class="tarjeta-producto">
+            <img height="200px" src="/static/images/LD-Large_image.png" alt="robo_1">
+            <div class="texto-completo">
+                <div class="texto-articulo">
+                <p class='sku'>SKU: XXXXX</p>
+                <p class='titulo'>Robot Movil Inteligente 90Kg</p>
+                <p class='precio'>Precio: USD 90.000</p>
+                <p><a href="pagos"><i class="fas fa-solid fa-credit-card"></i>Conocé los medios de pago </a></p>
+                <p><a href="envio"><i class="fas fa-solid fa-truck"></i>Conocé las opciones de envío y retiro </a></p>
+                </div>
+                 <div class="comprar">
+                    <a href="pagos"><i class="fas fa-solid fa-cart-plus"></i>    Cantidad de unidades</a>
+                    <label for="cantidad" class="label"></label>
+                    <input class="campo-input" type="text" name="cantidad" placeholder="1" required>
+                    <div id="comprar-seguir">
+                    <a href="/cart"><button type="submit">AÑADIR A CARRITO DE COMPRAS</button></a>
+                    </div> 
+                </div>
+            </div> 
+        </article> 
+        <div class= "descripcion">
+            <p class='desc-articulo'>Caracteristicas técnicas del artículo</p>
+
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam officia culpa quo, ullam voluptatibus rerum nisi eius accusamus commodi earum non id maxime quasi enim neque ad vel magni temporibus!</p>
+        </div>
+
+            
+    </section>  
+    <footer>
+        <section class="footer">
+            <article class="texto-footer1">
+              <h3>Ubicacion</h3>
+               <p>Avenida Siempreviva 742</p>
+               <p>CP 6655 - Springfield</p>
+            </article>
+            <article class="texto-footer1">
+                <h3>Contacto</h3>
+                <p>764-84377</p>
+                <p>droid@store.com.ar</p>
+            </article>
+            <article class="texto-footer2">
+                <img  src="/static/images/logo-instagram.png" alt="instagram">
+                <img  src="/static/images/logo-linkedin.png" alt="linkedin">
+            </article>  
+        </section>
+    </footer>
+</body>
+</html>
