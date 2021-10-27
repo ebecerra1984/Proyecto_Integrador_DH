@@ -20,7 +20,7 @@ section {
 
 /*header*/
 header {
-  background-image:url(/static/images/Droid-buyer.mp4);
+  background-image: url(/static/images/Droid-buyer.mp4);
   background-position-x: center;
   background-color: #ebebeb;
   box-sizing: border-box;
@@ -72,19 +72,15 @@ nav {
   box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
 
-<<<<<<< HEAD
-=======
-  header div {
-    text-align: center;
-    width: 100vw;
-  }
-  header section {
-    text-align: center;
-    width: 100vw;
-  }
+header div {
+  text-align: center;
+  width: 100vw;
+}
+header section {
+  text-align: center;
+  width: 100vw;
+}
 
-
->>>>>>> 9a3a378e97c2be15b1b66fb3ed6bbbd1576f82b6
 /*main*/
 main {
   text-align: center;
