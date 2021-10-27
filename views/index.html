@@ -3,24 +3,181 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    
+    <title>Droid Store Home</title>
+
   </head>
-  <body>
-    <header>
-      <section class="logo">
-          <img src="/static/images/Droid-Store-3.png" alt="Logo">
-      </section>
-       <ul class="nav2">
-        <li><a href="register">Creá tu cuenta </a></li>
-        <li><a href="login">Ingresá </a></li>
-      </ul>
-      </header>
-    <section>
-      <p>Section Index</p>
-    </section>
-    <footer>
-      <p>Footer Index</p>
-    </footer>
-  </body>
+  
+ <body>
+   <header>
+     <div class='contenedor'>
+       <section class='box-a'>
+        <a href="/"><img height="200px" src="/static/images/Droid Store-4.png" alt="Logo"></a>
+       </section>
+       <section class='box-a'>
+         <input type="search" name="keyword" id="barraDeBusqueda" placeholder="Buscar productos, marcas" style="display:inline"><button type="submit" style="font-size: 25px;"><i class="fas fa-search"></i></button>
+       </section>
+       <section class='box-a'>
+         <p> <i class="fas fa-hand-holding-usd"></i> Compra en cuotas y sin tarjeta de credito</p>
+       </section>
+     </div>
+    
+     <nav class='contenedor'>
+       <ul class='box-b'>
+         <li><a href="#">Ofertas</a></li>
+         <li><a href="#">Tiendas Oficiales</a></li>
+         <li><a href="#">Vender</a></li>
+         <li><a href="#">Ayuda</a></li>
+       </ul>
+
+       <ul class='box-b'>
+        <li><a href="register">Creá tu cuenta <i class="fas fa-id-card" ></i></a></li>
+        <li><a href="login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
+        <li><a href="#">Mis Compras <i class="fas fa-shopping-basket"></i> </a></li>
+       </ul>
+
+     </nav>
+
+     <div class='burger-menu'>
+       <i class="fas fa-bars"></i>
+     </div>
+
+     <div class= 'banner'>
+       <img width='100%' src="/static/images/1620150535068.jpeg" alt="banner"/>
+     </div>
+
+   </header>
+
+   <main>
+     <section class='seccion-productos'>
+
+       <h2 class='titulares'>Robots Fijos</h2>
+
+       <div class="container">
+
+         <article class='art'>
+           <img height="200px" src="/static/images/Collaborative_Robot_TM_Image.jpg" alt="TM">
+           <span class=precio-descuento-descrip><p><i class="fas fa-truck"></i></p>
+             <p class='precios'>USD 70.000</p>
+             <p class='descuentos'>40% OFF</p>
+             <p class='detalle'>Robot Colaborativo TM12</p>
+           </span>
+         </article>
+
+         <article class='art'>
+          <img height="200px" src="/static/images/Quattro-650H_Product_Image.jpg" alt="Quattro">
+           <span class=precio-descuento-descrip><p><i class="fas fa-truck"></i></p>
+             <p class='precios'>USD 120.000</p>
+             <p class='descuentos'>20% OFF</p>
+             <p class='detalle'>Robot Paralelo Quattro 650</p>
+           </span>
+         </article>
+          
+         <article class='art'>
+           <img height="200px" src="/static/images/i4L-0615.jpg" alt="i4">
+           <span class=precio-descuento-descrip>
+             <p><i class="fas fa-truck"></i></p>
+             <p class='precios'>USD 45.000</p>
+             <p class='descuentos'>10% OFF</p>
+             <p class='detalle'>Robot Scara i4</p>
+           </span>
+         </article>
+
+         <article class='art'>
+           <img height="200px" src="/static/images/Viper-s850.jpeg" alt="viper">
+           <span class=precio-descuento-descrip>
+             <p><i class="fas fa-truck"></i></p>
+             <p class='precios'>USD 105.000</p>
+             <p class='descuentos'>5% OFF</p>
+             <p class='detalle'>Robot Viper 6 Ejes"</p>
+           </span>
+         </article>
+
+       </div>
+     </section>
+
+     <section class='seccion-productos'>
+
+       <h2 class='titulares'>Robots Móviles</h2>
+
+       <div class="container">
+
+         <article class='art'>
+           <img height="200px" src="/static/images/LD-Large_image.png" alt="LD90">
+           <span class=precio-descuento-descrip>
+             <p><i class="fas fa-truck"></i></p>
+             <p class='precios'>USD 90.000</p>
+             <p class='descuentos'>40% OFF</p>
+             <p class='detalle'>Robot Movil Inteligente 90Kg</p>
+           </span>
+         </article>
+
+         <article class='art'>
+           <img height="200px" src="/static/images/LD-dark_product-image.jpeg" alt="DarkLD">
+           <span class=precio-descuento-descrip>
+             <p><i class="fas fa-truck"></i></p>
+             <p class='precios'>USD 105.000</p>
+             <p class='descuentos'>20% OFF</p>
+             <p class='detalle'>Robot Movil Inteligente 90Kg SemiDigital</p>
+           </span>
+         </article>
+
+         <article class='art'>
+           <img height="200px" src="/static/images/LD250.jpg" alt="LD250">
+           <span class=precio-descuento-descrip>
+             <p><i class="fas fa-truck"></i></p>
+             <p class='precios'>USD 120.000</p>
+             <p class='descuentos'>10% OFF</p>
+             <p class='detalle'>Robot Movil Inteligente 250Kg</p>
+           </span>
+           </article>
+
+         <article class='art'>
+           <img height="200px" src="/static/images/mobile_robots_flow_hd-1500_heavy_payloads_boxes_prod_sol.jpg" alt="HD1500">
+           <span class=precio-descuento-descrip>
+             <p><i class="fas fa-truck"></i></p>
+             <p class='precios'>USD 200.000</p>
+             <p class='descuentos'>5% OFF</p>
+             <p class='detalle'>Robot Movil Inteligente 1500Kg</p>
+           </span>
+         </article>
+
+       </div>
+     </section>
+   </main>
+ </body>
+
+ <footer class='seccion-footer'>
+
+   <section>
+     <i class="fas fa-credit-card"></i>
+     <h3>Paga con tarjeta en efectivo</h3>
+     <p>Con Droid Store Cash, tenés cuotas sin ineteres con tarjeta o efectivo en puntos de pago.¡Y siempre es seguro!</p>
+   </section>
+
+   <section>
+     <i class="fas fa-gift"></i>
+     <h3>Envios gratis desde $2500</h3>
+     <p>Solo por estar registrad@ en Droid Store tenés envíos gratis en miles de productos. Es un beneficio de Droid Puntos</p>
+   </section>
+
+   <section>
+     <i class="fas fa-user-shield"></i>
+     <h3>Seguridad, de principio a fin</h3>
+     <p>¿No te gusta? ¡Devolvelo! En Droid Store, no hay nnada que no puedas hacer, porque estas siempre protegid@</p>
+   </section>
+
+   <section>
+     <h3>Copyright 2021 Droid Store S.A.</h3>
+   </section>
+
+ </footer>
 </html>
