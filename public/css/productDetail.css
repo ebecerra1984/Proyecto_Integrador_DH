@@ -10,74 +10,6 @@
   font-size: 12px;
 }
 
-/*header*/
-header {
-  /* background-image: url(/static/images/Droid-buyer.mp4); */
-  background-image: url(../static/images/Droid-buyer.mp4);
-  background-position-x: center;
-  background-color: #ebebeb;
-  box-sizing: border-box;
-}
-nav {
-  display: none;
-}
-
-.burger-menu {
-  background-color: #0044aa;
-  border-radius: 5px;
-  color: white;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 0px;
-  padding: 5px;
-  width: 35px;
-  text-align: center;
-  line-height: 25px;
-  cursor: pointer;
-  font-size: 20px;
-}
-.contenedor {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 200px;
-  padding: 10px;
-}
-.box-a {
-  width: auto;
-  height: 120px;
-  justify-content: space-around;
-  padding: 10px;
-  color: white;
-}
-.box-b li {
-  width: auto;
-  height: auto;
-  justify-content: space-around;
-  align-items: center;
-  height: 30px;
-  padding: 10px;
-  font-size: 50px;
-}
-#barraDeBusqueda {
-  background-color: white;
-  border-color: white;
-  box-shadow: 0px 0px 10px rgb(100, 100, 100);
-}
-
-header div {
-  text-align: center;
-  width: 100vw;
-}
-header section {
-  text-align: center;
-  width: 100vw;
-}
-
-header nav ul li {
-  display: inline-block;
-}
-
 /* ----------------------------------------------------------------------------------
 inicio de css en product detail */
 
@@ -130,6 +62,7 @@ inicio de css en product detail */
   justify-content: center;
   min-height: 60vh;
   text-align: center;
+  padding-top: 354px;
 }
 #texto-articulo {
   line-height: 4;
@@ -189,11 +122,52 @@ footer img {
 }
 /* ----------------------------------------- */
 @media (min-width: 361px) {
-  /* .img {
+  header {
+    background-color: #ebebeb;
+    padding: 1.2rem;
+    align-items: center;
+    width: 100%;
+    min-height: 21vh;
+  }
+
+  .burger-menu {
+    display: none;
+  }
+
+  .buscador {
+    width: 50%;
+  }
+
+  .nav-busqueda {
+    padding: 1rem;
     display: flex;
-    justify-content: center;
-    align-content: center;
-  } */
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .nav-opciones {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+  }
+
+  .nav-cuenta {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+  }
 
   .texto-completo {
     display: flex;
