@@ -7,7 +7,79 @@
   box-sizing: border-box;
   color: #31356e;
   text-decoration: none;
+  font-size: 12px;
 }
+
+/*header*/
+header {
+  /* background-image: url(/static/images/Droid-buyer.mp4); */
+  background-image: url(../static/images/Droid-buyer.mp4);
+  background-position-x: center;
+  background-color: #ebebeb;
+  box-sizing: border-box;
+}
+nav {
+  display: none;
+}
+
+.burger-menu {
+  background-color: #0044aa;
+  border-radius: 5px;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0px;
+  padding: 5px;
+  width: 35px;
+  text-align: center;
+  line-height: 25px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.contenedor {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 200px;
+  padding: 10px;
+}
+.box-a {
+  width: auto;
+  height: 120px;
+  justify-content: space-around;
+  padding: 10px;
+  color: white;
+}
+.box-b li {
+  width: auto;
+  height: auto;
+  justify-content: space-around;
+  align-items: center;
+  height: 30px;
+  padding: 10px;
+  font-size: 50px;
+}
+#barraDeBusqueda {
+  background-color: white;
+  border-color: white;
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+}
+
+header div {
+  text-align: center;
+  width: 100vw;
+}
+header section {
+  text-align: center;
+  width: 100vw;
+}
+
+header nav ul li {
+  display: inline-block;
+}
+
+/* ----------------------------------------------------------------------------------
+inicio de css en product detail */
 
 .sub-encabezado {
   background-color: #4c4b9b;
