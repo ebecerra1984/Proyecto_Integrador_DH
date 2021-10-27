@@ -8,9 +8,19 @@
 a {
   text-decoration: none;
 }
+
+div {
+  text-align: center;
+  width: 100vw;
+}
+section {
+  text-align: center;
+  width: 100vw;
+}
+
 /*header*/
 header {
-  background-image: url(/static/images/Droid-buyer.mp4);
+  background-image:url(/static/images/Droid-buyer.mp4);
   background-position-x: center;
   background-color: #ebebeb;
   box-sizing: border-box;
@@ -62,8 +72,14 @@ nav {
   box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
 
-
-
+  header div {
+    text-align: center;
+    width: 100vw;
+  }
+  header section {
+    text-align: center;
+    width: 100vw;
+  }
 
 
 /*main*/
@@ -114,14 +130,6 @@ main article p {
 .descuentos {
   font-size: 16px;
   color: #39b54a;
-}
-div {
-  text-align: center;
-  width: 100vw;
-}
-section {
-  text-align: center;
-  width: 100vw;
 }
 
 main article span p i {
