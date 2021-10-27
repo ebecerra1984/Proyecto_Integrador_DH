@@ -43,6 +43,9 @@ app.get("/Quattro", (req, res) => {
 app.get("/Viper", (req, res) => {
   res.sendFile(path.join(__dirname, "views/productDetail-Viper.html"));
 });
+app.get("/cart", (req, res) => {
+  res.sendFile(path.join(__dirname, "views/productCart.html"));
+});
 app.listen(3000, () => {
   console.log("el servidor inicio...");
 });
