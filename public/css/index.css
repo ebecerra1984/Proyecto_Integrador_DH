@@ -5,12 +5,18 @@
   font-size: 12px;
   font-family: "Roboto", sans-serif;
 }
-
+a {
+  text-decoration: none;
+}
+/*header*/
 header {
   background-image: url(/static/images/Droid-buyer.mp4);
   background-position-x: center;
   background-color: #ebebeb;
   box-sizing: border-box;
+}
+nav {
+  display: none;
 }
 
 .burger-menu {
@@ -27,10 +33,6 @@ header {
   cursor: pointer;
   font-size: 20px;
 }
-
-a {
-  text-decoration: none;
-}
 .contenedor {
   display: flex;
   justify-content: space-around;
@@ -38,7 +40,6 @@ a {
   height: 200px;
   padding: 10px;
 }
-
 .box-a {
   width: auto;
   height: 120px;
@@ -46,7 +47,6 @@ a {
   padding: 10px;
   color: white;
 }
-
 .box-b li {
   width: auto;
   height: auto;
@@ -56,15 +56,31 @@ a {
   padding: 10px;
   font-size: 50px;
 }
-.seccion-productos {
-  background-color: #ebebeb;
+#barraDeBusqueda {
+  background-color: white;
+  border-color: white;
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
 
+
+
+
+
+/*main*/
 main {
   text-align: center;
   width: 90vw;
 }
-
+.seccion-productos {
+  background-color: #ebebeb;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 main section i {
   display: block;
   font-size: ​16​px​;
@@ -79,19 +95,6 @@ main section i {
   top: ​-15​px​;
 }
 
-#barraDeBusqueda {
-  background-color: white;
-  border-color: white;
-  box-shadow: 0px 0px 10px rgb(100, 100, 100);
-}
-
-.container {
-  display: flex;
-  flex-direction: row;
-  flex-grow: 1;
-  flex-wrap: wrap;
-  justify-content: center;
-}
 main article {
   width: 300px;
   margin: 10px;
@@ -99,7 +102,6 @@ main article {
   border: 1px solid #ebebeb;
   background-color: white;
 }
-
 main article p {
   background-color: white;
 }
@@ -113,7 +115,6 @@ main article p {
   font-size: 16px;
   color: #39b54a;
 }
-
 div {
   text-align: center;
   width: 100vw;
@@ -143,11 +144,13 @@ main article:hover {
 .detalle:hover {
   color: #666;
 }
-
+.detalle {
+  display: none;
+}
 main article span p i:hover {
   transform: rotateZ(-45deg);
 }
-
+/*
 .register-form {
   background-color: #ebebeb;
   display: flex;
@@ -158,9 +161,7 @@ main article span p i:hover {
   padding: 0px;
   box-sizing: border-box;
 }
-.detalle {
-  font-size: 16px;
-}
+
 
 .campo {
   padding: 10px;
@@ -210,8 +211,10 @@ main article span p i:hover {
   color: #ebebeb;
   border-color: #0044aa;
   align-items: center;
-}
+}*/
 
+
+/*footer*/
 footer {
   background: linear-gradient(
     0deg,
@@ -234,12 +237,8 @@ footer img {
   width: 20px;
   padding: 2px;
 }
-nav {
-  display: none;
-}
-.detalle {
-  display: none;
-}
+
+
 
   
 
@@ -254,6 +253,7 @@ nav {
   header nav ul li {
     display: inline-block;
   }
+
   .footer {
     display: flex;
     flex-wrap: wrap;
@@ -264,6 +264,11 @@ nav {
     width: 40%;
     text-align: left;
     padding: 8px;
+  }
+  .detalle {
+    display: inline;
+    font-size: 16px;
+    text-align: center;
   }
 }
 
@@ -276,5 +281,10 @@ nav {
   }
   header nav ul li {
     display: inline-block;
+  }
+  .detalle {
+    display: inline;
+    font-size: 16px;
+    text-align: center;
   }
 }
