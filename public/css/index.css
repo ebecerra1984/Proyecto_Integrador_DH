@@ -139,6 +139,21 @@ main article {
 main article p {
   background-color: white;
 }
+
+.art-detalle {
+  width: 600px;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #ebebeb;
+  background-color: white;
+}
+.detalle-individual {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .titulares {
   font-size: 24px;
 }
