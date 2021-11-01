@@ -1,91 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/static/css/productDetail.css">
-    <link rel="stylesheet" href="/static/css/styles.css">  
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
+    <link rel="stylesheet" href="/static/css/index.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    
+    <title>TM 12</title>
 
-</head>
-<body>
-    <header>
-        <div class='contenedor'>
-          <section class='box-a'>
-           <a href="/"><img height="200px" src="/static/images/Droid Store-4.png" alt="Logo"></a>
-          </section>
-          <section class='box-a'>
-            <input type="search" name="keyword" id="barraDeBusqueda" placeholder="Buscar productos, marcas" style="display:inline"><button type="submit" style="font-size: 25px;"><i class="fas fa-search"></i></button>
-          </section>
-          <section class='box-a'>
-            <p> <i class="fas fa-hand-holding-usd"></i> Compra en cuotas y sin tarjeta de credito</p>
-          </section>
-        </div>
-       
-        <nav class='contenedor'>
-          <ul class='box-b'>
-            <li><a href="#">Ofertas</a></li>
-            <li><a href="#">Tiendas Oficiales</a></li>
-            <li><a href="#">Vender</a></li>
-            <li><a href="#">Ayuda</a></li>
-          </ul>
-   
-          <ul class='box-b'>
-           <li><a href="register">Creá tu cuenta <i class="fas fa-id-card" ></i></a></li>
-           <li><a href="login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
-           <li><a href="#">Mis Compras <i class="fas fa-shopping-basket"></i> </a></li>
-          </ul>
-   
-        </nav>
-   
-        <div class='burger-menu'>
-          <i class="fas fa-bars"></i>
-        </div>
-   
-        <div class= 'banner'>
-          <img width='100%' src="/static/images/1620150535068.jpeg" alt="banner"/>
-        </div>
-   
-      </header>
-    <div class="sub-encabezado">
-        <h3>Detalle de Producto</h3>
-    </div>
-    <section id="detalle-producto">
-        <article class="tarjeta-producto">
-            <img height="200px" src="/static/images/LD250.jpg" alt="robo_1">
-            <div class="texto-completo">
-                <div class="texto-articulo">
-                <p class='sku'>SKU: XXXXX</p>
-                <p class='titulo'>Robot Movil Inteligente 250Kg</p>
-                <p class='precio'>Precio: USD 120.000</p>
-                <p><a href="pagos"><i class="fas fa-solid fa-credit-card"></i>Conocé los medios de pago </a></p>
-                <p><a href="envio"><i class="fas fa-solid fa-truck"></i>Conocé las opciones de envío y retiro </a></p>
-                </div>
-                 <div class="comprar">
-                    <a href="pagos"><i class="fas fa-solid fa-cart-plus"></i>    Cantidad de unidades</a>
-                    <label for="cantidad" class="label"></label>
-                    <input class="campo-input" type="text" name="cantidad" placeholder="1" required>
-                    <div id="comprar-seguir">
-                    <a href="/cart"><button type="submit">AÑADIR A CARRITO DE COMPRAS</button></a>
-                    </div> 
-                </div>
-            </div> 
-        </article> 
-        <div class= "descripcion">
-            <p class='desc-articulo'>Caracteristicas técnicas del artículo</p>
+  </head>
+ <body>
+   <header>
+    <div class="nav-busqueda">
+      <a href="/"><img height="200px" src="/static/images/Droid Store-4.png" alt="Logo"></a>
+    <form action="" class="buscador"> 
+      <input type="search" name="" id="barraDeBusqueda" placeholder="Buscar productos, marcas y más"><button><i class="fas fa-search fa-lg"></i></button>
+    </form> 
+    <p><i class="fas fa-hand-holding-usd fa-lg"></i> Compra en cuotas y sin tarjeta de credito</p>
+  </div>
+  <div class="nav-menu">
+    <ul class="nav-opciones">
+      <li><a href="#">Ofertas</a></li>
+      <li><a href="#">Tiendas Oficiales</a></li>
+      <li><a href="#">Vender</a></li>
+      <li><a href="#">Ayuda</a></li>
+    </ul>
+    <ul class="nav-cuenta">
+      <a href="register">Creá tu cuenta <i class="fas fa-id-card fa-sm"></i></a>
+      <a href="login">Ingresá <i class="fas fa-sign-in-alt fa-sm"></i></a>
+      <a href="#">Mis Compras <i class="fas fa-shopping-basket fa-sm"></i> </a>
+    </ul>
+  </div>
+  <div class="burger-menu"> <i class="fas fa-bars fa-2x"></i></div>
+   </header>
 
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam officia culpa quo, ullam voluptatibus rerum nisi eius accusamus commodi earum non id maxime quasi enim neque ad vel magni temporibus!</p>
-        </div>
+   <main>
+     <section class='detalle-individual'>
+       <article class='art-detalle'>
+        <a href="/cobot"><img height="200px" src="/static/images/LD250.jpg" alt="TM"></a>
+         <span class=precio-descuento-descrip><p><i class="fas fa-robot"></i></p>
+          <p class='precios'>USD 120.000</p>
+          <p class='descuentos'>10% OFF</p>
+          <p class='detalle'>Robot Movil Inteligente 250Kg</p>
+           <p class='sku'>SKU: XXXXX</p>
+           </span>
+        </article>
+      <article class='art-detalle'>  
+           <span class=precio-descuento-descrip>
+           <h4>Robot Movil Inteligente 250Kg</h4>
+           <p class='descripcion'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, voluptatibus voluptatum ex recusandae itaque labore adipisci tenetur minima molestias magni nulla blanditiis, dolorem soluta error temporibus voluptas. Pariatur, ipsum atque.</p>
+           <p class='precio'>Precio: USD 120.000</p>
+           <p><a href="pagos"><i class="fas fa-solid fa-credit-card"></i>Conocé los medios de pago </a></p>
+           <p><a href="envio"><i class="fas fa-solid fa-truck"></i>Conocé las opciones de envío y retiro </a></p>
+           <p class="comprar">
+            <a href="pagos"><i class="fas fa-solid fa-cart-plus"></i>    Cantidad de unidades</a>
+            <label for="cantidad" class="label"></label>
+            <input class="campo-input" type="text" name="cantidad" placeholder="1" required>
+           </p>
+           <p id="comprar-seguir">
+            <a href="/cart"><button type="submit">AÑADIR A CARRITO DE COMPRAS</button></a>
+           </p>
+         </span>
+       </article>
+     </section>
+   </main>
 
-            
-    </section>  
     <footer>
         <section class="footer">
             <article class="texto-footer1">

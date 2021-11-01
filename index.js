@@ -19,33 +19,18 @@ app.get("/cart", (req, res) => {
 app.get("/prod-detail", (req, res) => {
   res.sendFile(path.join(__dirname, "views/productDetail.html"));
 });
-app.get("/cobot", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/productDetail-Cobot.html"));
-});
-app.get("/HD1500", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/productDetail-HD1500.html"));
-});
-app.get("/i4", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/productDetail-i4.html"));
-});
-app.get("/LD90", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/productDetail-LD90.html"));
-});
-app.get("/LD90B", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/productDetail-LD90Black.html"));
-});
-app.get("/LD250", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/productDetail-LD250.html"));
-});
-app.get("/Quattro", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/productDetail-Quattro.html"));
-});
-app.get("/Viper", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/productDetail-Viper.html"));
-});
 app.get("/cart", (req, res) => {
   res.sendFile(path.join(__dirname, "views/productCart.html"));
 });
+/*ruta parametrizada de prueba Gerardo*/
+app.get('/productos/:id',function(req,res){
+  let idProducto = req.params.id;
+  res.sendFile(path.join(__dirname, "views/productDetail-"+idProducto+".html"));
+})
+/*fin ruta parametrizada de prueba para detalles de producto*/
+
+
+
 app.listen(3000, () => {
   console.log("el servidor inicio...");
 });
