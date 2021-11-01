@@ -32,8 +32,7 @@ h4 {
 
 .container {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  flex-direction: column;
   width: 100%;
 }
 
@@ -45,9 +44,17 @@ h4 {
   padding: 0.5rem 1rem 1rem 0.5rem;
 }
 
+.container-bordered-wide {
+  width: 100%;
+  margin-bottom: 2rem;
+  border: 2px solid #000;
+  border-radius: 5px;
+  padding: 0.5rem 1rem 1rem 0.5rem;
+}
+
 .container-fluid {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -119,7 +126,6 @@ footer img {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: baseline;
-    padding-top: 325px;
   }
 
   #comprar-seguir {
@@ -136,14 +142,8 @@ footer img {
     border: none;
   }
 
-  /* .container {
-    width: 50%;
-    display: flex;
-    flex-wrap: wrap;
-  } */
-
   .container-bordered {
-    width: 80%;
+    width: 100%;
   }
 
   .container-fluid {
@@ -165,13 +165,21 @@ footer img {
 }
 
 @media (min-width: 769px) {
-  #seccion-carrito {
+  .container {
+    width: 45%;
+  }
+  .container-bordered-wide {
+    width: 100%;
+    margin-bottom: 2rem;
+    border: 2px solid #000;
+    border-radius: 5px;
+    padding: 0.5rem 1rem 1rem 0.5rem;
   }
 
-  .container-bordered {
-    width: 50%;
-  }
   .container-fluid:first-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     width: 70%;
   }
 
@@ -180,7 +188,7 @@ footer img {
   }
 
   .container-bordered {
-    width: 40%;
+    width: 100%;
   }
 
   #comprar-seguir button {
