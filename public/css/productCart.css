@@ -23,7 +23,6 @@ h4 {
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
-  min-height: 60vh;
 }
 
 #opciones-compra {
