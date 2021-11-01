@@ -13,95 +13,17 @@ a {
   color: #000;
 }
 
-header {
-  background-image: url(/static/images/Droid-buyer.mp4);
-  background-position-x: center;
-  background-color: #ebebeb;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  flex: wrap;
-  align-items: center;
-  background-color: #ebebeb;
-  padding: 1.2rem;
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-header p {
-  font-size: 1.3rem;
-  font-weight: bold;
-  display: flex;
-}
-
-.buscador {
-  padding-left: 1rem;
-  background-color: white;
-  border: none;
-  border-radius: 3px;
-  width: 90%;
-  align-items: center;
-  padding: 0.7rem;
-}
-
-.buscador button {
-  border: none;
-  background-color: #fff;
-  cursor: pointer;
-}
-
-.buscador input {
-  font-size: 1.3rem;
-  font-weight: bold;
-  border: none;
-  width: 90%;
-}
-
-.nav-busqueda {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.nav-busqueda > * {
-  margin-bottom: 1rem;
-}
-
-.nav-menu {
-  display: none;
-}
-
-.nav-opciones {
-  width: 25%;
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
-}
-
-.nav-cuenta {
-  width: 30%;
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
-}
-
-.burger-menu {
-  padding: 0.2rem;
-  border: 1px solid;
-  border-radius: 3px;
-}
-
 h4 {
   margin: 0 0 15px;
 }
 
 #seccion-carrito {
+  padding: 0.5rem;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   min-height: 60vh;
-  padding-top: 354px;
 }
 
 #opciones-compra {
@@ -109,11 +31,14 @@ h4 {
 }
 
 .container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
   width: 100%;
 }
 
 .container-bordered {
-  width: 100wh;
+  width: 100%;
   margin-bottom: 2rem;
   border: 2px solid #000;
   border-radius: 5px;
@@ -184,56 +109,8 @@ footer img {
 }
 
 @media (min-width: 361px) {
-  header {
-    background-color: #ebebeb;
-    padding: 1.2rem;
-    align-items: center;
-    width: 100%;
-    min-height: 21vh;
-  }
-
-  .burger-menu {
-    display: none;
-  }
-
-  .buscador {
-    width: 50%;
-  }
-
-  .nav-busqueda {
-    padding: 1rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-
-  .nav-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-top: 1rem;
-  }
-
-  .nav-opciones {
-    width: 40%;
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-  }
-
-  .nav-cuenta {
-    width: 40%;
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-  }
-
   section {
-    width: 100wh;
-    padding-top: 323px;
+    width: 100%;
   }
 
   #seccion-carrito {
@@ -242,7 +119,6 @@ footer img {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: baseline;
-    min-height: 60vh;
     padding-top: 325px;
   }
 
@@ -260,13 +136,20 @@ footer img {
     border: none;
   }
 
+  /* .container {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+  } */
+
   .container-bordered {
-    width: 100wh;
+    width: 80%;
   }
 
   .container-fluid {
-    width: 45%;
     flex-direction: column;
+    justify-content: center;
+    width: 50%;
   }
   .footer {
     display: flex;
@@ -282,91 +165,22 @@ footer img {
 }
 
 @media (min-width: 769px) {
-  header {
-    background-color: #ebebeb;
-    padding: 1.2rem;
-    align-items: center;
-    width: 100%;
-    min-height: 20vh;
-  }
-
-  header p {
-    font-size: 1.3rem;
-    font-weight: bold;
-    display: flex;
-  }
-  header p {
-    font-size: 1.3rem;
-    font-weight: bold;
-    display: flex;
-  }
-
-  .burger-menu {
-    display: none;
-  }
-
-  .nav-busqueda {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-
-  .nav-opciones {
-    width: 30%;
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-  }
-
-  .nav-cuenta {
-    width: 30%;
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-  }
-
-  .nav-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-
-  .buscador {
-    padding-left: 1rem;
-    background-color: white;
-    border: none;
-    border-radius: 3px;
-    width: 40%;
-    align-items: center;
-    padding: 0.7rem;
-  }
-
-  .buscador input {
-    font-size: 1.3rem;
-    font-weight: bold;
-    border: none;
-    width: 90%;
-  }
-
-  .nav-menu a {
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.3rem;
-  }
-
   #seccion-carrito {
-    padding-top: 299px;
   }
 
   .container-bordered {
-    width: 60wh;
+    width: 50%;
+  }
+  .container-fluid:first-child {
+    width: 70%;
   }
 
-  .container-fluid {
-    width: 45%;
-    flex-direction: column;
+  .container-fluid:nth-child(2) {
+    width: 30%;
+  }
+
+  .container-bordered {
+    width: 40%;
   }
 
   #comprar-seguir button {

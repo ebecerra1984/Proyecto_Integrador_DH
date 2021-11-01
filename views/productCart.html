@@ -13,69 +13,52 @@
 </head>
 <body>
     <header>
-        <div class="nav-busqueda">
-            <a href="/"><img height="200px" src="/static/images/Droid Store-4.png" alt="Logo"></a>
-          <form action="" class="buscador"> 
-            <input type="search" name="" id="barraDeBusqueda" placeholder="Buscar productos, marcas y más"><button><i class="fas fa-search fa-lg"></i></button>
-          </form> 
-          <p><i class="fas fa-hand-holding-usd fa-lg"></i> Compra en cuotas y sin tarjeta de credito</p>
-        </div>
-        <div class="nav-menu">
-          <ul class="nav-opciones">
-            <li><a href="#">Ofertas</a></li>
-            <li><a href="#">Tiendas Oficiales</a></li>
-            <li><a href="#">Vender</a></li>
-            <li><a href="#">Ayuda</a></li>
-          </ul>
-          <ul class="nav-cuenta">
-            <a href="register">Creá tu cuenta <i class="fas fa-id-card fa-sm"></i></a>
-            <a href="login">Ingresá <i class="fas fa-sign-in-alt fa-sm"></i></a>
-            <a href="#">Mis Compras <i class="fas fa-shopping-basket fa-sm"></i> </a>
-          </ul>
-        </div>
-        <div class="burger-menu"> <i class="fas fa-bars fa-2x"></i></div>
     </header>
     <div class="sub-encabezado">
         <h3>Mi Carrito</h3>
     </div>
     <section id="seccion-carrito">
         <div class="container-fluid">
-            <div class="container-bordered">
-                <h4>1. Metodo de Pago</h4>
-                <form action="">
-                    <select name="tarjetas" id="">
-                        <option value="visa">Visa</option>
-                        <option value="mastercard">Mastercard</option>
-                        <option value="americanExpress">American Express</option>
-                    </select>
-                    <select name="bancos" id="">
-                        <option value="icbc">ICBC</option>
-                        <option value="galicia">Banco Galicia</option>
-                        <option value="bbva">BBVA</option>
-                        <option value="nacion">Banco Nacion</option>
-                        <option value="ciudad">Banco Ciudad</option>
-                        <option value="santander">Banco Santander</option>
-                    </select>
-                    <select name="cuotas" id="">
-                        <option value=3>3</option>
-                        <option value=6>6</option>
-                        <option value=12>12</option>
-                        <option value=18>18</option>
-                        <option value=24>24</option>
-                    </select>
-                </form>
+            <div class="container">
+                <div class="container-bordered">
+                    <h4>1. Metodo de Pago</h4>
+                    <form action="">
+                        <select name="tarjetas" id="">
+                            <option value="visa">Visa</option>
+                            <option value="mastercard">Mastercard</option>
+                            <option value="americanExpress">American Express</option>
+                        </select>
+                        <select name="bancos" id="">
+                            <option value="icbc">ICBC</option>
+                            <option value="galicia">Banco Galicia</option>
+                            <option value="bbva">BBVA</option>
+                            <option value="nacion">Banco Nacion</option>
+                            <option value="ciudad">Banco Ciudad</option>
+                            <option value="santander">Banco Santander</option>
+                        </select>
+                        <select name="cuotas" id="">
+                            <option value=3>3</option>
+                            <option value=6>6</option>
+                            <option value=12>12</option>
+                            <option value=18>18</option>
+                            <option value=24>24</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="container-bordered">
+                    <h4>2. Metodo de envío</h4>
+                    <form action="">
+                        <label for="envio">Envío a Domicilio</label>
+                        <input type="radio" value="Envío a Domicilio" name="metodo">
+                        <label for="retiro">Retiro en sucursal</label>
+                        <input type="radio" value="Retiro en sucursal" name="metodo">
+                    </form>
+                </div>
             </div>
-            <div class="container-bordered">
-                <h4>2. Metodo de envío</h4>
-                <form action="">
-                    <label for="envio">Envío a Domicilio</label>
-                    <input type="radio" value="Envío a Domicilio" name="metodo">
-                    <label for="retiro">Retiro en sucursal</label>
-                    <input type="radio" value="Retiro en sucursal" name="metodo">
-                </form>
-            </div>
-            <div class="container-bordered">
-                <h4>3. Detalle de productos seleccionados</h4>
+            <div class="container">
+                <div class="container-bordered">
+                    <h4>3. Detalle de productos seleccionados</h4>
+                </div>
             </div>
         </div>
         <div class="container-fluid">
@@ -90,20 +73,6 @@
     </section>  
     <footer>
         <section class="footer">
-            <article class="texto-footer1">
-              <h3>Ubicacion</h3>
-               <p>Avenida Siempreviva 742</p>
-               <p>CP 6655 - Springfield</p>
-            </article>
-            <article class="texto-footer1">
-                <h3>Contacto</h3>
-                <p>764-84377</p>
-                <p>droid@store.com.ar</p>
-            </article>
-            <article class="texto-footer2">
-                <img  src="/static/images/logo-instagram.png" alt="instagram">
-                <img  src="/static/images/logo-linkedin.png" alt="linkedin">
-            </article>  
         </section>
     </footer>
 </body>
