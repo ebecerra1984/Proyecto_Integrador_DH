@@ -2,6 +2,9 @@ const express = require("express");
 const app = express();
 const path = require("path");
 
+app.set("view engine", "ejs");
+app.set("views", "./views");
+
 app.use("/static", express.static("./public"));
 
 app.get("/", (req, res) => {
@@ -17,22 +20,20 @@ app.get("/register", (req, res) => {
   res.sendFile(path.join(__dirname, "views/register.html"));
 });
 app.get("/cart", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/productCart.html"));
+  res.render("cart");
 });
 app.get("/prod-detail", (req, res) => {
   res.sendFile(path.join(__dirname, "views/productDetail.html"));
 });
-app.get("/cart", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/productCart.html"));
-});
+
 /*ruta parametrizada de prueba Gerardo*/
-app.get('/productos/:id',function(req,res){
+app.get("/productos/:id", function (req, res) {
   let idProducto = req.params.id;
-  res.sendFile(path.join(__dirname, "views/productDetail-"+idProducto+".html"));
-})
+  res.sendFile(
+    path.join(__dirname, "views/productDetail-" + idProducto + ".html")
+  );
+});
 /*fin ruta parametrizada de prueba para detalles de producto*/
-
-
 
 app.listen(3000, () => {
   console.log("el servidor inicio...");

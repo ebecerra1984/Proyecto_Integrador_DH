@@ -122,6 +122,7 @@ footer img {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: baseline;
+    padding-top: 184px;
   }
 
   #comprar-seguir {
