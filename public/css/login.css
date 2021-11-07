@@ -9,6 +9,7 @@
 }
 body {
   padding-top: 184px;
+  background-color:rgba(222, 226, 230, 0.3);
 }
 .main-login {
   padding: 5% 10%;
