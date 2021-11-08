@@ -21,6 +21,7 @@ h4 {
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
+  margin-top: 114px;
 }
 
 #opciones-compra {
@@ -63,7 +64,6 @@ h4 {
 #comprar-seguir {
   padding: 2rem;
   display: flex;
-  /* flex-direction: column; */
   flex-wrap: wrap;
   justify-content: space-around;
 }
@@ -81,7 +81,6 @@ h4 {
   justify-content: center;
   border-bottom: #31356e solid 0.3rem;
   margin-bottom: 2rem;
-  padding-top: 114px;
 }
 
 #boton_arrepentimiento {
@@ -91,26 +90,6 @@ h4 {
   border: none;
   border-radius: 5px;
 }
-.footer {
-  background: linear-gradient(
-    0deg,
-    rgba(180, 180, 181, 1) 0%,
-    rgba(222, 226, 230, 1) 84%
-  );
-  width: 100%;
-  text-align: center;
-  font-size: 0.7rem;
-}
-.texto-footer1 {
-  padding-top: 10px;
-}
-.texto-footer2 {
-  padding: 10px;
-}
-footer img {
-  width: 20px;
-  padding: 2px;
-}
 
 @media (min-width: 361px) {
   .sub-encabezado {
@@ -119,8 +98,9 @@ footer img {
     justify-content: center;
     border-bottom: #31356e solid 0.3rem;
     margin-bottom: 2rem;
-    padding-top: 184px;
+    width: 100%;
   }
+
   section {
     width: 100%;
   }
@@ -131,6 +111,7 @@ footer img {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: baseline;
+    margin-top: 154px;
   }
 
   #comprar-seguir {
@@ -156,23 +137,17 @@ footer img {
     justify-content: center;
     width: 45%;
   }
-  .footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 10px 0;
-  }
-  .texto-footer1 {
-    width: 40%;
-    text-align: left;
-    padding: 8px;
-  }
 }
 
 @media (min-width: 769px) {
   .container {
     width: 45%;
   }
+
+  #seccion-carrito {
+    margin-top: 184px;
+  }
+
   .container-bordered-wide {
     width: 100%;
     margin-bottom: 2rem;
@@ -181,14 +156,14 @@ footer img {
     padding: 0.5rem 1rem 1rem 0.5rem;
   }
 
-  .container-fluid:first-child {
+  .container-fluid:nth-child(2) {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     width: 70%;
   }
 
-  .container-fluid:nth-child(2) {
+  .container-fluid:nth-child(3) {
     width: 30%;
   }
 
