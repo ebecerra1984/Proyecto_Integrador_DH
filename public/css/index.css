@@ -13,7 +13,7 @@ div {
   text-align: center;
   width: 100vw;
 }
-section {
+main section {
   text-align: center;
   width: 100vw;
 }
@@ -22,7 +22,7 @@ section {
 main {
   text-align: center;
   width: 100%;
-  padding-top: 354px;
+  padding-top: 114px;
 }
 
 .seccion-productos {
@@ -178,148 +178,7 @@ main article span p i:hover {
   main article {
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
   }
-  header {
-    background-color: #ebebeb;
-    padding: 1.2rem;
-    align-items: center;
-    width: 100%;
-    min-height: 21vh;
-  }
 
-  .burger-menu {
-    display: none;
-  }
-
-  .buscador {
-    width: 50%;
-  }
-
-  .nav-busqueda {
-    padding: 1rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-
-  .nav-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-top: 1rem;
-  }
-
-  .nav-opciones {
-    width: 40%;
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-  }
-
-  .nav-cuenta {
-    width: 40%;
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-  }
-
-  .footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 10px 0;
-  }
-  .texto-footer1 {
-    width: 40%;
-    text-align: left;
-    padding: 8px;
-  }
-  .detalle {
-    display: inline;
-    font-size: 16px;
-    text-align: center;
-  }
-}
-
-@media (min-width: 769px) {
-  main article {
-    box-shadow: 0px 0px 10px rgb(100, 100, 100);
-  }
-  header {
-    background-color: #ebebeb;
-    padding: 1.2rem;
-    align-items: center;
-    width: 100%;
-    min-height: 20vh;
-  }
-
-  header p {
-    font-size: 1.3rem;
-    font-weight: bold;
-    display: flex;
-  }
-  header p {
-    font-size: 1.3rem;
-    font-weight: bold;
-    display: flex;
-  }
-
-  .burger-menu {
-    display: none;
-  }
-
-  .nav-busqueda {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-
-  .nav-opciones {
-    width: 30%;
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-  }
-
-  .nav-cuenta {
-    width: 30%;
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-  }
-
-  .nav-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-
-  .buscador {
-    padding-left: 1rem;
-    background-color: white;
-    border: none;
-    border-radius: 3px;
-    width: 40%;
-    align-items: center;
-    padding: 0.7rem;
-  }
-
-  .buscador input {
-    font-size: 1.3rem;
-    font-weight: bold;
-    border: none;
-    width: 90%;
-  }
-
-  .nav-menu a {
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.3rem;
-  }
   .detalle {
     display: inline;
     font-size: 16px;
@@ -327,6 +186,22 @@ main article span p i:hover {
   }
 
   main {
-    padding-top: 299px;
+    padding-top: 154px;
+  }
+}
+
+@media (min-width: 769px) {
+  main article {
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  }
+
+  .detalle {
+    display: inline;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  main {
+    padding-top: 184px;
   }
 }
