@@ -18,87 +18,6 @@ section {
   width: 100vw;
 }
 
-/*header*/
-header {
-  background-image: url(/static/images/Droid-buyer.mp4);
-  background-position-x: center;
-  background-color: #ebebeb;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  flex: wrap;
-  align-items: center;
-  background-color: #ebebeb;
-  padding: 1.2rem;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-}
-
-header p {
-  font-size: 1.3rem;
-  font-weight: bold;
-  display: flex;
-}
-
-.buscador {
-  padding-left: 1rem;
-  background-color: white;
-  border: none;
-  border-radius: 3px;
-  width: 90%;
-  align-items: center;
-  padding: 0.7rem;
-}
-
-.buscador button {
-  border: none;
-  background-color: #fff;
-  cursor: pointer;
-}
-
-.buscador input {
-  font-size: 1.3rem;
-  font-weight: bold;
-  border: none;
-  width: 90%;
-}
-
-.nav-busqueda {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.nav-busqueda > * {
-  margin-bottom: 1rem;
-}
-
-.nav-menu {
-  display: none;
-}
-
-.nav-opciones {
-  width: 25%;
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
-}
-
-.nav-cuenta {
-  width: 30%;
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
-}
-
-.burger-menu {
-  padding: 0.2rem;
-  border: 1px solid;
-  border-radius: 3px;
-}
-
 /*main*/
 main {
   text-align: center;
@@ -254,30 +173,6 @@ main article span p i:hover {
   border-color: #0044aa;
   align-items: center;
 }*/
-
-/*footer*/
-footer {
-  background: linear-gradient(
-    0deg,
-    rgba(180, 180, 181, 1) 0%,
-    rgba(222, 226, 230, 1) 84%
-  );
-  bottom: 0;
-  z-index: 100;
-  width: 100%;
-  text-align: center;
-  font-size: 0.7rem;
-}
-.texto-footer1 {
-  padding-top: 10px;
-}
-.texto-footer2 {
-  padding: 10px;
-}
-footer img {
-  width: 20px;
-  padding: 2px;
-}
 
 @media (min-width: 361px) {
   main article {
