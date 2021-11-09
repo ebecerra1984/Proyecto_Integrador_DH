@@ -94,7 +94,7 @@ footer img {
     padding: 8px;
   }
 }
-@media (min-width: 769px) {
+@media (min-width: 767px) {
   .main-login {
     padding: 5% 30%;
   }
