@@ -111,68 +111,6 @@ main article:hover {
 main article span p i:hover {
   transform: rotateZ(-45deg);
 }
-/*
-.register-form {
-  background-color: #ebebeb;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: space-around;
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
-
-
-.campo {
-  padding: 10px;
-  font-size: 12px;
-  font-family: "Roboto", sans-serif;
-}
-.campo label {
-  padding: 10px;
-  font-size: 25px;
-  font-family: "Roboto", sans-serif;
-}
-.campo input {
-  padding: 10px;
-  font-size: 25px;
-  font-family: "Roboto", sans-serif;
-}
-
-.campo button {
-  padding: 10px;
-  font-size: 25px;
-  font-family: "Roboto", sans-serif;
-  text-align: center;
-}
-.button-registro {
-  width: 200px;
-  padding: 5px;
-  border: 0px;
-  border-radius: 5px;
-  border: 5px solid #fff;
-  transition: background-color, color, 400ms;
-}
-.button-registro:hover {
-  background-color: #0044aa;
-  color: #ebebeb;
-  border-color: #0044aa;
-}
-.button-login {
-  width: 200px;
-  justify-content: center;
-  padding: 5px;
-  border-radius: 5px;
-  border: 5px solid #fff;
-  transition: background-color, color, 400ms;
-}
-.button-login:hover {
-  background-color: #0044aa;
-  color: #ebebeb;
-  border-color: #0044aa;
-  align-items: center;
-}*/
 
 @media (min-width: 361px) {
   main article {
