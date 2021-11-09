@@ -5,6 +5,7 @@ const path = require("path");
 const userCTRL = require("./controllers/user.controller");
 const cartController = require("./controllers/cart.controller");
 const indexController = require("./controllers/index.controller");
+const prodDetailCtrl = require("./controllers/productDetail.controller");
 
 app.set("view engine", "ejs");
 app.set("views", "./views");
@@ -14,19 +15,7 @@ app.use("/index", indexController.index);
 app.use("/cart", cartController.cart);
 app.use("/login", userCTRL.login);
 app.use("/register", userCTRL.register);
-
-app.get("/prod-detail", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/productDetail.html"));
-});
-
-/*ruta parametrizada de prueba Gerardo*/
-app.get("/productos/:id", function (req, res) {
-  let idProducto = req.params.id;
-  res.sendFile(
-    path.join(__dirname, "views/productDetail-" + idProducto + ".html")
-  );
-});
-/*fin ruta parametrizada de prueba para detalles de producto*/
+app.use("/prodDetail", prodDetailCtrl.load);
 
 app.listen(3000, () => {
   console.log("el servidor inicio...");
