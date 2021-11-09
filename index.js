@@ -4,6 +4,7 @@ const path = require("path");
 
 const userCTRL = require("./controllers/user.controller");
 const cartController = require("./controllers/cart.controller");
+const productsDetails = require("./controllers/products.controller");
 
 app.set("view engine", "ejs");
 app.set("views", "./views");
@@ -12,13 +13,10 @@ app.use("/static", express.static("./public"));
 app.use("/cart", cartController.cart);
 app.use("/login", userCTRL.login);
 app.use("/register", userCTRL.register);
+app.use("/prod-detail", productsDetails.details);
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "views/index.html"));
-});
-
-app.get("/prod-detail", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/productDetail.html"));
 });
 
 /*ruta parametrizada de prueba Gerardo*/
