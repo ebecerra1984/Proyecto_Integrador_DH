@@ -61,26 +61,7 @@ form {
   padding: 5px;
   border-radius: 5px;
 }
-.footer {
-  background: linear-gradient(
-    0deg,
-    rgba(180, 180, 181, 1) 0%,
-    rgba(222, 226, 230, 1) 84%
-  );
-  width: 100%;
-  text-align: center;
-  font-size: 0.7rem;
-}
-.texto-footer1 {
-  padding-top: 10px;
-}
-.texto-footer2 {
-  padding: 10px;
-}
-footer img {
-  width: 20px;
-  padding: 2px;
-}
+
 @media (min-width: 369px) {
   body {
     padding-top: 154px;
