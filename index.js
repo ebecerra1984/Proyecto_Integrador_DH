@@ -2,26 +2,27 @@ const express = require("express");
 const app = express();
 const path = require("path");
 
+const userCTRL = require("./controllers/user.controller");
+const cartController = require("./controllers/cart.controller");
+const productsDetails = require("./controllers/products.controller");
+const indexController = require("./controllers/index.controller");
+const productCrudCTRL = require("./controllers/productCrud.controller");
+
 app.set("view engine", "ejs");
 app.set("views", "./views");
-
 app.use("/static", express.static("./public"));
+
+app.use("//", indexController.index);
+app.use("/cart", cartController.cart);
+app.use("/login", userCTRL.login);
+app.use("/register", userCTRL.register);
+app.use("/prod-detail", productsDetails.details);
+app.use("/productCrud", productCrudCTRL.productCrud);
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "views/index.html"));
 });
-app.get("/h", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/header.html"));
-});
-app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/login.html"));
-});
-app.get("/register", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/register.html"));
-});
-app.get("/cart", (req, res) => {
-  res.render("cart");
-});
+
 app.get("/prod-detail", (req, res) => {
   res.sendFile(path.join(__dirname, "views/productDetail.html"));
 });

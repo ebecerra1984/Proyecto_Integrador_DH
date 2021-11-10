@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/head')%>
+    
+    <link rel="stylesheet" href="/static/css/register.css">
+    <title>Dorid Mantenimiento</title>
+</head>
+<body>
+    <header>
+        <%- include('./partials/header')%>
+    </header>
+
+    <main class="main-registro">
+            <h3 class="titulo-registro">Mantenimiento de productos</h3    >
+            <h5 class="titulo-registro">Los campos marcados con * son requeridos</h5>
+            <form action="/" method="#">
+            <label for="sku" class="label">SKU *</label>
+                <input class="campo-input" type="text" name="sku" placeholder="Ingrese SKU" required minlength=2>
+            <label for="nombre" class="label">Nombre Producto *</label>
+                <input class="campo-input" type="text" name="nombre" placeholder="Nombre del producto" required minlength=2>
+            <label for="despcripcion" class="label">Descripción *</label>
+                <textarea class="campo-input" name="descripcion">Descripción del producto</textarea>
+            <label for="imagen" class="label">Seleccione las imagenes del producto *</label>
+                <input class="campo-input" type="file" name="imagen" accept= ".jpg .png" multiple>
+
+            <label for="categoria" class="label">Categoría *</label>
+            <div class="telefono">
+                <select name="categoria" class="codigo-pais">
+                    <option value="robot-fijo">Robot fijo</option>
+                    <option value="robot-movil">Robot móvil</option>
+                    <option value="repuesto">Repuseto</option>
+                </select>
+            </div>
+            <label for="precio" class="label">Precio *</label>
+                <input class="campo-input" type="number" name="precio" placeholder="Precio" required>
+            <label for="descuento" class="label">Descuento *</label>
+                <input class="campo-input" type="number" name="descuento" placeholder="Descuento">
+            
+
+<!--           <div class="g-recaptcha" data-sitekey="your_site_key"></div>
+               <input type="submit" value="Submit">-->
+
+            <div class="botonera">
+                <button class="button-registro" type="">Buscar</button>
+                <button class="button-registro" type="">Agregar</button>
+                <button class="button-registro" type="">Editar</button>
+                <button class="button-registro" type="reset">Borrar</button>
+                <button class="button-registro" type="">Eliminar</button>
+            </div>
+    </main>
+
+    <footer>
+        <%- include('./partials/footer')%>
+    </footer>
+</body>
+</html>

@@ -2,7 +2,6 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-size: 12px;
   font-family: "Roboto", sans-serif;
 }
 a {
@@ -13,96 +12,16 @@ div {
   text-align: center;
   width: 100vw;
 }
-section {
+main section {
   text-align: center;
   width: 100vw;
-}
-
-/*header*/
-header {
-  background-image: url(/static/images/Droid-buyer.mp4);
-  background-position-x: center;
-  background-color: #ebebeb;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  flex: wrap;
-  align-items: center;
-  background-color: #ebebeb;
-  padding: 1.2rem;
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-header p {
-  font-size: 1.3rem;
-  font-weight: bold;
-  display: flex;
-}
-
-.buscador {
-  padding-left: 1rem;
-  background-color: white;
-  border: none;
-  border-radius: 3px;
-  width: 90%;
-  align-items: center;
-  padding: 0.7rem;
-}
-
-.buscador button {
-  border: none;
-  background-color: #fff;
-  cursor: pointer;
-}
-
-.buscador input {
-  font-size: 1.3rem;
-  font-weight: bold;
-  border: none;
-  width: 90%;
-}
-
-.nav-busqueda {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.nav-busqueda > * {
-  margin-bottom: 1rem;
-}
-
-.nav-menu {
-  display: none;
-}
-
-.nav-opciones {
-  width: 25%;
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
-}
-
-.nav-cuenta {
-  width: 30%;
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
-}
-
-.burger-menu {
-  padding: 0.2rem;
-  border: 1px solid;
-  border-radius: 3px;
 }
 
 /*main*/
 main {
   text-align: center;
   width: 100%;
-  padding-top: 354px;
+  padding-top: 114px;
 }
 
 .seccion-productos {
@@ -191,239 +110,12 @@ main article:hover {
 main article span p i:hover {
   transform: rotateZ(-45deg);
 }
-/*
-.register-form {
-  background-color: #ebebeb;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: space-around;
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
-
-
-.campo {
-  padding: 10px;
-  font-size: 12px;
-  font-family: "Roboto", sans-serif;
-}
-.campo label {
-  padding: 10px;
-  font-size: 25px;
-  font-family: "Roboto", sans-serif;
-}
-.campo input {
-  padding: 10px;
-  font-size: 25px;
-  font-family: "Roboto", sans-serif;
-}
-
-.campo button {
-  padding: 10px;
-  font-size: 25px;
-  font-family: "Roboto", sans-serif;
-  text-align: center;
-}
-.button-registro {
-  width: 200px;
-  padding: 5px;
-  border: 0px;
-  border-radius: 5px;
-  border: 5px solid #fff;
-  transition: background-color, color, 400ms;
-}
-.button-registro:hover {
-  background-color: #0044aa;
-  color: #ebebeb;
-  border-color: #0044aa;
-}
-.button-login {
-  width: 200px;
-  justify-content: center;
-  padding: 5px;
-  border-radius: 5px;
-  border: 5px solid #fff;
-  transition: background-color, color, 400ms;
-}
-.button-login:hover {
-  background-color: #0044aa;
-  color: #ebebeb;
-  border-color: #0044aa;
-  align-items: center;
-}*/
-
-/*footer*/
-footer {
-  background: linear-gradient(
-    0deg,
-    rgba(180, 180, 181, 1) 0%,
-    rgba(222, 226, 230, 1) 84%
-  );
-  bottom: 0;
-  z-index: 100;
-  width: 100%;
-  text-align: center;
-  font-size: 0.7rem;
-}
-.texto-footer1 {
-  padding-top: 10px;
-}
-.texto-footer2 {
-  padding: 10px;
-}
-footer img {
-  width: 20px;
-  padding: 2px;
-}
 
 @media (min-width: 361px) {
   main article {
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
   }
-  header {
-    background-color: #ebebeb;
-    padding: 1.2rem;
-    align-items: center;
-    width: 100%;
-    min-height: 21vh;
-  }
 
-  .burger-menu {
-    display: none;
-  }
-
-  .buscador {
-    width: 50%;
-  }
-
-  .nav-busqueda {
-    padding: 1rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-
-  .nav-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-top: 1rem;
-  }
-
-  .nav-opciones {
-    width: 40%;
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-  }
-
-  .nav-cuenta {
-    width: 40%;
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-  }
-
-  .footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 10px 0;
-  }
-  .texto-footer1 {
-    width: 40%;
-    text-align: left;
-    padding: 8px;
-  }
-  .detalle {
-    display: inline;
-    font-size: 16px;
-    text-align: center;
-  }
-}
-
-@media (min-width: 769px) {
-  main article {
-    box-shadow: 0px 0px 10px rgb(100, 100, 100);
-  }
-  header {
-    background-color: #ebebeb;
-    padding: 1.2rem;
-    align-items: center;
-    width: 100%;
-    min-height: 20vh;
-  }
-
-  header p {
-    font-size: 1.3rem;
-    font-weight: bold;
-    display: flex;
-  }
-  header p {
-    font-size: 1.3rem;
-    font-weight: bold;
-    display: flex;
-  }
-
-  .burger-menu {
-    display: none;
-  }
-
-  .nav-busqueda {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-
-  .nav-opciones {
-    width: 30%;
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-  }
-
-  .nav-cuenta {
-    width: 30%;
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-  }
-
-  .nav-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-
-  .buscador {
-    padding-left: 1rem;
-    background-color: white;
-    border: none;
-    border-radius: 3px;
-    width: 40%;
-    align-items: center;
-    padding: 0.7rem;
-  }
-
-  .buscador input {
-    font-size: 1.3rem;
-    font-weight: bold;
-    border: none;
-    width: 90%;
-  }
-
-  .nav-menu a {
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.3rem;
-  }
   .detalle {
     display: inline;
     font-size: 16px;
@@ -431,6 +123,22 @@ footer img {
   }
 
   main {
-    padding-top: 299px;
+    padding-top: 154px;
+  }
+}
+
+@media (min-width: 769px) {
+  main article {
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  }
+
+  .detalle {
+    display: inline;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  main {
+    padding-top: 184px;
   }
 }

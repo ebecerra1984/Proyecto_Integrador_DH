@@ -8,7 +8,8 @@
   text-decoration: none;
 }
 body {
-  padding-top: 184px;
+  padding-top: 114px;
+  background-color: rgba(222, 226, 230, 0.3);
 }
 .main-login {
   padding: 5% 10%;
@@ -60,27 +61,12 @@ form {
   padding: 5px;
   border-radius: 5px;
 }
-.footer {
-  background: linear-gradient(
-    0deg,
-    rgba(180, 180, 181, 1) 0%,
-    rgba(222, 226, 230, 1) 84%
-  );
-  width: 100%;
-  text-align: center;
-  font-size: 0.7rem;
-}
-.texto-footer1 {
-  padding-top: 10px;
-}
-.texto-footer2 {
-  padding: 10px;
-}
-footer img {
-  width: 20px;
-  padding: 2px;
-}
+
 @media (min-width: 369px) {
+  body {
+    padding-top: 154px;
+  }
+
   .footer {
     display: flex;
     flex-wrap: wrap;
@@ -93,7 +79,11 @@ footer img {
     padding: 8px;
   }
 }
-@media (min-width: 769px) {
+@media (min-width: 767px) {
+  body {
+    padding-top: 184px;
+  }
+
   .main-login {
     padding: 5% 30%;
   }
