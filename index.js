@@ -17,6 +17,7 @@ app.use("/cart", cartController.cart);
 app.use("/login", userCTRL.login);
 app.use("/register", userCTRL.register);
 app.use("/prod-detail", productsDetails.details);
+app.use("/productCrud", productCrudCTRL.productCrud);
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "views/index.html"));
