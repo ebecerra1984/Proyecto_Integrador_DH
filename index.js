@@ -7,6 +7,7 @@ const cartController = require("./controllers/cart.controller");
 const productsDetails = require("./controllers/products.controller");
 const indexController = require("./controllers/index.controller");
 const productCrudCTRL = require("./controllers/productCrud.controller");
+const prodDetailCtrl = require("./controllers/productDetail.controller");
 
 app.set("view engine", "ejs");
 app.set("views", "./views");
@@ -35,6 +36,7 @@ app.get("/productos/:id", function (req, res) {
   );
 });
 /*fin ruta parametrizada de prueba para detalles de producto*/
+app.use("/prodDetail", prodDetailCtrl.load);
 
 app.listen(3000, () => {
   console.log("el servidor inicio...");
