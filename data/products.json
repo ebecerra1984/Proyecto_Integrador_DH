@@ -70,5 +70,14 @@
     "price": "200000",
     "discount": "5",
     "image": "HD1500.jpg"
+  },
+  {
+    "id": 1010,
+    "name": "Robot de pureba 5001",
+    "description": "Descripción del Robot de pureba 5001",
+    "category": "robot-movil",
+    "price": "999999",
+    "discount": "99",
+    "image": ""
   }
 ]
