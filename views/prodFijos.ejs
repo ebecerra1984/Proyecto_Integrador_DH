@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head')%>
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+
+<body>
+  <%- include('./partials/header')%>
+    <main>
+      <section class='seccion-productos'>
+        <h2 class='titulares'>Robots Fijos</h2>
+        <div class="container">
+          <% robotsFijos.forEach(function(robotsFijos){ %>
+            <article class='art'>
+              <a href="/products/prodDetail/<%= robotsFijos.id %>"><img height="200px"
+                  src="/static/images/<%= robotsFijos.image %>" alt="Imagen de producto"></a>
+              <span class=precio-descuento-descrip>
+                <p><i class="fas fa-robot"></i></p>
+                <p class='precios'>
+                  <%= robotsFijos.price %>
+                </p>
+                <p class='descuentos'>
+                  <%= robotsFijos.discount %>% OFF
+                </p>
+                <p class='detalle'>
+                  <%= robotsFijos.name %>
+                </p>
+              </span>
+            </article>
+          <% }) %>
+          </div>
+      </section>
+    </main>
+    <%- include('./partials/footer')%>
+</body>
+
+</html>
