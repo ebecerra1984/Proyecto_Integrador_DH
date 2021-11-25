@@ -29,8 +29,18 @@ const productsCtrl = {
     res.render("prodDetail", { producto });
   },
 
-  productCrud: (req, res) => {
-    res.render("productCrud");
+  edit: (req, res) => {
+    idProd = req.params.id;
+    producto = products.find(function (product) {
+      return product.id == idProd;
+    });
+    res.render("prodDetail", { producto });
+  },
+
+
+
+  prodCRUD: (req, res) => {
+    res.render("prodCRUD");
   },
 };
 
