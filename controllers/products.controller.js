@@ -7,6 +7,14 @@ const productsFilePath = path.join(__dirname, "../data/products.json");
 const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 const productsCtrl = {
+  detail: (req, res) => {
+    idProd = req.params.id;
+    producto = products.find(function (product) {
+      return product.id == idProd;
+    });
+    res.render("prodDetail", { producto });
+  },
+
   all: (req, res) => {
     res.render("prodAll", { products });
   },
@@ -41,32 +49,40 @@ const productsCtrl = {
     res.render("prodEdit", { producto });
   },
 
-  update: (req, res) => {
-//     idProd = req.params.id;
-//     newProd = {
-//       id: req.body.id,
-//       name: req.body.name,
-//       description: req.body.description,
-//       category: req.body.category,
-//       price: req.body.price,
-//       discount: req.body.discount,
-//       image: Cobot.jpg,
-//     };
+  create: (req, res) => {
+    let producto = {
+      id: req.body.sku,
+      name: req.body.nombre,
+    };
+    res.render(producto);
+  },
 
-//     products = products.map(function (producto) {
-//       if (producto.id == idProd) {
-//         (producto.name = newProd.name),
-//           (producto.description = newProd.description),
-//           (producto.category = newProd.category),
-//           (producto.price = newProd.price),
-//           (producto.discount = newProd.discount);
-// //        image: Cobot.jpg;
-//         return producto;
-//       } else {
-//         return producto;
-//       }
-//     });
-    res.redirect('/')
+  update: (req, res) => {
+    //     idProd = req.params.id;
+    //     newProd = {
+    //       id: req.body.id,
+    //       name: req.body.name,
+    //       description: req.body.description,
+    //       category: req.body.category,
+    //       price: req.body.price,
+    //       discount: req.body.discount,
+    //       image: Cobot.jpg,
+    //     };
+
+    //     products = products.map(function (producto) {
+    //       if (producto.id == idProd) {
+    //         (producto.name = newProd.name),
+    //           (producto.description = newProd.description),
+    //           (producto.category = newProd.category),
+    //           (producto.price = newProd.price),
+    //           (producto.discount = newProd.discount);
+    // //        image: Cobot.jpg;
+    //         return producto;
+    //       } else {
+    //         return producto;
+    //       }
+    //     });
+    res.redirect("/");
   },
 
   detailDelete: (req, res) => {
@@ -89,13 +105,12 @@ const productsCtrl = {
 
     // console.log('PRODUCTO BORRADO')
     // console.log({products})
-    res.redirect('/');
+    res.redirect("/");
   },
 
   prodCRUD: (req, res) => {
     res.render("prodCRUD");
   },
 };
-
 
 module.exports = productsCtrl;
