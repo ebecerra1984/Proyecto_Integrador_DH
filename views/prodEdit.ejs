@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/head')%>
+    
+    <link rel="stylesheet" href="/static/css/register.css">
+    <title>Dorid Mantenimiento</title>
+</head>
+<body>
+    <header>
+        <%- include('./partials/header')%>
+    </header>
+
+    <main class="main-registro">
+            <h3 class="titulo-registro">Mantenimiento de productos</h3    >
+            <h5 class="titulo-registro">Los campos marcados con * son requeridos</h5>
+            <h4 class="titulo-registro">SKU Nº <%= producto.id %></h4>
+
+            <form action="/products/edit/<%= producto.id %>?_method=PUT" method="POST">
+<!--            <label for="id" class="label">SKU *</label>
+                <input class="campo-input" type="text" name="id" placeholder="<%= producto.id %>" required minlength=2>-->
+            <label for="name" class="label">Nombre Producto *</label>
+                <input class="campo-input" type="text" name="name" value="<%= producto.name %>" required minlength=2>
+            <label for="description" class="label">Descripción *</label>
+                <textarea class="campo-input" name="description" value="<%= producto.description %>"></textarea>
+            <label for="image" class="label">Seleccione las imagenes del producto </label>
+                <input class="campo-input" type="file" name="image" accept= ".jpg .png" multiple>
+
+            <label for="category" class="label">Categoría *</label>
+            <div class="telefono">
+                <select name="category" class="codigo-pais">
+                    <option selected>Seleccione</option>
+                    <option value="robot-fijo">Robot fijo</option>
+                    <option value="robot-movil">Robot móvil</option>
+                    <option value="repuesto">Repuesto</option>
+                </select>
+            </div>
+            <label for="price" class="label">Precio *</label>
+                <input class="campo-input" type="number" name="price" value="<%= producto.price %>" required>
+            <label for="discount" class="label">Descuento *</label>
+                <input class="campo-input" type="number" name="discount" value="<%= producto.discount %>">
+            
+
+<!--           <div class="g-recaptcha" data-sitekey="your_site_key"></div>
+               <input type="submit" value="Submit">-->
+
+            <div class="botonera">
+                <button class="button-registro" type="submit">Aceptar cambios</button>
+
+            </div>
+    </main>
+
+    <footer>
+        <%- include('./partials/footer')%>
+    </footer>
+</body>
+</html>

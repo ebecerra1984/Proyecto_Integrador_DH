@@ -9,6 +9,7 @@
    <main>
     <section class='detalle-individual'>
       <article class='art-detalle'>
+        <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST">
         <img height="200px" src="/static/images/<%= producto.image %>" alt="Imágen del producto">
         <span class=precio-descuento-descrip><p><i class="fas fa-robot"></i></p>
           <p class='precios'>USD <%= producto.price%></p>
@@ -23,19 +24,8 @@
           <p class='descripcion'><%= producto.description%></p>
           <p class='precio'>Precio: USD <%= producto.price%></p>
           <br>
-          <p><a href="pagos"><i class="fas fa-solid fa-credit-card"></i>Conocé los medios de pago </a></p>
-          <p><a href="envio"><i class="fas fa-solid fa-truck"></i>Conocé las opciones de envío y retiro </a></p>
-          <p class="comprar">
-           <a href="pagos"><i class="fas fa-solid fa-cart-plus"></i>    Cantidad de unidades</a>
-           <label for="cantidad" class="label"></label>
-           <input class="campo-input" type="text" name="cantidad" placeholder="1" required>
-          </p>
-          <p id="comprar-seguir">
-           <a href="/cart"><button type="submit">AÑADIR A CARRITO DE COMPRAS</button></a>
-          </p>
-          <p id="edit">
-           <a href="/products/edit/<%= producto.id%>"><button type="submit">Editar el producto</button></a>
-          </p>
+          <br>
+          <h3>CONFIRMA QUE DESEA ELIMINAR EL PRODUCTO?</h3>
           <p id="delete">
            <a href="/products/delete/<%= producto.id%>"><button type="submit">Elimina el producto</button></a>
           </p>
