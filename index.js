@@ -15,11 +15,12 @@ app.use("//", indexController.index);
 app.use("/cart", cartController.cart);
 app.use("/login", userCTRL.login);
 app.use("/register", userCTRL.register);
+app.use("/prodAll", productsCTRL.all);
+app.use("/prodFijos", productsCTRL.fijos);
+app.use("/prodMoviles", productsCTRL.moviles);
 app.use("/prodDetail/:id", productsCTRL.detail);
 app.use("/productCrud", productsCTRL.productCrud);
-
 
 app.listen(3000, () => {
   console.log("el servidor inicio...");
 });
-
