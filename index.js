@@ -1,18 +1,20 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const methodOverride = require("method-override");
+
+const usersRouter = require("./routes/users.routes");
+const productsRouter = require("./routes/products.routes");
 
 const indexController = require("./controllers/index.controller");
 const cartController = require("./controllers/cart.controller");
 const productsCTRL = require("./controllers/products.controller");
 
-const usersRouter = require("./routes/users.routes");
-const productsRouter = require("./routes/products.routes");
-
 // Seteo
 app.set("view engine", "ejs");
 app.set("views", "./views");
 app.use("/static", express.static("./public"));
+app.use(methodOverride('_method'));
 
 // Uso de rutas
 app.use("/users", usersRouter);
