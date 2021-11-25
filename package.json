@@ -13,7 +13,7 @@
     "nodemon": "^2.0.14"
   },
   "scripts": {
-    "server": "nodemon --watch index.js --watch controllers"
+    "server": "nodemon --watch index.js --watch controllers --watch routes"
   },
   "repository": {
     "type": "git",
