@@ -14,40 +14,37 @@
     <main class="main-registro">
             <h3 class="titulo-registro">Mantenimiento de productos</h3    >
             <h5 class="titulo-registro">Los campos marcados con * son requeridos</h5>
-            <form action="/" method="#">
-            <label for="sku" class="label">SKU *</label>
-                <input class="campo-input" type="text" name="sku" placeholder="Ingrese SKU" required minlength=2>
-            <label for="nombre" class="label">Nombre Producto *</label>
-                <input class="campo-input" type="text" name="nombre" placeholder="Nombre del producto" required minlength=2>
-            <label for="despcripcion" class="label">Descripción *</label>
-                <textarea class="campo-input" name="descripcion" placeholder="Descripcion del producto" required></textarea>
-            <label for="imagen" class="label">Seleccione las imagenes del producto *</label>
-                <input class="campo-input" type="file" name="imagen" accept= ".jpg .png" multiple>
+            <form method="POST" action="/products/crear" >
+                <label for="sku" class="label">SKU *</label>
+                    <input class="campo-input" type="text" name="sku" placeholder="Ingrese SKU" required minlength=2>
+                <label for="nombre" class="label">Nombre Producto *</label>
+                    <input class="campo-input" type="text" name="nombre" placeholder="Nombre del producto" required minlength=2>
+                <label for="despcripcion" class="label">Descripción *</label>
+                    <textarea class="campo-input" name="descripcion" placeholder="Descripcion del producto" required></textarea>
+                <label for="imagen" class="label">Seleccione las imagenes del producto *</label>
+                    <input class="campo-input" type="file" name="imagen" accept= ".jpg .png" multiple>
 
-            <label for="categoria" class="label">Categoría *</label>
-            <div class="telefono">
-                <select name="categoria" class="codigo-pais">
-                    <option value="robot-fijo">Robot fijo</option>
-                    <option value="robot-movil">Robot móvil</option>
-                    <option value="repuesto">Repuseto</option>
-                </select>
-            </div>
-            <label for="precio" class="label">Precio *</label>
-                <input class="campo-input" type="number" name="precio" placeholder="Precio" required>
-            <label for="descuento" class="label">Descuento *</label>
-                <input class="campo-input" type="number" name="descuento" placeholder="Descuento">
-            
+                <label for="categoria" class="label">Categoría *</label>
+                <div class="telefono">
+                    <select name="categoria" class="codigo-pais">
+                        <option value="robot-fijo">Robot fijo</option>
+                        <option value="robot-movil">Robot móvil</option>
+                        <option value="repuesto">Repuseto</option>
+                    </select>
+                </div>
+                <label for="precio" class="label">Precio *</label>
+                    <input class="campo-input" type="number" name="precio" placeholder="Precio" required>
+                <label for="descuento" class="label">Descuento *</label>
+                    <input class="campo-input" type="number" name="descuento" placeholder="Descuento">
 
-<!--           <div class="g-recaptcha" data-sitekey="your_site_key"></div>
-               <input type="submit" value="Submit">-->
-
-            <div class="botonera">
-                <button class="button-registro" type="">Buscar</button>
-                <button class="button-registro" type="">Agregar</button>
-                <button class="button-registro" type="">Editar</button>
-                <button class="button-registro" type="reset">Borrar</button>
-                <button class="button-registro" type="">Eliminar</button>
-            </div>
+                <div class="botonera">
+                    <button class="button-registro" type="">Buscar</button>
+                    <input class="button-registro" type="submit">Agregar</input>
+                    <button class="button-registro" type="">Editar</button>
+                    <button class="button-registro" type="reset">Borrar</button>
+                    <button class="button-registro" type="">Eliminar</button>
+                </div>
+            </form>
     </main>
 
     <footer>

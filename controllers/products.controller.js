@@ -49,7 +49,13 @@ const productsCtrl = {
     res.render("prodDetail", { producto });
   },
 
-
+  create: (req, res) => {
+    let producto = {
+      id: req.body.sku,
+      name: req.body.nombre,
+    };
+    res.render(producto);
+  },
 
   prodCRUD: (req, res) => {
     res.render("prodCRUD");
