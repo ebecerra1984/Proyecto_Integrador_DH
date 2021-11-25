@@ -10,11 +10,7 @@
   <%- include('./partials/header')%>
     <main>
       <section class='seccion-productos'>
-        <div class='banner'>
-          <img width='100%' src="/static/images/1620150535068.jpeg" alt="banner" />
-        </div>
         <h2 class='titulares'>Robots Fijos</h2>
-
         <div class="container">
           <% robotsFijos.forEach(function(robotsFijos){ %>
             <article class='art'>
@@ -34,34 +30,6 @@
               </span>
             </article>
           <% }) %>
-          </div>
-      </section>
-
-      <section class='seccion-productos'>
-
-        <h2 class='titulares'>Robots Móviles</h2>
-
-        <div class="container">
-          
-          <% robotsMoviles.forEach(function(robotsMoviles){ %>
-            <article class='art'>
-              <a href="/products/prodDetail/<%= robotsMoviles.id %>"><img height="200px"
-                  src="/static/images/<%= robotsMoviles.image %>" alt="Imagen de producto"></a>
-              <span class=precio-descuento-descrip>
-                <p><i class="fas fa-robot"></i></p>
-                <p class='precios'>
-                  <%= robotsMoviles.price %>
-                </p>
-                <p class='descuentos'>
-                  <%= robotsMoviles.discount %>% OFF
-                </p>
-                <p class='detalle'>
-                  <%= robotsMoviles.name %>
-                </p>
-              </span>
-            </article>
-          <% }) %>
-
           </div>
       </section>
     </main>
