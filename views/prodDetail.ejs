@@ -9,19 +9,20 @@
    <main>
     <section class='detalle-individual'>
       <article class='art-detalle'>
-       <a href="/cobot"><img height="200px" src="/static/images/Cobot.jpg" alt="TM"></a>
+        <img height="200px" src="/static/images/<%= producto.image %>" alt="Imágen del producto">
         <span class=precio-descuento-descrip><p><i class="fas fa-robot"></i></p>
-          <p class='precios'>USD 70.000</p>
-          <p class='descuentos'>40% OFF</p>
-          <p class='detalle'>Robot Colaborativo TM12</p>
-          <p class='sku'>SKU: XXXXX</p>
+          <p class='precios'>USD <%= producto.price%></p>
+          <p class='descuentos'><%= producto.discount%>% OFF</p>
+          <p class='detalle'><%= producto.name%></p>
+          <p class='sku'>SKU: <%= producto.id%></p>
           </span>
        </article>
      <article class='art-detalle'>  
           <span class=precio-descuento-descrip>
-          <h4>Características del TM12</h4>
-          <p class='descripcion'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, voluptatibus voluptatum ex recusandae itaque labore adipisci tenetur minima molestias magni nulla blanditiis, dolorem soluta error temporibus voluptas. Pariatur, ipsum atque.</p>
-          <p class='precio'>Precio: USD 70.000</p>
+          <h4>Características del <%= producto.name%></h4>
+          <p class='descripcion'><%= producto.description%></p>
+          <p class='precio'>Precio: USD <%= producto.price%></p>
+          <br>
           <p><a href="pagos"><i class="fas fa-solid fa-credit-card"></i>Conocé los medios de pago </a></p>
           <p><a href="envio"><i class="fas fa-solid fa-truck"></i>Conocé las opciones de envío y retiro </a></p>
           <p class="comprar">
@@ -32,6 +33,13 @@
           <p id="comprar-seguir">
            <a href="/cart"><button type="submit">AÑADIR A CARRITO DE COMPRAS</button></a>
           </p>
+          <p id="edit">
+           <a href="/products/edit/<%= producto.id%>"><button type="submit">Editar el producto</button></a>
+          </p>
+          <p id="delete">
+           <a href="/products/delete/<%= producto.id%>"><button type="submit">Elimina el producto</button></a>
+          </p>
+
         </span>
       </article>
     </section>

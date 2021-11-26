@@ -1,43 +1,37 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const methodOverride = require("method-override");
 
-const userCTRL = require("./controllers/user.controller");
-const cartController = require("./controllers/cart.controller");
-const productsDetails = require("./controllers/products.controller");
+
+const usersRouter = require("./routes/users.routes");
+const productsRouter = require("./routes/products.routes");
+
 const indexController = require("./controllers/index.controller");
-const productCrudCTRL = require("./controllers/productCrud.controller");
-const prodDetailCtrl = require("./controllers/productDetail.controller");
+const cartController = require("./controllers/cart.controller");
+const productsCTRL = require("./controllers/products.controller");
 
+// Seteo
 app.set("view engine", "ejs");
 app.set("views", "./views");
 app.use("/static", express.static("./public"));
+app.use(methodOverride('_method'));
+
+// Uso de rutas
+app.use("/users", usersRouter);
+app.use("/products", productsRouter);
+
+
 
 app.use("//", indexController.index);
 app.use("/cart", cartController.cart);
-app.use("/login", userCTRL.login);
-app.use("/register", userCTRL.register);
-app.use("/prod-detail", productsDetails.details);
-app.use("/productCrud", productCrudCTRL.productCrud);
+// app.use("/prodAll", productsCTRL.all);
+// app.use("/prodFijos", productsCTRL.fijos);
+// app.use("/prodMoviles", productsCTRL.moviles);
+// app.use("/prodDetail/:id", productsCTRL.detail);
+app.use("/prodCRUD", productsCTRL.prodCRUD);
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/index.html"));
-});
-
-app.get("/prod-detail", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/productDetail.html"));
-});
-
-/*ruta parametrizada de prueba Gerardo*/
-app.get("/productos/:id", function (req, res) {
-  let idProducto = req.params.id;
-  res.sendFile(
-    path.join(__dirname, "views/productDetail-" + idProducto + ".html")
-  );
-});
-/*fin ruta parametrizada de prueba para detalles de producto*/
-app.use("/prodDetail", prodDetailCtrl.load);
-
+// Server
 app.listen(3000, () => {
   console.log("el servidor inicio...");
 });
