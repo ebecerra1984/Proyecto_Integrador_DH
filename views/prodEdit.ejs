@@ -12,11 +12,11 @@
     </header>
 
     <main class="main-registro">
-            <h3 class="titulo-registro">Mantenimiento de productos</h3    >
-            <h5 class="titulo-registro">Los campos marcados con * son requeridos</h5>
-            <h4 class="titulo-registro">SKU Nº <%= producto.id %></h4>
+        <h3 class="titulo-registro">Mantenimiento de productos</h3    >
+        <h5 class="titulo-registro">Los campos marcados con * son requeridos</h5>
+        <h4 class="titulo-registro">SKU Nº <%= producto.id %></h4>
 
-            <form action="/products/edit/<%= producto.id %>?_method=PUT" method="POST">
+        <form action="/products/edit/<%= producto.id %>?_method=PUT" method="POST">
 <!--            <label for="id" class="label">SKU *</label>
                 <input class="campo-input" type="text" name="id" placeholder="<%= producto.id %>" required minlength=2>-->
             <label for="name" class="label">Nombre Producto *</label>
@@ -48,6 +48,7 @@
                 <button class="button-registro" type="submit">Aceptar cambios</button>
 
             </div>
+        </form>
     </main>
 
     <footer>
