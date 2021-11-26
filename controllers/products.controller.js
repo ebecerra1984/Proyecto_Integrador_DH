@@ -3,7 +3,6 @@ const router = express.Router();
 const fs = require("fs");
 const path = require("path");
 
-
 const productsFilePath = path.join(__dirname, "../data/products.json");
 let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
@@ -84,23 +83,23 @@ const productsCtrl = {
     //       }
     //     });
     res.redirect("/");
-     idProd = req.params.id;
-     const {name, description, category, price, discount} = req.body;
-     const newProd =[];
+    idProd = req.params.id;
+    const { name, description, category, price, discount } = req.body;
+    const newProd = [];
 
-     products = products.map(function (producto) {
-       if (producto.id == idProd) {
-         producto.name = newProd.name,
-         producto.description = newProd.description,
-         producto.category = newProd.category,
-         producto.price = newProd.price,
-         producto.discount = newProd.discount;
-         //        image: Cobot.jpg;
-         return producto;
-       }
-     });
-//    res.send({producto})
-     res.redirect('/')
+    products = products.map(function (producto) {
+      if (producto.id == idProd) {
+        (producto.name = newProd.name),
+          (producto.description = newProd.description),
+          (producto.category = newProd.category),
+          (producto.price = newProd.price),
+          (producto.discount = newProd.discount);
+        //        image: Cobot.jpg;
+        return producto;
+      }
+    });
+    //    res.send({producto})
+    res.redirect("/");
   },
 
   detailDelete: (req, res) => {
@@ -112,12 +111,10 @@ const productsCtrl = {
   },
 
   delete: (req, res) => {
-    
     let idProd = req.params.id;
-    products = products.filter(product => product.id != idProd) 
-    res.send({products})
+    products = products.filter((product) => product.id != idProd);
+    res.send({ products });
 
-    
     //let index= products.indexOf(idProd);
 
     // for (i = 0; i < products.length; i++) {
@@ -125,17 +122,14 @@ const productsCtrl = {
     //     index = i;
     //   }
     // }
-    
+
     //products.splice(index, 1);
 
     // console.log('PRODUCTO BORRADO')
     // console.log({products})
-<<<<<<< HEAD
     res.redirect("/");
-=======
-    
+
     //res.send({products});
->>>>>>> e9cabd8bf7140241890d6a561da22ce8f149cfb8
   },
 
   prodCRUD: (req, res) => {
