@@ -79,5 +79,13 @@
     "price": "999999",
     "discount": "99",
     "image": ""
+  },
+  {
+    "id": 123,
+    "name": "123",
+    "description": "123",
+    "category": "robot-fijo",
+    "price": "123",
+    "discount": "123"
   }
 ]

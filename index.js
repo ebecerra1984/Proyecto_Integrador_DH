@@ -13,9 +13,10 @@ const productsCTRL = require("./controllers/products.controller");
 // Seteo
 app.set("view engine", "ejs");
 app.set("views", "./views");
+app.use(express.json());
+app.use(express.urlencoded());
 app.use("/static", express.static("./public"));
 app.use(methodOverride("_method"));
-app.use(express.json());
 
 // Uso de rutas
 app.use("/users", usersRouter);
@@ -27,7 +28,7 @@ app.use("/cart", cartController.cart);
 // app.use("/prodFijos", productsCTRL.fijos);
 // app.use("/prodMoviles", productsCTRL.moviles);
 // app.use("/prodDetail/:id", productsCTRL.detail);
-app.use("/prodCRUD", productsCTRL.prodCRUD);
+// app.use("/prodCRUD", productsCTRL.prodCRUD);
 
 // Server
 app.listen(3000, () => {

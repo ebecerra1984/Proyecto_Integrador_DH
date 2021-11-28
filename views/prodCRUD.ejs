@@ -14,7 +14,7 @@
     <main class="main-registro">
             <h3 class="titulo-registro">Mantenimiento de productos</h3    >
             <h5 class="titulo-registro">Los campos marcados con * son requeridos</h5>
-            <form method="POST" action="/products/crear" >
+            <form method="POST" action="/products/crear" enctype="multipart/form-data">
                 <label for="sku" class="label">SKU *</label>
                     <input class="campo-input" type="text" name="sku" placeholder="Ingrese SKU" required minlength=2>
                 <label for="nombre" class="label">Nombre Producto *</label>

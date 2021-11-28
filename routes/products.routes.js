@@ -8,7 +8,7 @@ router.get("/prodFijos", productsCTRL.fijos);
 router.get("/prodMoviles", productsCTRL.moviles);
 router.get("/prodDetail/:id", productsCTRL.detail);
 
-router.post("/products/crear", productsCTRL.create);
+router.post("/crear", productsCTRL.create);
 router.get("/prodCRUD", productsCTRL.prodCRUD);
 router.get("/edit/:id", productsCTRL.edit);
 router.put("/edit/:id", productsCTRL.update);

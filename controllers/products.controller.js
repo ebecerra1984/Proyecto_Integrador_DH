@@ -50,11 +50,18 @@ const productsCtrl = {
   },
 
   create: (req, res) => {
+    console.log(req.body);
     let producto = {
-      id: req.body.sku,
+      id: parseInt(req.body.sku),
       name: req.body.nombre,
+      description: req.body.descripcion,
+      category: req.body.categoria,
+      price: req.body.precio,
+      discount: req.body.descuento,
     };
-    res.render(producto);
+    products.push(producto);
+    console.log(products);
+    fs.writeFileSync(productsFilePath, JSON.stringify(products));
   },
 
   update: (req, res) => {
@@ -133,7 +140,7 @@ const productsCtrl = {
   },
 
   prodCRUD: (req, res) => {
-    res.render("/prodCRUD");
+    res.render("prodCRUD");
   },
 };
 
