@@ -3,7 +3,6 @@ const app = express();
 const path = require("path");
 const methodOverride = require("method-override");
 
-
 const usersRouter = require("./routes/users.routes");
 const productsRouter = require("./routes/products.routes");
 
@@ -15,13 +14,12 @@ const productsCTRL = require("./controllers/products.controller");
 app.set("view engine", "ejs");
 app.set("views", "./views");
 app.use("/static", express.static("./public"));
-app.use(methodOverride('_method'));
+app.use(methodOverride("_method"));
+app.use(express.json());
 
 // Uso de rutas
 app.use("/users", usersRouter);
 app.use("/products", productsRouter);
-
-
 
 app.use("//", indexController.index);
 app.use("/cart", cartController.cart);
