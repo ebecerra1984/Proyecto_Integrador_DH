@@ -3,7 +3,7 @@
 <head>
     <%- include('./partials/head')%>
     
-    <link rel="stylesheet" href="/static/css/register.css">
+    <link rel="stylesheet" href="/static/css/prodEdit.css">
     <title>Dorid Mantenimiento</title>
 </head>
 <body>
@@ -11,10 +11,10 @@
         <%- include('./partials/header')%>
     </header>
 
-    <main class="main-registro">
-        <h3 class="titulo-registro">Mantenimiento de productos</h3    >
-        <h5 class="titulo-registro">Los campos marcados con * son requeridos</h5>
-        <h4 class="titulo-registro">SKU Nº <%= producto.id %></h4>
+    <main class="main-edit">
+        <h3 class="titulo-edit">Mantenimiento de productos</h3    >
+        <h5 class="titulo-edit">Los campos marcados con * son requeridos</h5>
+        <h4 class="titulo-edit">SKU Nº <%= producto.id %></h4>
 
         <form action="/products/edit/<%= producto.id %>?_method=PUT" method="POST">
 <!--            <label for="id" class="label">SKU *</label>
@@ -28,8 +28,9 @@
  -->
             <label for="category" class="label">Categoría *</label>
 
-            <div class="telefono">
-                <select name="category" class="campo-input" >
+            <div class="categoria">
+                <input class="categoria-selector" type="text" name="category" value="<%= producto.category %>" >
+                <select name="newCategory" class="categoria-selector" >
                     <option selected>Seleccione nueva</option>
                     <option value="robot-fijo">Robot fijo</option>
                     <option value="robot-movil">Robot móvil</option>

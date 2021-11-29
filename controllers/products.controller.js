@@ -60,13 +60,19 @@ const productsCtrl = {
 
   update: (req, res) => {
     idProd = req.params.id;
-    const { name, description, category, price, discount } = req.body;
+    const { name, description, category, newCategory, price, discount } = req.body;
     const newProd = [];
+ 
     products.map(function (producto) {
-      if (producto.id == idProd) {
+      if (producto.id == idProd){
+        if(newCategory != "Seleccione nueva"){
+          producto.category = newCategory
+        }else{
+          producto.category = category
+
+        };
         producto.name = name,
         producto.description = description,
-        producto.category = category,
         producto.price = price,
         producto.discount = discount
       }
