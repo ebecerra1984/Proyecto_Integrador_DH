@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const path = require("path");
+const multer = require("multer");
+const image = multer({ dest: "/static/images" });
 
 const productsFilePath = path.join(__dirname, "../data/products.json");
 let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
@@ -56,7 +58,6 @@ const productsCtrl = {
   },
 
   create: (req, res) => {
-    console.log(req.body);
     let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     let producto = {
       id: parseInt(req.body.sku),
