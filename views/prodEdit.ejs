@@ -16,21 +16,21 @@
         <h5 class="titulo-registro">Los campos marcados con * son requeridos</h5>
         <h4 class="titulo-registro">SKU Nº <%= producto.id %></h4>
 
-        <form action="/products/edit/<%= producto.id %>?_method=PUT" method="POST" enctype=multipart/form-data
-            >
+        <form action="/products/edit/<%= producto.id %>?_method=PUT" method="POST">
 <!--            <label for="id" class="label">SKU *</label>
                 <input class="campo-input" type="text" name="id" placeholder="<%= producto.id %>" required minlength=2>-->
             <label for="name" class="label">Nombre Producto *</label>
                 <input class="campo-input" type="text" name="name" value="<%= producto.name %>" required minlength=2>
             <label for="description" class="label">Descripción *</label>
                 <textarea class="campo-input" name="description" ><%= producto.description %></textarea>
-            <label for="image" class="label">Seleccione las imagenes del producto </label>
+<!--             <label for="image" class="label">Seleccione las imagenes del producto </label>
                 <input class="campo-input" type="file" name="image" accept= ".jpg .png" multiple>
-
+ -->
             <label for="category" class="label">Categoría *</label>
+
             <div class="telefono">
-                <select name="category" class="codigo-pais">
-                    <option selected>Seleccione</option>
+                <select name="category" class="campo-input" >
+                    <option selected>Seleccione nueva</option>
                     <option value="robot-fijo">Robot fijo</option>
                     <option value="robot-movil">Robot móvil</option>
                     <option value="repuesto">Repuesto</option>
