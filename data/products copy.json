@@ -70,30 +70,5 @@
     "price": "200000",
     "discount": "5",
     "image": "HD1500.jpg"
-  },
-  {
-    "id": 1010,
-    "name": "Robot de pureba 5001",
-    "description": "Descripción del Robot de pureba 5001",
-    "category": "robot-movil",
-    "price": "999999",
-    "discount": "99",
-    "image": ""
-  },
-  {
-    "id": 123,
-    "name": "123",
-    "description": "123",
-    "category": "robot-fijo",
-    "price": "123",
-    "discount": "123"
-  },
-  {
-    "id": 1015,
-    "name": "robot 1015",
-    "description": "soy el robot 1015",
-    "category": "repuesto",
-    "price": "1015",
-    "discount": "1015"
   }
 ]

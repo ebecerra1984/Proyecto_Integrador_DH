@@ -9,6 +9,7 @@ const productsCTRL = require("../controllers/products.controller");
 router.get("/prodAll", productsCTRL.all);
 router.get("/prodFijos", productsCTRL.fijos);
 router.get("/prodMoviles", productsCTRL.moviles);
+router.get("/prodRepuestos", productsCTRL.repuestos);
 router.get("/prodDetail/:id", productsCTRL.detail);
 
 router.post("/crear", upload.single("imagen"), productsCTRL.create);

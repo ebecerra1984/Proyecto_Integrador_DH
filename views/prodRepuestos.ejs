@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head')%>
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+
+<body>
+  <%- include('./partials/header')%>
+    <main>
+      <section class='seccion-productos'>
+        <h2 class='titulares'>Listado de Repuestos</h2>
+        <div class="container">
+          <% repuestos.forEach(function(repuestos){ %>
+            <article class='art'>
+              <a href="/products/prodDetail/<%= repuestos.id %>"><img height="200px"
+                  src="/static/images/<%= repuestos.image %>" alt="Imagen de producto"></a>
+              <span class=precio-descuento-descrip>
+                <p><i class="fas fa-robot"></i></p>
+                <p class='precios'>
+                  <%= repuestos.price %>
+                </p>
+                <p class='descuentos'>
+                  <%= repuestos.discount %>% OFF
+                </p>
+                <p class='detalle'>
+                  <%= repuestos.name %>
+                </p>
+              </span>
+            </article>
+          <% }) %>
+          </div>
+      </section>
+    </main>
+    <%- include('./partials/footer')%>
+</body>
+
+</html>
