@@ -24,7 +24,13 @@ const productsCtrl = {
     );
     res.render("prodMoviles", { robotsMoviles });
   },
-
+  repuestos: (req, res) => {
+    const repuestos = products.filter(
+      (producto) => producto.category == "repuesto"
+    );
+    res.render("prodRepuestos", { repuestos });
+  },
+  
   detail: (req, res) => {
     idProd = req.params.id;
     producto = products.find(function (product) {
