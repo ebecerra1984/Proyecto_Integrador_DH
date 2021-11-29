@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const path = require("path");
+const multer = require("multer");
+const image = multer({ dest: "/static/images" });
 
 const productsFilePath = path.join(__dirname, "../data/products.json");
 let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
@@ -12,6 +14,7 @@ const productsCtrl = {
   },
 
   fijos: (req, res) => {
+    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     const robotsFijos = products.filter(
       (producto) => producto.category == "robot-fijo"
     );
@@ -19,6 +22,7 @@ const productsCtrl = {
   },
 
   moviles: (req, res) => {
+    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     const robotsMoviles = products.filter(
       (producto) => producto.category == "robot-movil"
     );
@@ -30,7 +34,7 @@ const productsCtrl = {
     );
     res.render("prodRepuestos", { repuestos });
   },
-  
+
   detail: (req, res) => {
     idProd = req.params.id;
     producto = products.find(function (product) {
@@ -40,7 +44,6 @@ const productsCtrl = {
   },
 
   create: (req, res) => {
-    console.log(req.body);
     let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     let producto = {
       id: parseInt(req.body.sku),
@@ -66,21 +69,21 @@ const productsCtrl = {
 
   update: (req, res) => {
     idProd = req.params.id;
-    const { name, description, category, newCategory, price, discount } = req.body;
+    const { name, description, category, newCategory, price, discount } =
+      req.body;
     const newProd = [];
- 
-    products.map(function (producto) {
-      if (producto.id == idProd){
-        if(newCategory != "Seleccione nueva"){
-          producto.category = newCategory
-        }else{
-          producto.category = category
 
-        };
-        producto.name = name,
-        producto.description = description,
-        producto.price = price,
-        producto.discount = discount
+    products.map(function (producto) {
+      if (producto.id == idProd) {
+        if (newCategory != "Seleccione nueva") {
+          producto.category = newCategory;
+        } else {
+          producto.category = category;
+        }
+        (producto.name = name),
+          (producto.description = description),
+          (producto.price = price),
+          (producto.discount = discount);
       }
       newProd.push(producto);
     });
