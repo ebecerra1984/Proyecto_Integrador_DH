@@ -7,14 +7,6 @@ const productsFilePath = path.join(__dirname, "../data/products.json");
 let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 const productsCtrl = {
-  detail: (req, res) => {
-    idProd = req.params.id;
-    producto = products.find(function (product) {
-      return product.id == idProd;
-    });
-    res.render("prodDetail", { producto });
-  },
-
   all: (req, res) => {
     res.render("prodAll", { products });
   },
@@ -32,13 +24,36 @@ const productsCtrl = {
     );
     res.render("prodMoviles", { robotsMoviles });
   },
-
+  repuestos: (req, res) => {
+    const repuestos = products.filter(
+      (producto) => producto.category == "repuesto"
+    );
+    res.render("prodRepuestos", { repuestos });
+  },
+  
   detail: (req, res) => {
     idProd = req.params.id;
     producto = products.find(function (product) {
       return product.id == idProd;
     });
     res.render("prodDetail", { producto });
+  },
+
+  create: (req, res) => {
+    console.log(req.body);
+    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+    let producto = {
+      id: parseInt(req.body.sku),
+      name: req.body.nombre,
+      description: req.body.descripcion,
+      category: req.body.categoria,
+      image: req.body.imagen,
+      price: req.body.precio,
+      discount: req.body.descuento,
+    };
+    products.push(producto);
+    fs.writeFileSync(productsFilePath, JSON.stringify(products));
+    res.render("prodAll", { products });
   },
 
   edit: (req, res) => {
@@ -49,63 +64,27 @@ const productsCtrl = {
     res.render("prodEdit", { producto });
   },
 
-  create: (req, res) => {
-    console.log(req.body);
-    let producto = {
-      id: parseInt(req.body.sku),
-      name: req.body.nombre,
-      description: req.body.descripcion,
-      category: req.body.categoria,
-      price: req.body.precio,
-      discount: req.body.descuento,
-    };
-    products.push(producto);
-    console.log(products);
-    fs.writeFileSync(productsFilePath, JSON.stringify(products));
-  },
-
   update: (req, res) => {
-    //     idProd = req.params.id;
-    //     newProd = {
-    //       id: req.body.id,
-    //       name: req.body.name,
-    //       description: req.body.description,
-    //       category: req.body.category,
-    //       price: req.body.price,
-    //       discount: req.body.discount,
-    //       image: Cobot.jpg,
-    //     };
-
-    //     products = products.map(function (producto) {
-    //       if (producto.id == idProd) {
-    //         (producto.name = newProd.name),
-    //           (producto.description = newProd.description),
-    //           (producto.category = newProd.category),
-    //           (producto.price = newProd.price),
-    //           (producto.discount = newProd.discount);
-    // //        image: Cobot.jpg;
-    //         return producto;
-    //       } else {
-    //         return producto;
-    //       }
-    //     });
-    res.redirect("/");
     idProd = req.params.id;
-    const { name, description, category, price, discount } = req.body;
+    const { name, description, category, newCategory, price, discount } = req.body;
     const newProd = [];
+ 
+    products.map(function (producto) {
+      if (producto.id == idProd){
+        if(newCategory != "Seleccione nueva"){
+          producto.category = newCategory
+        }else{
+          producto.category = category
 
-    products = products.map(function (producto) {
-      if (producto.id == idProd) {
-        (producto.name = newProd.name),
-          (producto.description = newProd.description),
-          (producto.category = newProd.category),
-          (producto.price = newProd.price),
-          (producto.discount = newProd.discount);
-        //        image: Cobot.jpg;
-        return producto;
+        };
+        producto.name = name,
+        producto.description = description,
+        producto.price = price,
+        producto.discount = discount
       }
+      newProd.push(producto);
     });
-    //    res.send({producto})
+    fs.writeFileSync(productsFilePath, JSON.stringify(products));
     res.redirect("/");
   },
 
@@ -120,23 +99,8 @@ const productsCtrl = {
   delete: (req, res) => {
     let idProd = req.params.id;
     products = products.filter((product) => product.id != idProd);
-    res.send({ products });
-
-    //let index= products.indexOf(idProd);
-
-    // for (i = 0; i < products.length; i++) {
-    //   if (products.id == idProd) {
-    //     index = i;
-    //   }
-    // }
-
-    //products.splice(index, 1);
-
-    // console.log('PRODUCTO BORRADO')
-    // console.log({products})
+    fs.writeFileSync(productsFilePath, JSON.stringify(products));
     res.redirect("/");
-
-    //res.send({products});
   },
 
   prodCRUD: (req, res) => {
