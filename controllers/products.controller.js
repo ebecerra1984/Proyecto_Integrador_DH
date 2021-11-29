@@ -2,22 +2,14 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const path = require("path");
+const multer = require("multer");
+const image = multer({ dest: "/static/images" });
 
 const productsFilePath = path.join(__dirname, "../data/products.json");
 let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 const productsCtrl = {
-  detail: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    idProd = req.params.id;
-    producto = products.find(function (product) {
-      return product.id == idProd;
-    });
-    res.render("prodDetail", { producto });
-  },
-
   all: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     res.render("prodAll", { products });
   },
 
@@ -36,9 +28,14 @@ const productsCtrl = {
     );
     res.render("prodMoviles", { robotsMoviles });
   },
+  repuestos: (req, res) => {
+    const repuestos = products.filter(
+      (producto) => producto.category == "repuesto"
+    );
+    res.render("prodRepuestos", { repuestos });
+  },
 
   detail: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     idProd = req.params.id;
     producto = products.find(function (product) {
       return product.id == idProd;
@@ -46,17 +43,7 @@ const productsCtrl = {
     res.render("prodDetail", { producto });
   },
 
-  edit: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    idProd = req.params.id;
-    producto = products.find(function (product) {
-      return product.id == idProd;
-    });
-    res.render("prodEdit", { producto });
-  },
-
   create: (req, res) => {
-    console.log(req.body);
     let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     let producto = {
       id: parseInt(req.body.sku),
@@ -72,53 +59,39 @@ const productsCtrl = {
     res.render("prodAll", { products });
   },
 
-  update: (req, res) => {
-    //     idProd = req.params.id;
-    //     newProd = {
-    //       id: req.body.id,
-    //       name: req.body.name,
-    //       description: req.body.description,
-    //       category: req.body.category,
-    //       price: req.body.price,
-    //       discount: req.body.discount,
-    //       image: Cobot.jpg,
-    //     };
-
-    //     products = products.map(function (producto) {
-    //       if (producto.id == idProd) {
-    //         (producto.name = newProd.name),
-    //           (producto.description = newProd.description),
-    //           (producto.category = newProd.category),
-    //           (producto.price = newProd.price),
-    //           (producto.discount = newProd.discount);
-    // //        image: Cobot.jpg;
-    //         return producto;
-    //       } else {
-    //         return producto;
-    //       }
-    //     });
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+  edit: (req, res) => {
     idProd = req.params.id;
-    const { name, description, category, price, discount } = req.body;
-    const newProd = [];
-    console.log(req.body);
-    products = products.map(function (producto) {
-      if (producto.id == idProd) {
-        (producto.name = newProd.name),
-          (producto.description = newProd.description),
-          (producto.category = newProd.category),
-          (producto.price = newProd.price),
-          (producto.discount = newProd.discount);
-        //        image: Cobot.jpg;
-        return producto;
-      }
+    producto = products.find(function (product) {
+      return product.id == idProd;
     });
-    //    res.send({producto})
-    res.render("/");
+    res.render("prodEdit", { producto });
+  },
+
+  update: (req, res) => {
+    idProd = req.params.id;
+    const { name, description, category, newCategory, price, discount } =
+      req.body;
+    const newProd = [];
+
+    products.map(function (producto) {
+      if (producto.id == idProd) {
+        if (newCategory != "Seleccione nueva") {
+          producto.category = newCategory;
+        } else {
+          producto.category = category;
+        }
+        (producto.name = name),
+          (producto.description = description),
+          (producto.price = price),
+          (producto.discount = discount);
+      }
+      newProd.push(producto);
+    });
+    fs.writeFileSync(productsFilePath, JSON.stringify(products));
+    res.redirect("/");
   },
 
   detailDelete: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     idProd = req.params.id;
     producto = products.find(function (product) {
       return product.id == idProd;
@@ -127,11 +100,10 @@ const productsCtrl = {
   },
 
   delete: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     let idProd = req.params.id;
     products = products.filter((product) => product.id != idProd);
     fs.writeFileSync(productsFilePath, JSON.stringify(products));
-    res.render("prodAll", { products });
+    res.redirect("/");
   },
 
   prodCRUD: (req, res) => {
