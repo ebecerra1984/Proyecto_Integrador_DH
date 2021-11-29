@@ -2,12 +2,15 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const path = require("path");
+const multer = require("multer");
+const image = multer({ dest: "/static/images" });
 
 const productsFilePath = path.join(__dirname, "../data/products.json");
 let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 const productsCtrl = {
   detail: (req, res) => {
+    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     idProd = req.params.id;
     producto = products.find(function (product) {
       return product.id == idProd;
@@ -16,10 +19,12 @@ const productsCtrl = {
   },
 
   all: (req, res) => {
+    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     res.render("prodAll", { products });
   },
 
   fijos: (req, res) => {
+    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     const robotsFijos = products.filter(
       (producto) => producto.category == "robot-fijo"
     );
@@ -27,6 +32,7 @@ const productsCtrl = {
   },
 
   moviles: (req, res) => {
+    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     const robotsMoviles = products.filter(
       (producto) => producto.category == "robot-movil"
     );
@@ -34,6 +40,7 @@ const productsCtrl = {
   },
 
   detail: (req, res) => {
+    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     idProd = req.params.id;
     producto = products.find(function (product) {
       return product.id == idProd;
@@ -42,6 +49,7 @@ const productsCtrl = {
   },
 
   edit: (req, res) => {
+    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     idProd = req.params.id;
     producto = products.find(function (product) {
       return product.id == idProd;
@@ -50,18 +58,19 @@ const productsCtrl = {
   },
 
   create: (req, res) => {
-    console.log(req.body);
+    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     let producto = {
       id: parseInt(req.body.sku),
       name: req.body.nombre,
       description: req.body.descripcion,
       category: req.body.categoria,
+      image: req.body.imagen,
       price: req.body.precio,
       discount: req.body.descuento,
     };
     products.push(producto);
-    console.log(products);
     fs.writeFileSync(productsFilePath, JSON.stringify(products));
+    res.render("prodAll", { products });
   },
 
   update: (req, res) => {
@@ -89,7 +98,7 @@ const productsCtrl = {
     //         return producto;
     //       }
     //     });
-    // res.redirect("/");
+    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     idProd = req.params.id;
     const { name, description, category, price, discount } = req.body;
     const newProd = [];
@@ -106,10 +115,11 @@ const productsCtrl = {
       }
     });
     //    res.send({producto})
-    res.redirect("/");
+    res.render("/");
   },
 
   detailDelete: (req, res) => {
+    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     idProd = req.params.id;
     producto = products.find(function (product) {
       return product.id == idProd;
@@ -118,25 +128,11 @@ const productsCtrl = {
   },
 
   delete: (req, res) => {
+    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     let idProd = req.params.id;
     products = products.filter((product) => product.id != idProd);
-    res.send({ products });
-
-    //let index= products.indexOf(idProd);
-
-    // for (i = 0; i < products.length; i++) {
-    //   if (products.id == idProd) {
-    //     index = i;
-    //   }
-    // }
-
-    //products.splice(index, 1);
-
-    // console.log('PRODUCTO BORRADO')
-    // console.log({products})
-    res.redirect("/");
-
-    //res.send({products});
+    fs.writeFileSync(productsFilePath, JSON.stringify(products));
+    res.render("prodAll", { products });
   },
 
   prodCRUD: (req, res) => {
