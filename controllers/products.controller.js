@@ -89,11 +89,11 @@ const productsCtrl = {
     //         return producto;
     //       }
     //     });
-    res.redirect("/");
+    // res.redirect("/");
     idProd = req.params.id;
     const { name, description, category, price, discount } = req.body;
     const newProd = [];
-
+    console.log(req.body);
     products = products.map(function (producto) {
       if (producto.id == idProd) {
         (producto.name = newProd.name),
