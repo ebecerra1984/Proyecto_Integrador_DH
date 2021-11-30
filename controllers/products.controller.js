@@ -6,10 +6,11 @@ const multer = require("multer");
 const image = multer({ dest: "/static/images" });
 
 const productsFilePath = path.join(__dirname, "../data/products.json");
-let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+//let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 const productsCtrl = {
   all: (req, res) => {
+    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     res.render("prodAll", { products });
   },
 
@@ -29,6 +30,7 @@ const productsCtrl = {
     res.render("prodMoviles", { robotsMoviles });
   },
   repuestos: (req, res) => {
+    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     const repuestos = products.filter(
       (producto) => producto.category == "repuesto"
     );
@@ -36,6 +38,7 @@ const productsCtrl = {
   },
 
   detail: (req, res) => {
+    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     idProd = req.params.id;
     producto = products.find(function (product) {
       return product.id == idProd;
@@ -56,7 +59,8 @@ const productsCtrl = {
     };
     products.push(producto);
     fs.writeFileSync(productsFilePath, JSON.stringify(products));
-    res.render("prodAll", { products });
+    //res.render("prodAll", { products });
+    res.redirect('prodAll');
   },
 
   edit: (req, res) => {
