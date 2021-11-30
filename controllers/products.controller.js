@@ -14,6 +14,7 @@ const productsCtrl = {
   },
 
   fijos: (req, res) => {
+    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     const robotsFijos = products.filter(
       (producto) => producto.category == "robot-fijo"
     );
@@ -21,6 +22,7 @@ const productsCtrl = {
   },
 
   moviles: (req, res) => {
+    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     const robotsMoviles = products.filter(
       (producto) => producto.category == "robot-movil"
     );
