@@ -6,7 +6,6 @@ const multer = require("multer");
 const image = multer({ dest: "/static/images" });
 
 const productsFilePath = path.join(__dirname, "../data/products.json");
-//let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 const productsCtrl = {
   all: (req, res) => {
@@ -60,10 +59,11 @@ const productsCtrl = {
     products.push(producto);
     fs.writeFileSync(productsFilePath, JSON.stringify(products));
     //res.render("prodAll", { products });
-    res.redirect('prodAll');
+    res.redirect("prodAll");
   },
 
   edit: (req, res) => {
+    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     idProd = req.params.id;
     producto = products.find(function (product) {
       return product.id == idProd;
@@ -72,6 +72,7 @@ const productsCtrl = {
   },
 
   update: (req, res) => {
+    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     idProd = req.params.id;
     const { name, description, category, newCategory, price, discount } =
       req.body;
@@ -96,6 +97,7 @@ const productsCtrl = {
   },
 
   detailDelete: (req, res) => {
+    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     idProd = req.params.id;
     producto = products.find(function (product) {
       return product.id == idProd;
@@ -104,6 +106,7 @@ const productsCtrl = {
   },
 
   delete: (req, res) => {
+    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     let idProd = req.params.id;
     products = products.filter((product) => product.id != idProd);
     fs.writeFileSync(productsFilePath, JSON.stringify(products));
