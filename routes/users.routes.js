@@ -4,18 +4,30 @@ const multer = require("multer");
 const path = require("path");
 const {check} = require ('express-validator');
 
-// Validaciones
+// Validaciones del registro de usuarios
 const validateRegister = [
     check('nombre').notEmpty().withMessage('Debes completar el campo Nombre'),
     check('apellido').notEmpty().withMessage('Debes completar el campo Apellido'),
-    check('avatar').notEmpty().withMessage('Debes seleccionar una imagen de perfil'),
     check('email').isEmail().withMessage('Debes ingresar un email válido'),
     check('password')
         .notEmpty().withMessage('Debes completar el campo Contraseña')
         .isLength({Min: 6}).withMessage('La password debe ser de al menos 6 caracteres'),
     check('confPassword').notEmpty().withMessage('Debes confirmar la contraseña ingresada'),
+    check('avatar').custom((value, {req}) => {
+        let file = req.file;
+        let validExt = ['.png', '.jpg', '.gif'];
+        if(!file){
+            throw new Error('Debes seleccionar una imagen de perfil')
+        }else{
+            if(!validExt.includes(path.extname(file.originalname))){
+                throw new Error(`Los archivos permitidos deben ser ${validExt.join(', ')}`)
+            }            
+        }
+        return true;
+    })
 ];
 
+// configuración de Multer
 const storage = multer.diskStorage({
     destination: ( req, file, cb ) => {
         cb(null,'./public/images/users');
@@ -27,11 +39,11 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({storage});
-
 const userCTRL = require("../controllers/user.controller");
 
+// ruteos
 router.get("/login", userCTRL.login);
 router.get("/register", userCTRL.register);
-router.post("/crear", validateRegister, upload.single('avatar'),  userCTRL.create);
+router.post("/crear", upload.single('avatar'),validateRegister, userCTRL.create);
 
 module.exports = router;

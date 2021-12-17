@@ -15,6 +15,7 @@ const userCTRL = {
         //     file: req.file,
         //     errors
         // })
+       
         
         let msg ='';
         let errors = validationResult(req);
@@ -27,10 +28,9 @@ const userCTRL = {
             res.render('./users/register',
                 {errors: errors.array(),
                 msg: msg,
-                bodyData: req.body // ------ llega a la vista como un array vacío ¿? ------
+                old: req.body
             });
         }
-
     }
 };
 
