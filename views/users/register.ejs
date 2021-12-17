@@ -20,10 +20,10 @@
                 <p class="errorsForm"> <%= errors.msg %></p>
          <% })
         } %> 
-        <% if(locals.msg != ''){
+        <% if(locals.msg != ''){%>
             <p class="errorsForm"> <%= locals.msg %></p>
         <% } %> 
-               
+                       
         <form action="/users/crear" method="POST"  enctype="multipart/form-data">
         
             <label for="nombre" class="label">Nombre *</label>

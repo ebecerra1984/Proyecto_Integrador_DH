@@ -9,9 +9,7 @@ const validateRegister = [
     check('nombre').notEmpty().withMessage('Debes completar el campo Nombre'),
     check('apellido').notEmpty().withMessage('Debes completar el campo Apellido'),
     check('email').isEmail().withMessage('Debes ingresar un email válido'),
-    check('password')
-        .notEmpty().withMessage('Debes completar el campo Contraseña')
-        .isLength({Min: 6}).withMessage('La password debe ser de al menos 6 caracteres'),
+    check('password', 'La password debe ser de al menos 6 caracteres').isLength({ min: 6}),
     check('confPassword').notEmpty().withMessage('Debes confirmar la contraseña ingresada'),
     check('avatar').custom((value, {req}) => {
         let file = req.file;
