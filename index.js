@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const methodOverride = require("method-override");
+const session = require("express-session");
 
 const usersRouter = require("./routes/users.routes");
 const productsRouter = require("./routes/products.routes");
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use("/static", express.static("./public"));
 app.use(methodOverride("_method"));
+app.use(session({ secret: "Droid Store" }));
 
 // Uso de rutas
 app.use("/users", usersRouter);

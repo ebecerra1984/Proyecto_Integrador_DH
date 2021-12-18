@@ -4,8 +4,6 @@ const fs = require('fs');
 const path = require("path");
 const usersFilePath = path.join(__dirname, "../data/users.json");
 
-
-
 const userCTRL = {
     login: (req, res)=>{
         res.render('./users/login')
@@ -14,12 +12,8 @@ const userCTRL = {
         res.render('./users/register')
     },
     create: (req, res) => {
-        let msg ='';
         let errors = validationResult(req);
-        if (req.body.password != req.body.confPassword){
-            msg= 'Las contraseñas son distintas';
-        }
-        if (errors.isEmpty() && msg==''){
+        if (errors.isEmpty()){
             let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
             let newUser ={
                 nombre: req.body.nombre,
@@ -28,17 +22,14 @@ const userCTRL = {
                 telefono: req.body.telefono,
                 empresa: req.body.empresa,
                 email: req.body.email,
-                password: bcrypt.hashSync(req.body.password, 10)
+                password: bcrypt.hashSync(req.body.password, 10),
+                avatar: req.file.filename
             }
             users.push(newUser);
             fs.writeFileSync(usersFilePath, JSON.stringify(users));
             res.render('./users/login');
         }else{
-            res.render('./users/register',
-                {errors: errors.array(),
-                msg: msg,
-                old: req.body
-            });
+            res.render('./users/register', {errors: errors.array(), old: req.body });
         }
     }
 };
