@@ -20,8 +20,8 @@
                 <p class="errorsForm"> <%= errors.msg %></p>
          <% })
         } %> 
-        <% if(locals.msg != ''){%>
-            <p class="errorsForm"> <%= locals.msg %></p>
+        <% if(locals.errUserExist != ''){%>
+            <p class="errorsForm"> <%= locals.errUserExist %></p>
         <% } %> 
                        
         <form action="/users/crear" method="POST"  enctype="multipart/form-data">
