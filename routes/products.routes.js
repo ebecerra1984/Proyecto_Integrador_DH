@@ -14,7 +14,7 @@ router.get("/prodDetail/:id", productsCTRL.detail);
 
 router.post(
   "/crear",
-  upload.single("imagen"),
+  upload.productsUpload.single("imagen"),
   validateProductCreate.validateProductCreate,
   productsCTRL.create
 );

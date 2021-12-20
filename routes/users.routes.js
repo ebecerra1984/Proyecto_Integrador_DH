@@ -10,7 +10,7 @@ router.get("/login", userCTRL.login);
 router.get("/register", userCTRL.register);
 router.post(
   "/crear",
-  upload.single("avatar"),
+  upload.usersUpload.single("avatar"),
   validateRegister.validateRegister,
   userCTRL.create
 );
