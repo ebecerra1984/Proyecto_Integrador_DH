@@ -18,7 +18,7 @@ const productsStorage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     let nombreArchivo =
-      "avatar_" + Date.now() + path.extname(file.originalname);
+      "product_" + Date.now() + path.extname(file.originalname);
     cb(null, nombreArchivo);
   },
 });
