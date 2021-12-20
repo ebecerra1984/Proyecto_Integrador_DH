@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const path = require("path");
 const methodOverride = require("method-override");
 const session = require("express-session");
 
@@ -9,7 +8,6 @@ const productsRouter = require("./routes/products.routes");
 
 const indexController = require("./controllers/index.controller");
 const cartController = require("./controllers/cart.controller");
-const productsCTRL = require("./controllers/products.controller");
 const { use } = require("./routes/users.routes");
 
 // Seteo

@@ -1,1 +1,11 @@
-[ ]
+[
+  {
+    "nombre": "Ezequiel Roman",
+    "apellido": "Becerra",
+    "codigoPais": "011",
+    "telefono": "01134571884",
+    "empresa": "",
+    "email": "ebecerra1984@gmail.com",
+    "password": "$2b$10$bQUMHOS8vOgrMCyoqKkLK.N9wX7zBRtkZ59UmRawMBseIi2GfEJ5C"
+  }
+]
