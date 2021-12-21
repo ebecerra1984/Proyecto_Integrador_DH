@@ -49,12 +49,13 @@ const productsCtrl = {
     let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     console.log(errors.array());
     if (errors.isEmpty()) {
+      console.log(req.file.filename);
       let newProducto = {
         id: parseInt(req.body.sku),
         name: req.body.nombre,
         description: req.body.descripcion,
         category: req.body.categoria,
-        imagen: req.file.filename,
+        image: req.file.filename,
         price: req.body.precio,
         discount: req.body.descuento,
       };
