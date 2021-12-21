@@ -61,6 +61,12 @@ form {
   padding: 5px;
   border-radius: 5px;
 }
+.errorsForm{
+  text-align: center;
+  color: #ff0000;
+  font-weight: bold;
+  padding-top: 5px;
+}
 
 @media (min-width: 369px) {
   body {
