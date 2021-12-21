@@ -16,8 +16,8 @@ router.post(
 );
 router.post(
   "/register",
-  upload.userUpload.single("avatar"),
-  validateRegister,
+  upload.usersUpload.single("avatar"),
+  validateRegister.validateRegister,
   userCTRL.create
 );
 
