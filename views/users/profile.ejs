@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <%- include('../partials/head')%>
+  <%- include('../partials/head')%>
     
-    <link rel="stylesheet" href="/static/css/login.css">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <title>Dorid Perfil</title>
+  <link rel="stylesheet" href="/static/css/profile.css">
+  <title>Dorid Perfil</title>
 </head>
 <body>
-
-    <header>
-        <%- include('../partials/header')%>
-    </header>
-    
-    <main class="main-login">
-      
-            <h1 class="titulo-login">Perfil de Usuario</h1>
-
-    </main>
-
-    <footer>
-        <%- include('../partials/footer')%>
-    </footer>
+  <header>
+    <%- include('../partials/header')%>
+  </header>
+  <main>
+    <h2>Perfil de Usuario</h2>
+    <article class='profile'>
+      <img height="200px" src="/static/images/users/<%= user.avatar %>" alt="Imágen del producto">
+      <span class=precio-descuento-descrip>
+        <p class='datos'>Nombre: <%= user.nombre%> <%= user.apellido%></p>
+        <p class='datos'>Empresa: <%= user.empresa%></p>
+        <p class='datos'>Email: <%= user.email%></p>
+        <p class='datos'>Teléfono: <%= user.codigoPais%><%= user.telefono%></p>
+      </span>
+    </article>
+  </main>
+  <footer>
+    <%- include('../partials/footer')%>
+  </footer>
 </body>
 </html>

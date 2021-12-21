@@ -22,7 +22,9 @@
                 </li>
                 <li><a href="/products/prodRepuestos"><i class="fas fa-tools"></i> Repuestos</a></li>
                 <li><a href="/cart"><i class="fas fa-shopping-cart"></i> Mi carrito</a></li>
-                <li><a href="/products/prodCRUD"><i class="fas fa-toolbox"></i> Mant.Productos</a></li>
+                <% if (locals.logged){ %>
+                    <li><a href="/products/prodCRUD"><i class="fas fa-toolbox"></i> Mant.Productos</a></li>
+                <% } %>
                 
                 
             </ul>
