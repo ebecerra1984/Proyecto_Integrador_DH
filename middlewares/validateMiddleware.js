@@ -36,8 +36,22 @@ const validateProductCreate = [
   check("nombre", "Debes completar el campo Nombre").notEmpty(),
   check("sku", "Debes completar el campo SKU").notEmpty(),
   check("descripcion", "Debes ingresar una descripcion").notEmpty(),
-  check("precio", "Debes ingresar un precio").notEmpty().isNumeric(),
-  check("descuento", "Debes ingresar un descuento").notEmpty().isNumeric(),
+  check("precio", "Debes ingresar un precio").notEmpty(),
+  check("descuento", "Debes ingresar un descuento").notEmpty(),
+  check("imagen").custom((value, { req }) => {
+    let file = req.file;
+    let validExt = [".png", ".jpg", ".gif"];
+    if (!file) {
+      throw new Error("Debes seleccionar una imagen del producto");
+    } else {
+      if (!validExt.includes(path.extname(file.originalname))) {
+        throw new Error(
+          `Los archivos permitidos deben ser ${validExt.join(", ")}`
+        );
+      }
+    }
+    return true;
+  }),
 ];
 
 module.exports = { validateRegister, validateProductCreate };
