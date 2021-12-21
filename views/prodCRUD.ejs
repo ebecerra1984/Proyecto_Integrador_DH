@@ -14,26 +14,33 @@
     <main class="main-registro">
             <h3 class="titulo-registro">Mantenimiento de productos</h3    >
             <h5 class="titulo-registro">Los campos marcados con * son requeridos</h5>
+            <% if(locals.errors){
+                errors.forEach(errors => { %>
+                    <p class="errorsForm"> <%= errors.msg %></p>
+             <% })
+            } %> 
+            <% if(locals.errUserExist != ''){%>
+                <p class="errorsForm"> <%= locals.errUserExist %></p>
+            <% } %> 
             <form method="POST" action="/products/crear" enctype="multipart/form-data">
                 <label for="sku" class="label">SKU *</label>
-                    <input class="campo-input" type="text" name="sku" placeholder="Ingrese SKU" required minlength=2>
+                    <input class="campo-input" type="text" name="sku" placeholder="Ingrese SKU">
                 <label for="nombre" class="label">Nombre Producto *</label>
-                    <input class="campo-input" type="text" name="nombre" placeholder="Nombre del producto" required minlength=2>
-                <label for="despcripcion" class="label">Descripción *</label>
-                    <textarea class="campo-input" name="descripcion" placeholder="Descripcion del producto" required></textarea>
+                    <input class="campo-input" type="text" name="nombre" placeholder="Nombre del producto">
+                <label for="descripcion" class="label">Descripción *</label>
+                    <textarea class="campo-input" name="descripcion" placeholder="Descripcion del producto"></textarea>
                 <label for="imagen" class="label">Seleccione las imagenes del producto *</label>
-                    <input class="campo-input" type="file" name="imagen" accept= ".jpg .png" multiple>
-
+                    <input class="campo-input" type="file" name="imagen" accept= ".jpg,.png" multiple>
                 <label for="categoria" class="label">Categoría *</label>
                 <div class="telefono">
                     <select name="categoria" class="codigo-pais">
                         <option value="robot-fijo">Robot fijo</option>
                         <option value="robot-movil">Robot móvil</option>
-                        <option value="repuesto">Repuseto</option>
+                        <option value="repuesto">Repuesto</option>
                     </select>
                 </div>
                 <label for="precio" class="label">Precio *</label>
-                    <input class="campo-input" type="number" name="precio" placeholder="Precio" required>
+                    <input class="campo-input" type="number" name="precio" placeholder="Precio">
                 <label for="descuento" class="label">Descuento *</label>
                     <input class="campo-input" type="number" name="descuento" placeholder="Descuento">
 

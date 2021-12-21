@@ -1,9 +1,21 @@
 const express = require("express");
 const router = express.Router();
+const validate = require("../middlewares/validateMiddleware");
+const upload = require("../middlewares/multerMiddleware");
 
 const userCTRL = require("../controllers/user.controller");
 
-router.get("/login", userCTRL.login);
+// ruteos
+router.get("/login", userCTRL.loginForm);
+router.post("/login", userCTRL.login);
 router.get("/register", userCTRL.register);
+router.post(
+  "/register",
+  upload.usersUpload.single("avatar"),
+  validate.validateRegister,
+  userCTRL.create
+);
+router.get("/profile", userCTRL.profile);
+router.get("/logout", userCTRL.logout);
 
 module.exports = router;

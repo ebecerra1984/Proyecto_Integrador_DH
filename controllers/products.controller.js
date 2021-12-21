@@ -1,11 +1,10 @@
-const express = require("express");
-const router = express.Router();
+const { validationResult } = require("express-validator");
 const fs = require("fs");
 const path = require("path");
 const multer = require("multer");
-const image = multer({ dest: "/static/images" });
-
 const productsFilePath = path.join(__dirname, "../data/products.json");
+
+const image = multer({ dest: "/static/images/products" });
 
 const productsCtrl = {
   all: (req, res) => {
@@ -46,20 +45,27 @@ const productsCtrl = {
   },
 
   create: (req, res) => {
+    let errors = validationResult(req);
     let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    let producto = {
-      id: parseInt(req.body.sku),
-      name: req.body.nombre,
-      description: req.body.descripcion,
-      category: req.body.categoria,
-      image: req.body.imagen,
-      price: req.body.precio,
-      discount: req.body.descuento,
-    };
-    products.push(producto);
-    fs.writeFileSync(productsFilePath, JSON.stringify(products));
-    //res.render("prodAll", { products });
-    res.redirect("prodAll");
+    if (errors.isEmpty()) {
+      let newProducto = {
+        id: parseInt(req.body.sku),
+        name: req.body.nombre,
+        description: req.body.descripcion,
+        category: req.body.categoria,
+        image: req.file.filename,
+        price: req.body.precio,
+        discount: req.body.descuento,
+      };
+      products.push(newProducto);
+      fs.writeFileSync(productsFilePath, JSON.stringify(products));
+      res.redirect("prodAll");
+    } else {
+      res.render("./prodCRUD", {
+        errors: errors.array(),
+        old: req.body,
+      });
+    }
   },
 
   edit: (req, res) => {
