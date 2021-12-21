@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const validateRegister = require("../middlewares/validateMiddleware");
+const validate = require("../middlewares/validateMiddleware");
 const upload = require("../middlewares/multerMiddleware");
 
 const userCTRL = require("../controllers/user.controller");
@@ -11,8 +11,8 @@ router.post("/login", userCTRL.login);
 router.get("/register", userCTRL.register);
 router.post(
   "/register",
-  userUpload.single("avatar"),
-  validateRegister,
+  upload.usersUpload.single("avatar"),
+  validate.validateRegister,
   userCTRL.create
 );
 router.get("/profile", userCTRL.profile);

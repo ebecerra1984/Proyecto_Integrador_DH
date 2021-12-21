@@ -1,13 +1,13 @@
 function userLoggedMiddleware(req, res, next) {
-    //let logged = false;
-    res.locals.logged = false;
+  //let logged = false;
+  res.locals.logged = false;
 
-     if (req.session.userLogged) {
-         res.locals.logged = true;
-         res.locals.userLogged= req.session.userLogged;
-     }
+  if (req.session.userLogged) {
+    res.locals.logged = true;
+    res.locals.userLogged = req.session.userLogged;
+  }
 
-    next();
+  next();
 }
 
-module.exports =userLoggedMiddleware;
+module.exports = userLoggedMiddleware;
