@@ -24,7 +24,7 @@ const productsStorage = multer.diskStorage({
   },
 });
 
-const usersUpload = multer({ usersStorage });
-const productsUpload = multer({ productsStorage });
+const usersUpload = multer({ storage: usersStorage });
+const productsUpload = multer({ storage: productsStorage });
 
 module.exports = { usersUpload, productsUpload };

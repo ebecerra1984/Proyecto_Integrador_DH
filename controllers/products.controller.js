@@ -53,7 +53,7 @@ const productsCtrl = {
         name: req.body.nombre,
         description: req.body.descripcion,
         category: req.body.categoria,
-        image: req.file.originalname,
+        image: req.file.filename,
         price: req.body.precio,
         discount: req.body.descuento,
       };
