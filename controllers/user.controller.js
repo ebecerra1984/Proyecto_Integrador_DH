@@ -54,7 +54,7 @@ const userCTRL = {
         empresa: req.body.empresa,
         email: req.body.email,
         password: bcrypt.hashSync(req.body.password, 10),
-        avatar: req.file.filname,
+        avatar: req.file.filename,
       };
       users.push(newUser);
       fs.writeFileSync(usersFilePath, JSON.stringify(users));
