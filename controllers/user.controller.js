@@ -65,7 +65,7 @@ const userCTRL = {
   },
 
   profile: (req, res) => {
-    res.render("./users/profile");
+    res.render("./users/profile", { user: req.session.userLogged });
   },
 
   logout: (req, res) => {
