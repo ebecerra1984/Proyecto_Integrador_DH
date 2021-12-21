@@ -1,4 +1,5 @@
 const multer = require("multer");
+const path = require("path");
 
 // configuración de Multer para usuarios
 const usersStorage = multer.diskStorage({

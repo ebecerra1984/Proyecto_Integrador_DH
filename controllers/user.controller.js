@@ -15,13 +15,12 @@ const userCTRL = {
         let errors = validationResult(req);
         let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
         let userExist = users.find(user => user['email'] == req.body.email);
-        console.log(errors.array());
-       if (userExist) {
-//           throw new Error('Ya existe un usuario con este email'),
+
+        if (userExist) {
            let errUserExist = 'Ya existe un usuario con este email';
            res.render('./users/register', {errUserExist, old: req.body })
-       };
-        if (errors.isEmpty()){
+        }else if(errors.isEmpty() ) {
+            let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
             let newUser ={
                 nombre: req.body.nombre,
                 apellido: req.body.apellido,
@@ -34,9 +33,12 @@ const userCTRL = {
             }
             users.push(newUser);
             fs.writeFileSync(usersFilePath, JSON.stringify(users));
-            res.render('./users/login');
+            res.redirect('/');
         }else{
-            res.render('./users/register', {errors: errors.array(), old: req.body });
+            res.render('./users/register',
+                {errors: errors.array(),
+                old: req.body
+            });
         }
     }
 };

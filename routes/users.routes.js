@@ -14,5 +14,11 @@ router.post(
   validateRegister.validateRegister,
   userCTRL.create
 );
+router.post(
+  "/register",
+  upload.userUpload.single("avatar"),
+  validateRegister,
+  userCTRL.create
+);
 
 module.exports = router;
