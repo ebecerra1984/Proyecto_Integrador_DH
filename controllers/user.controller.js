@@ -4,8 +4,6 @@ const fs = require('fs');
 const path = require("path");
 const usersFilePath = path.join(__dirname, "../data/users.json");
 
-
-
 const userCTRL = {
     login: (req, res)=>{
         res.render('./users/login')
