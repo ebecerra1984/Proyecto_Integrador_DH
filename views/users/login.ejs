@@ -15,9 +15,14 @@
     
     <main class="main-login">
             <h3 class="titulo-login">Iniciar sesión</h3>
-            <form action="/" method="#">
+
+            <% if(locals.errUserLogin != ''){%>
+                <p class="errorsForm"> <%= locals.errUserLogin %></p>
+            <% } %> 
+
+            <form action="/users/login" method="POST">
                 <label for="usuario" class="label">Usuario </label>
-                    <input class="campo-input" type="text" name="name" placeholder="Ingrese su email" required minlength=2>
+                    <input class="campo-input" type="text" name="email" placeholder="Ingrese su email" required minlength=2>
                     <p class="login-link"><a href="#">¿Olvidaste tu email?</a></p>
                 <label for="usuario" class="label">Contraseña </label>
                     <input class="campo-input" type="password" name="password" placeholder="Ingrese su contraseña" required minlength=6>

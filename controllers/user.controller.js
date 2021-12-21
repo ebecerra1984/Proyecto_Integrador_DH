@@ -5,12 +5,36 @@ const path = require("path");
 const usersFilePath = path.join(__dirname, "../data/users.json");
 
 const userCTRL = {
-    login: (req, res)=>{
+
+    loginForm: (req, res)=>{
         res.render('./users/login')
     },
+
+    login: (req, res)=> {
+        let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+        let userLogin = users.find(user => user['email'] == req.body.email);
+        
+        if (userLogin) {
+            let passwordOk = bcrypt.compareSync( req.body.password, userLogin.password);
+            if(passwordOk){
+                delete userLogin.password
+                req.session.userLogged = userLogin;
+                res.redirect('/');
+
+            }else{
+                let errUserLogin = 'La contraseña ingresada no es válida.';
+                res.render('./users/login', {errUserLogin}); 
+            }
+        }else{
+            let errUserLogin = 'El email ingresado no está registrado';
+            res.render('./users/login', {errUserLogin, old: req.body }); 
+        }
+    },
+
     register: (req, res)=>{
         res.render('./users/register')
     },
+
     create: (req, res) => {
         let errors = validationResult(req);
         let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
@@ -33,13 +57,22 @@ const userCTRL = {
             }
             users.push(newUser);
             fs.writeFileSync(usersFilePath, JSON.stringify(users));
-            res.redirect('/');
+            res.redirect('./login')
         }else{
             res.render('./users/register',
                 {errors: errors.array(),
                 old: req.body
             });
         }
+    },
+
+    profile: (req, res)=>{
+        res.render('./users/profile');
+    },
+
+    logout: (req, res)=>{
+        req.session.destroy();
+        res.redirect('./login');
     }
 };
 
