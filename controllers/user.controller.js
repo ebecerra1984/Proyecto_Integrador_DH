@@ -21,6 +21,11 @@ const userCTRL = {
       if (passwordOk) {
         delete userLogin.password;
         req.session.userLogged = userLogin;
+
+        if (req.body.mantenerLogin) {
+          res.cookie("userEmail", req.body.email, { maxAge: 900000 });
+          console.log(req.cookies.userEmail);
+        }
         res.redirect("/");
       } else {
         let errUserLogin = "La contraseña ingresada no es válida.";
@@ -70,6 +75,7 @@ const userCTRL = {
 
   logout: (req, res) => {
     req.session.destroy();
+    res.clearCookie("userEmail");
     res.redirect("./login");
   },
 };

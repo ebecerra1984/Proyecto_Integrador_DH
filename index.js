@@ -9,8 +9,8 @@ const usersRouter = require("./routes/users.routes");
 const productsRouter = require("./routes/products.routes");
 const indexController = require("./controllers/index.controller");
 const cartController = require("./controllers/cart.controller");
-//const productsCTRL = require("./controllers/products.controller");
-//const { use } = require("./routes/users.routes");
+const cookies = require("cookie-parser");
+
 
 // Seteo
 app.set("view engine", "ejs");
@@ -19,9 +19,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use("/static", express.static("./public"));
 app.use(methodOverride("_method"));
-app.use(
-  session({ secret: "Droid Store", resave: false, saveUninitialized: false })
-);
+app.use(session({ secret: "Droid Store",
+  resave: false, saveUninitialized: false }));
+app.use(cookies());
 app.use(userLoggedMiddleware);
 
 // Uso de rutas

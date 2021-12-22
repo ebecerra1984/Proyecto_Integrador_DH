@@ -33,6 +33,15 @@ form {
   border-radius: 5px;
   font-size: 0.7rem;
 }
+.checkbox{
+  width: 20%;
+  margin-top: 10px;
+  margin-right: auto;
+  border: 1px solid #31356e;
+  border-radius: 5px;
+  font-size: 0.7rem;
+  
+}
 .login-link {
   margin-bottom: 5%;
   width: 100%;

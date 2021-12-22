@@ -6,6 +6,7 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
@@ -18,7 +19,7 @@
     "nodemon": "^2.0.15"
   },
   "scripts": {
-    "server": "nodemon --watch index.js --watch controllers --watch routes"
+    "server": "nodemon --watch index.js --watch controllers --watch routes --watch middlewares"
   },
   "repository": {
     "type": "git",
