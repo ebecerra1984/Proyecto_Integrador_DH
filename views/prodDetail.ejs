@@ -34,13 +34,13 @@
            <a href="/cart"><button type="submit">AÑADIR A CARRITO DE COMPRAS</button></a>
           </p>
           <p id="edit">
-          <% if (locals.logged){ %>
-            <a href="/products/edit/<%= producto.id%>"><button type="submit">Editar el producto</button></a>
-            </p>
-            <p id="delete">
-            <a href="/products/delete/<%= producto.id%>"><button type="submit">Elimina el producto</button></a>
-            </p>
-          <% } %>  
+
+          <a href="/products/edit/<%= producto.id%>"><button type="submit">Editar el producto</button></a>
+          </p>
+          <p id="delete">
+          <a href="/products/delete/<%= producto.id%>"><button type="submit">Elimina el producto</button></a>
+          </p>
+
 
         </span>
       </article>

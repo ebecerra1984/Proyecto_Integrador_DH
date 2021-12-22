@@ -8,11 +8,12 @@ const usersStorage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     let nombreArchivo =
-      "avatar_" + Date.now() + path.extname(file.originalname);
+    "avatar_" + Date.now() + path.extname(file.originalname);
     cb(null, nombreArchivo);
   },
 });
 
+// configuración de Multer para productos
 const productsStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "./public/images/products");
