@@ -16,4 +16,4 @@
 
 
 #Weekly 21/12
-    - De problemas que no se encuentran solucion se plantea evaluarlo en la clase del dia 21/12 para poder completar entrega sprint-5.
+    - Actulaizacion de estado de problemas a solucionar y trabajo en equipo para ir eliminadolos todos para tener listo el proyecto para cumplimentar con la entrega de fecha 21/12.
