@@ -25,10 +25,11 @@ app.use(cookies());
 app.use(userLoggedMiddleware);
 
 // Uso de rutas
+app.use("//", indexController.index);
+app.use("/aboutUs", indexController.aboutUs);
+app.use("/cart", cartController.cart);
 app.use("/users", usersRouter);
 app.use("/products", productsRouter);
-app.use("//", indexController.index);
-app.use("/cart", cartController.cart);
 
 // Server
 app.listen(3000, () => {
