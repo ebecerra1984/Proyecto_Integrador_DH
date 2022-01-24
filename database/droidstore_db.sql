@@ -34,6 +34,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- Dumping structure for table droidstore_db.products
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE IF NOT EXISTS `products` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) NOT NULL,
+  `descripcion` varchar(50) NOT NULL,
+  `categoria` varchar(50) NOT NULL,
+  `precio` float(11) NOT NULL,
+  `descuento` float(11) NOT NULL DEFAULT 0,
+  `imagen` varchar(50) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- Data exporting was unselected.
 
 -- Dumping structure for table droidstore_db.user_categories

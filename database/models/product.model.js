@@ -1,4 +1,4 @@
-const sqlize = require("../configDB/dbConfig");
+const sqlize = require("../config/dbConfig");
 
 const product = sqlize.define("products", {
   sku: {

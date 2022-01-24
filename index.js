@@ -4,14 +4,12 @@ const methodOverride = require("method-override");
 const session = require("express-session");
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
 const cookies = require("cookie-parser");
-const {chkConnection} = require('./configDB/dbConfig');
-
+const { chkConnection } = require("./database/config/dbConfig");
 
 const usersRouter = require("./routes/users.routes");
 const productsRouter = require("./routes/products.routes");
 const indexController = require("./controllers/index.controller");
 const cartController = require("./controllers/cart.controller");
-
 
 // ----- Seteo -----
 app.set("view engine", "ejs");
@@ -20,8 +18,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use("/static", express.static("./public"));
 app.use(methodOverride("_method"));
-app.use(session({ secret: "Droid Store",
-  resave: false, saveUninitialized: false }));
+app.use(
+  session({ secret: "Droid Store", resave: false, saveUninitialized: false })
+);
 app.use(cookies());
 app.use(userLoggedMiddleware);
 
