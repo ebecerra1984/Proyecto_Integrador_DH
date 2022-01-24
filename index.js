@@ -4,8 +4,8 @@ const methodOverride = require("method-override");
 const session = require("express-session");
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
 const cookies = require("cookie-parser");
-const {chkConnection} = require('./configDB/dbConfig');
 
+const createModels = require('./database/models/create_models')
 
 const usersRouter = require("./routes/users.routes");
 const productsRouter = require("./routes/products.routes");
@@ -25,8 +25,8 @@ app.use(session({ secret: "Droid Store",
 app.use(cookies());
 app.use(userLoggedMiddleware);
 
-// ----- Conexión y sinconización a base de datos -----
-chkConnection();
+// ----- Conexión y sinconización a base de datos y modelos -----
+createModels();
 
 // ----- Uso de rutas -----
 app.use("//", indexController.index);
