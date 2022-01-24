@@ -1,9 +1,8 @@
-//const Sequelize =require('sequelize');
 const sqlize = require('../configDB/dbConfig');
 
-const user = sqlize.define('users',{
+const product = sqlize.define('products',{
 
-    id:{
+    sku:{
         type: Sequelize.INTEGER,
         primaryKey: true,
         allowNull: false,
@@ -13,27 +12,7 @@ const user = sqlize.define('users',{
         type: Sequelize.VARCHAR(50),
         allowNull: false
     },
-    apellidade:{
-        type: Sequelize.VARCHAR(50),
-        allowNull: false
-    },
-    cod_pais:{
-        type: Sequelize.SMALLINT,
-        allowNull: false
-    },
-    telefono:{
-        type: Sequelize.INTEGER,
-        allowNull: false
-    },
-    email:{
-        type: Sequelize.VARCHAR(50),
-        allowNull: false
-    },
-    password:{
-        type: Sequelize.VARCHAR(50),
-        allowNull: false
-    },
-    avatar:{
+    descripcion:{
         type: Sequelize.VARCHAR(50),
         allowNull: false
     },
@@ -41,10 +20,18 @@ const user = sqlize.define('users',{
         type: Sequelize.SMALLINT,
         allowNull: false
     },
-    empresa:{
+    precio:{
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
+    descuento:{
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
+    imagen:{
         type: Sequelize.VARCHAR(50),
-        allowNull: true
+        allowNull: false
     }
 });
 
-module.exports = user;
+module.exports = product;

@@ -1,6 +1,6 @@
 const sqlize = require('../configDB/dbConfig');
 
-const user_categrory = sqlize.define('user_categories',{
+const delivery_method = sqlize.define('delivery_methods',{
 
     id:{
         type: Sequelize.SMALLINT,
@@ -14,4 +14,4 @@ const user_categrory = sqlize.define('user_categories',{
     }
 });
 
-module.exports = user_categrory;
+module.exports = delivery_method;
