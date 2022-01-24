@@ -4,12 +4,8 @@ const methodOverride = require("method-override");
 const session = require("express-session");
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
 const cookies = require("cookie-parser");
-<<<<<<< HEAD
-const { chkConnection } = require("./database/config/config");
-=======
 
-const createModels = require('./database/models/create.models')
->>>>>>> 94c9d76d9180a5b8f7a8f3cb4486695c7ceb8a2a
+const createModels = require("./database/models/create.models");
 
 const usersRouter = require("./routes/users.routes");
 const productsRouter = require("./routes/products.routes");
