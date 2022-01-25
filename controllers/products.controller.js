@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const multer = require("multer");
 const productsFilePath = path.join(__dirname, "../data/products.json");
-const db = require("../database/models/Product.model");
+const db = require("../database/models/product.model");
 
 const image = multer({ dest: "/static/images/products" });
 
@@ -48,13 +48,14 @@ const productsCtrl = {
   create: (req, res) => {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
-      db.product.create({
-        name: req.body.nombre,
-        description: req.body.descripcion,
-        category: req.body.categoria,
-        image: req.file.filename,
-        price: req.body.precio,
-        discount: req.body.descuento,
+      console.log(req.body.categoria);
+      db.Product.create({
+        nombre: req.body.nombre,
+        descripcion: req.body.descripcion,
+        categoria: parseInt(req.body.categoria),
+        imagen: req.file.filename,
+        precio: req.body.precio,
+        descuento: req.body.descuento,
       });
     } else {
       res.render("./prodCRUD", {

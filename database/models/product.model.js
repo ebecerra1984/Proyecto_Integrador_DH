@@ -4,7 +4,7 @@ const { sqlize } = require("../config/dbConfig");
 //----- definiciñon del modelo -----
 const alias = "Product";
 const cols = {
-  sku: {
+  id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
     allowNull: false,
@@ -12,7 +12,7 @@ const cols = {
   },
   nombre: { type: Sequelize.STRING(50), allowNull: false },
   descripcion: { type: Sequelize.STRING(50), allowNull: false },
-  categoria_id: { type: Sequelize.SMALLINT, allowNull: false },
+  categoria: { type: Sequelize.SMALLINT, allowNull: false },
   precio: { type: Sequelize.INTEGER, allowNull: false },
   descuento: { type: Sequelize.INTEGER, allowNull: false },
   imagen: { type: Sequelize.STRING(50), allowNull: false },
@@ -24,22 +24,20 @@ const config = {
 
 const Product = sqlize.define(alias, cols, config);
 
-
 // ----- Relaciones de la tabla -----
-Product.associate = function(models){
-  Product.belongsTo (models.Product_category,{
-    as: 'Product_category',
-    foreignKey: 'categoria_id'
+Product.associate = function (models) {
+  Product.belongsTo(models.Product_category, {
+    as: "Product_category",
+    foreignKey: "categoria_id",
   }),
-  Product.belongsToMany (models.Order, {
-    as: 'Order',
-    through: 'orders_products',
-    foreignKey: 'sku',
-    otherKey: 'order_id',
-    timestamps: false
-  })
-}
-
+    Product.belongsToMany(models.Order, {
+      as: "Order",
+      through: "orders_products",
+      foreignKey: "sku",
+      otherKey: "order_id",
+      timestamps: false,
+    });
+};
 
 //----- creacion de la tabla -----
 const productSync = async (switchTF) => {
