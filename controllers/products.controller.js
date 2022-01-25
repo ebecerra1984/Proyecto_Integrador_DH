@@ -9,8 +9,9 @@ const image = multer({ dest: "/static/images/products" });
 
 const productsCtrl = {
   all: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    res.render("prodAll", { products });
+    db.Product.findAll().then((products) => {
+      res.render("prodAll", { products });
+    });
   },
 
   fijos: (req, res) => {
@@ -28,6 +29,7 @@ const productsCtrl = {
     );
     res.render("prodMoviles", { robotsMoviles });
   },
+
   repuestos: (req, res) => {
     let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     const repuestos = products.filter(
@@ -37,12 +39,9 @@ const productsCtrl = {
   },
 
   detail: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    idProd = req.params.id;
-    producto = products.find(function (product) {
-      return product.id == idProd;
+    db.Product.findByPk(req.params.id).then((producto) => {
+      res.render("prodDetail", { producto });
     });
-    res.render("prodDetail", { producto });
   },
 
   create: (req, res) => {
@@ -57,6 +56,7 @@ const productsCtrl = {
         precio: req.body.precio,
         descuento: req.body.descuento,
       });
+      res.redirect("prodAll");
     } else {
       res.render("./prodCRUD", {
         errors: errors.array(),
@@ -100,19 +100,17 @@ const productsCtrl = {
   },
 
   detailDelete: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    idProd = req.params.id;
-    producto = products.find(function (product) {
-      return product.id == idProd;
+    const idProd = req.params.id;
+    db.Product.findByPk(req.params.id).then((producto) => {
+      res.render("prodDelete", { producto });
     });
-    res.render("prodDelete", { producto });
   },
 
   delete: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    let idProd = req.params.id;
-    products = products.filter((product) => product.id != idProd);
-    fs.writeFileSync(productsFilePath, JSON.stringify(products));
+    const idProd = req.params.id;
+    db.Product.destroy({
+      where: { id: idProd },
+    });
     res.redirect("/");
   },
 

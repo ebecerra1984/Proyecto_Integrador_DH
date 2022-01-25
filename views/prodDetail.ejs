@@ -9,19 +9,19 @@
    <main>
     <section class='detalle-individual'>
       <article class='art-detalle'>
-        <img height="200px" src="/static/images/products/<%= producto.image %>" alt="Imágen del producto">
+        <img height="200px" src="/static/images/products/<%= producto.imagen %>" alt="Imágen del producto">
         <span class=precio-descuento-descrip><p><i class="fas fa-robot"></i></p>
-          <p class='precios'>USD <%= producto.price%></p>
-          <p class='descuentos'><%= producto.discount%>% OFF</p>
-          <p class='detalle'><%= producto.name%></p>
+          <p class='precios'>USD <%= producto.precio%></p>
+          <p class='descuentos'><%= producto.descuento%>% OFF</p>
+          <p class='detalle'><%= producto.nombre%></p>
           <p class='sku'>SKU: <%= producto.id%></p>
           </span>
        </article>
      <article class='art-detalle'>  
           <span class=precio-descuento-descrip>
-          <h4>Características del <%= producto.name%></h4>
-          <p class='descripcion'><%= producto.description%></p>
-          <p class='precio'>Precio: USD <%= producto.price%></p>
+          <h4>Características del <%= producto.nombre%></h4>
+          <p class='descripcion'><%= producto.descripcion%></p>
+          <p class='precio'>Precio: USD <%= producto.precio%></p>
           <br>
           <p><a href="pagos"><i class="fas fa-solid fa-credit-card"></i>Conocé los medios de pago </a></p>
           <p><a href="envio"><i class="fas fa-solid fa-truck"></i>Conocé las opciones de envío y retiro </a></p>

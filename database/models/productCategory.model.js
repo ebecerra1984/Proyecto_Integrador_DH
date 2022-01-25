@@ -19,13 +19,12 @@ const config = {
 
 const Product_category = sqlize.define(alias, cols, config);
 
-Product_category.associate = function(models){
-  Product_category.hasMany (models.Product,{
-    as: 'Product_category',
-    foreignKey: 'categoria_id'
-  })
-}
-
+Product_category.associate = function (models) {
+  Product_category.hasMany(models.Product, {
+    as: "Product_category",
+    foreignKey: "categoria_id",
+  });
+};
 
 //----- creacion de la tabla -----
 const productCategorySync = async (switchTF) => {
