@@ -16,7 +16,16 @@ const config = {
   tablename: "payment_methods",
   timestamps: false,
 };
+
 const Payment_method = sqlize.define(alias, cols, config);
+
+Payment_method.associate = function(models){
+  Payment_method.hasMany (models.Order,{
+    as: 'Payment',
+    foreignKey: 'delivery_id'
+  })
+}
+
 
 //----- creacion de la tabla -----
 const paymentMethodSync = async (switchTF) => {

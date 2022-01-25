@@ -16,7 +16,18 @@ const config = {
   tablename: "user_categories",
   timestamps: false,
 };
+
 const User_category = sqlize.define(alias, cols, config);
+
+
+// ----- Relaciones de la tabla -----
+User_category.associate = function(models){
+  User_category.hasMany (models.User,{
+    as: 'User_category',
+    foreignKey: 'categoria_id'
+  })
+}
+
 
 //----- creacion de la tabla -----
 const userCategorySync = async (switchTF) => {
