@@ -11,7 +11,16 @@ const config = {
     tablename: 'delivery_methods',
     timestamps: false
 };
+
 const Delivery_method = sqlize.define(alias, cols, config);
+
+Delivery_method.associate = function(models){
+  Delivery_method.hasMany (models.Order,{
+    as: 'Delivery',
+    foreignKey: 'delivery_id'
+  })
+}
+
 
 //----- creacion de la tabla -----
 const deliveryMethodSync = async (switchTF) => {

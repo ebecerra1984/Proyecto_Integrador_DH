@@ -12,7 +12,16 @@ const config = {
     tablename: 'product_categories',
     timestamps: false
 };
+
 const Product_category = sqlize.define(alias, cols, config);
+
+Product_category.associate = function(models){
+  Product_category.hasMany (models.Product,{
+    as: 'Product_category',
+    foreignKey: 'categoria_id'
+  })
+}
+
 
 //----- creacion de la tabla -----
 const productCategorySync = async (switchTF) => {

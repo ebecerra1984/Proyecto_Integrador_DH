@@ -6,6 +6,7 @@ const {productCategorySync}= require('./productCategory.model')
 const {paymentMethodSync}= require('./paymentMethod.model')
 const {orderSync}= require('./order.model')
 const {deliveryMethodSync}= require('./deliveryMethod.model')
+const {orderProductSync}= require('./orderProduct.model')
 
 var TF = '';
 
@@ -20,6 +21,7 @@ const createModels =() => {
     productCategorySync(TF);
     paymentMethodSync(TF);
     deliveryMethodSync(TF);
+    orderProductSync(TF);
 };
 
 module.exports = createModels;

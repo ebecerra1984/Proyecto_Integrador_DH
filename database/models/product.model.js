@@ -19,6 +19,23 @@ const config = {
 
 const Product = sqlize.define(alias, cols, config);
 
+
+// ----- Relaciones de la tabla -----
+Product.associate = function(models){
+  Product.belongsTo (models.Product_category,{
+    as: 'Product_category',
+    foreignKey: 'categoria_id'
+  }),
+  Product.belongsToMany (models.Order, {
+    as: 'Order',
+    through: 'orders_products',
+    foreignKey: 'sku',
+    otherKey: 'order_id',
+    timestamps: false
+  })
+}
+
+
 //----- creacion de la tabla -----
 const productSync = async (switchTF) => {
     try {

@@ -20,8 +20,21 @@ const config = {
     timestamps: false
 };
 
-
 const User = sqlize.define(alias, cols, config);
+
+
+// ----- Relaciones de la tabla -----
+User.associate = function(models){
+  User.belongsTo (models.User_category,{
+    as: 'User_category',
+    foreignKey: 'categoria_id'
+  }),
+  User.hasMany (models.Order,{
+    as: 'User',
+    foreignKey: 'user_id'
+  })
+}
+
 
 
 //----- creacion de la tabla -----
