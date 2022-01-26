@@ -24,7 +24,7 @@ const Order_product = sqlize.define(alias, cols, config);
 const orderProductSync = async (switchTF) => {
     try {
       await Order_product.sync({ force: switchTF });
-      console.log("Creacón de 'orders_products' exitosa");
+//      console.log("Creacón de 'orders_products' exitosa");
     } catch (err) {
         console.log("Error en creacion de 'Users_categories': ", err);
     }

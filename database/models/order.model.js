@@ -6,7 +6,6 @@ const alias = 'Order';
 const cols= {
     order_id:{ type: Sequelize.INTEGER, primaryKey: true, allowNull: false, autoIncrement: true },
     user_id:{ type: Sequelize.INTEGER, allowNull: false },
-    product_id:{ type: Sequelize.INTEGER, allowNull: false },
     delivery_id:{ type: Sequelize.SMALLINT, allowNull: false },
     payment_id:{ type: Sequelize.SMALLINT, allowNull: false },
     total_amount:{ type: Sequelize.INTEGER, allowNull: false },
@@ -49,7 +48,7 @@ Order.associate = function(models){
 const orderSync = async (switchTF) => {
     try {
       await Order.sync({ force: switchTF });
-      console.log('Creacón de payment_methods exitosa');
+//      console.log('Creacón de payment_methods exitosa');
     } catch (err) {
         console.log("Error en creacion de 'payment_methods': ", err);
     }

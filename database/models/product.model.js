@@ -40,7 +40,7 @@ Product.associate = function(models){
 const productSync = async (switchTF) => {
     try {
       await Product.sync({ force: switchTF });
-      console.log('Creacón de Products exitosa');
+//      console.log('Creacón de Products exitosa');
     } catch (err) {
         console.log("Error en creacion de 'Products': ", err);
     }

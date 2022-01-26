@@ -26,7 +26,7 @@ Delivery_method.associate = function(models){
 const deliveryMethodSync = async (switchTF) => {
     try {
       await Delivery_method.sync({ force: switchTF });
-      console.log('Creacón de delivery_methods exitosa');
+//      console.log('Creacón de delivery_methods exitosa');
     } catch (err) {
         console.log("Error en creacion de 'delivery_methods': ", err);
     }

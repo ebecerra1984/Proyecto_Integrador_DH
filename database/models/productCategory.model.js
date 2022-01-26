@@ -27,7 +27,7 @@ Product_category.associate = function(models){
 const productCategorySync = async (switchTF) => {
     try {
       await Product_category.sync({ force: switchTF });
-      console.log('Creacón de Product_categories exitosa');
+//      console.log('Creacón de Product_categories exitosa');
     } catch (err) {
         console.log("Error en creacion de 'Product_categories': ", err);
     }

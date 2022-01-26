@@ -1,22 +1,22 @@
 [
-  {
-    "nombre": "Eduardo",
-    "apellido": "Iza",
-    "codigoPais": "11400",
-    "telefono": "099132868",
-    "empresa": "",
-    "email": "1edu70.i@gmail.com",
-    "password": "$2b$10$677jvLAkFZzyf978RQR89OZxIV0XnBsC.94Ut9E0k4Ittc2994hCu",
-    "avatar": "avatar_1640048109770.png"
-  },
-  {
-    "nombre": "Ezequiel Roman",
-    "apellido": "Becerra",
-    "codigoPais": "1431",
-    "telefono": "01134571884",
-    "empresa": "ABC",
-    "email": "ebecerra1984@gmail.com",
-    "password": "$2b$10$4ePtEUeW29VK86qeBA4M8.nKSiN0UkWTkppSA779jZLBzDEc15tDO",
-    "avatar": "avatar_1640129151742.jpg"
-  }
+    {
+        "nombre": "Eduardo",
+        "apellido": "Iza",
+        "codigoPais": "11400",
+        "telefono": "099132868",
+        "empresa": "",
+        "email": "1edu70.i@gmail.com",
+        "password": "$2b$10$677jvLAkFZzyf978RQR89OZxIV0XnBsC.94Ut9E0k4Ittc2994hCu",
+        "avatar": "avatar_1640048109770.png"
+    },
+    {
+        "nombre": "Ezequiel Roman",
+        "apellido": "Becerra",
+        "codigoPais": "1431",
+        "telefono": "01134571884",
+        "empresa": "ABC",
+        "email": "ebecerra1984@gmail.com",
+        "password": "$2b$10$4ePtEUeW29VK86qeBA4M8.nKSiN0UkWTkppSA779jZLBzDEc15tDO",
+        "avatar": "avatar_1640129151742.jpg"
+    }
 ]

@@ -28,7 +28,7 @@ User_category.associate = function(models){
 const userCategorySync = async (switchTF) => {
     try {
       await User_category.sync({ force: switchTF });
-      console.log('Creacón de Users_categories exitosa');
+//      console.log('Creacón de Users_categories exitosa');
     } catch (err) {
         console.log("Error en creacion de 'Users_categories': ", err);
     }
