@@ -1,11 +1,8 @@
 const { validationResult } = require("express-validator");
 const fs = require("fs");
 const path = require("path");
-const multer = require("multer");
 const productsFilePath = path.join(__dirname, "../data/products.json");
 const db = require("../database/models/product.model");
-
-const image = multer({ dest: "/static/images/products" });
 
 const productsCtrl = {
   all: (req, res) => {
