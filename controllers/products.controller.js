@@ -47,7 +47,6 @@ const productsCtrl = {
   create: (req, res) => {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
-      console.log(req.body.categoria);
       db.Product.create({
         nombre: req.body.nombre,
         descripcion: req.body.descripcion,
