@@ -65,41 +65,26 @@ const productsCtrl = {
   },
 
   edit: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    idProd = req.params.id;
-    producto = products.find(function (product) {
-      return product.id == idProd;
+    db.Product.findByPk(req.params.id).then((producto) => {
+      res.render("prodEdit", { producto });
     });
-    res.render("prodEdit", { producto });
   },
 
   update: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    idProd = req.params.id;
-    const { name, description, category, newCategory, price, discount } =
-      req.body;
-    const newProd = [];
-
-    products.map(function (producto) {
-      if (producto.id == idProd) {
-        if (newCategory != "Seleccione nueva") {
-          producto.category = newCategory;
-        } else {
-          producto.category = category;
-        }
-        (producto.name = name),
-          (producto.description = description),
-          (producto.price = price),
-          (producto.discount = discount);
-      }
-      newProd.push(producto);
-    });
-    fs.writeFileSync(productsFilePath, JSON.stringify(products));
+    db.Product.update(
+      {
+        nombre: req.body.name,
+        descripcion: req.body.description,
+        categoria: parseInt(req.body.categoria),
+        precio: req.body.price,
+        descuento: req.body.discount,
+      },
+      { where: { id: req.params.id } }
+    );
     res.redirect("/");
   },
 
   detailDelete: (req, res) => {
-    const idProd = req.params.id;
     db.Product.findByPk(req.params.id).then((producto) => {
       res.render("prodDelete", { producto });
     });

@@ -34,7 +34,7 @@ const validateRegister = [
 // Validaciones del registro de productos
 const validateProductCreate = [
   check("nombre", "Debes completar el campo Nombre").notEmpty(),
-  check("sku", "Debes completar el campo SKU").notEmpty(),
+  // check("sku", "Debes completar el campo SKU").notEmpty(),
   check("descripcion", "Debes ingresar una descripcion").notEmpty(),
   check("precio", "Debes ingresar un precio").notEmpty(),
   check("descuento", "Debes ingresar un descuento").notEmpty(),
