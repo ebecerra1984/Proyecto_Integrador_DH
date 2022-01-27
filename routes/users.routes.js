@@ -15,6 +15,11 @@ router.post("/register",
   userCTRL.create
 );
 router.get("/profile", userCTRL.profile);
+router.get("/edit/:id", userCTRL.edit);
+router.put("/edit/:id",
+  upload.usersUpload.single("avatar"),
+  userCTRL.update);
 router.get("/logout", userCTRL.logout);
+
 
 module.exports = router;
