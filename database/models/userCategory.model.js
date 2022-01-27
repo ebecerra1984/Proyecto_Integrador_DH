@@ -31,12 +31,12 @@ User_category.associate = function(models){
 
 //----- creacion de la tabla -----
 const userCategorySync = async (switchTF) => {
-  try {
-    await User_category.sync({ force: switchTF });
-    console.log("Creacón de Users_categories exitosa");
-  } catch (err) {
-    console.log("Error en creacion de 'Users_categories': ", err);
-  }
-};
+    try {
+      await User_category.sync({ force: switchTF });
+//      console.log('Creacón de Users_categories exitosa');
+    } catch (err) {
+        console.log("Error en creacion de 'Users_categories': ", err);
+    }
+  };
 
 module.exports = { User_category, userCategorySync };

@@ -29,12 +29,16 @@ Delivery_method.associate = function(models){
 
 //----- creacion de la tabla -----
 const deliveryMethodSync = async (switchTF) => {
-  try {
-    await Delivery_method.sync({ force: switchTF });
-    console.log("Creacón de delivery_methods exitosa");
-  } catch (err) {
-    console.log("Error en creacion de 'delivery_methods': ", err);
-  }
-};
+
+    try {
+      await Delivery_method.sync({ force: switchTF });
+//      console.log('Creacón de delivery_methods exitosa');
+    } catch (err) {
+        console.log("Error en creacion de 'delivery_methods': ", err);
+    }
+  };
+
+
+
 
 module.exports = { Delivery_method, deliveryMethodSync };

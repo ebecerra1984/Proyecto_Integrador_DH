@@ -14,11 +14,19 @@
     <h2>Perfil de Usuario</h2>
     <article class='profile'>
       <img height="200px" src="/static/images/users/<%= user.avatar %>" alt="Imágen del producto">
+      <br>
       <span class=precio-descuento-descrip>
         <p class='datos'>Nombre: <%= user.nombre%> <%= user.apellido%></p>
+        <br>
         <p class='datos'>Empresa: <%= user.empresa%></p>
+        <br>
         <p class='datos'>Email: <%= user.email%></p>
+        <br>
         <p class='datos'>Teléfono: <%= user.codigoPais%><%= user.telefono%></p>
+        <br>
+        
+          <a href="/users/edit/<%= user.user_id%>"><button type="submit">Editar perfil</button></a>
+        
       </span>
     </article>
   </main>
