@@ -4,7 +4,7 @@ const { sqlize } = require("../config/dbConfig");
 //----- definiciñon del modelo -----
 const alias = "User";
 const cols = {
-  id: {
+  user_id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
     allowNull: false,
@@ -12,13 +12,13 @@ const cols = {
   },
   nombre: { type: Sequelize.STRING(50), allowNull: false },
   apellido: { type: Sequelize.STRING(50), allowNull: false },
-  cod_pais: { type: Sequelize.SMALLINT, allowNull: false },
+  codigo_pais: { type: Sequelize.SMALLINT, allowNull: false },
   telefono: { type: Sequelize.INTEGER, allowNull: false },
+  empresa: { type: Sequelize.STRING(50), allowNull: true },
   email: { type: Sequelize.STRING(50), allowNull: false },
   password: { type: Sequelize.STRING(50), allowNull: false },
   avatar: { type: Sequelize.STRING(50), allowNull: false },
   categoria_id: { type: Sequelize.SMALLINT, allowNull: false },
-  empresa: { type: Sequelize.STRING(50), allowNull: true },
 };
 const config = {
   tablename: "users",
@@ -43,7 +43,7 @@ User.associate = function (models) {
 const userSync = async (switchTF) => {
   try {
     await User.sync({ force: switchTF });
-    console.log("Creacón de Users exitosa");
+    //      console.log('Creacón de Users exitosa');
   } catch (err) {
     console.log("Error en creacion de 'Users': ", err);
   }

@@ -2,20 +2,14 @@ const Sequelize = require("sequelize");
 const { sqlize } = require("../config/dbConfig");
 
 //----- definiciñon del modelo -----
-const alias = "Order";
-const cols = {
-  order_id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-    allowNull: false,
-    autoIncrement: true,
-  },
-  user_id: { type: Sequelize.INTEGER, allowNull: false },
-  product_id: { type: Sequelize.INTEGER, allowNull: false },
-  delivery_id: { type: Sequelize.SMALLINT, allowNull: false },
-  payment_id: { type: Sequelize.SMALLINT, allowNull: false },
-  total_amount: { type: Sequelize.INTEGER, allowNull: false },
-  total_qty: { type: Sequelize.INTEGER, allowNull: false },
+const alias = 'Order';
+const cols= {
+    order_id:{ type: Sequelize.INTEGER, primaryKey: true, allowNull: false, autoIncrement: true },
+    user_id:{ type: Sequelize.INTEGER, allowNull: false },
+    delivery_id:{ type: Sequelize.SMALLINT, allowNull: false },
+    payment_id:{ type: Sequelize.SMALLINT, allowNull: false },
+    total_amount:{ type: Sequelize.INTEGER, allowNull: false },
+    total_qty:{ type: Sequelize.INTEGER, allowNull: false }
 };
 const config = {
   tablename: "orders",
@@ -49,6 +43,7 @@ Order.associate = function (models) {
 
 //----- creacion de la tabla -----
 const orderSync = async (switchTF) => {
+<<<<<<< HEAD
   try {
     await Order.sync({ force: switchTF });
     console.log("Creacón de payment_methods exitosa");
@@ -56,5 +51,16 @@ const orderSync = async (switchTF) => {
     console.log("Error en creacion de 'payment_methods': ", err);
   }
 };
+=======
+    try {
+      await Order.sync({ force: switchTF });
+//      console.log('Creacón de payment_methods exitosa');
+    } catch (err) {
+        console.log("Error en creacion de 'payment_methods': ", err);
+    }
+  };
+
+
+>>>>>>> 4d7fb61db5c0ba5f2a0580dfabe3d7fae169299b
 
 module.exports = { Order, orderSync };
