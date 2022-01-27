@@ -16,17 +16,17 @@
           <% products.forEach(function(products){ %>
             <article class='art'>
               <a href="/products/prodDetail/<%= products.id %>"><img height="200px"
-                  src="/static/images/products/<%= products.image %>" alt="Imagen de producto"></a>
+                  src="/static/images/products/<%= products.imagen %>" alt="Imagen de producto"></a>
               <span class=precio-descuento-descrip>
                 <p><i class="fas fa-robot"></i></p>
                 <p class='precios'>
-                  <%= products.price %>
+                  <%= products.precio %>
                 </p>
                 <p class='descuentos'>
-                  <%= products.discount %>% OFF
+                  <%= products.descuento %>% OFF
                 </p>
                 <p class='detalle'>
-                  <%= products.name %>
+                  <%= products.nombre %>
                 </p>
               </span>
             </article>

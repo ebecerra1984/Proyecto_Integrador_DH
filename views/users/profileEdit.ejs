@@ -4,7 +4,7 @@
     <%- include('../partials/head')%>
     
     <link rel="stylesheet" href="/static/css/register.css">
-    <title>Dorid registro</title>
+    <title>Dorid Profile</title>
 </head>
 <body>
     <header>
@@ -12,7 +12,7 @@
     </header>
 
     <main class="main-registro">
-        <h3 class="titulo-registro">Crea tu cuenta</h3    >
+        <h3 class="titulo-registro">Modifica tus datos</h3    >
         <h5 class="titulo-registro">Los campos marcados con * son requeridos</h5>
         
         <% if(locals.errors){
@@ -24,41 +24,42 @@
             <p class="errorsForm"> <%= locals.errUserExist %></p>
         <% } %> 
                        
-        <form action="/users/register" method="POST"  enctype="multipart/form-data">
+        <form action="/users/edit/<%= user.user_id %>?_method=PUT" method="POST" enctype="multipart/form-data">
         
             <label for="nombre" class="label">Nombre *</label>
                 <input class="campo-input" type="text" name="nombre" placeholder="Ingrese su nombre"
-                value="<%= locals.old && locals.old.nombre ? locals.old.nombre : ''%>">
+                value="<%= locals.old && locals.old.nombre ? locals.old.nombre : user.nombre %>">
             <label for="apellido" class="label">Apellido *</label>
                 <input class="campo-input" type="text" name="apellido" placeholder="Ingrese su apellido"
-                value="<%= locals.old && locals.old.apellido ? locals.old.apellido : ''%>">
+                value="<%= locals.old && locals.old.apellido ? locals.old.apellido : user.apellido %>">
             <label for="" class="label">Teléfono *</label>
             <div class="telefono">
                 <input class="codigo-pais" type="number" name="codigo_pais" placeholder="Código país"
-                value="<%= locals.old && old.codigoPais ? old.codigoPais : ''%>">
+                value="<%= locals.old && old.codigo_pais ? old.codigo_pais : user.codigo_pais %>">
                 <input class="nro-telefono" type="number" name="telefono" placeholder="Teléfono"
-                value="<%= locals.old && old.telefono ? old.telefono : ''%>">
+                value="<%= locals.old && old.telefono ? old.telefono : user.telefono %>">
             </div>
             <label for="empresa" class="label">Empresa a la que pertenece</label>
-                <input class="campo-input" type="text" name="empresa" placeholder="Empresa">
+                <input class="campo-input" type="text" name="empresa" placeholder="Empresa"
+                value="<%= locals.old && old.empresa ? old.empresa : user.empresa %>">
 
             <label for="avatar" class="label">Seleccione una imagen de perfil *</label>
-                <input class="campo-input" type="file" name="avatar" accept= ".jpg , .png">
+                <input class="campo-input" type="file" name="avatar" accept= ".jpg , .png" required>
 
             <label for="usuario" class="label">Usuario (email) *</label>
                 <input class="campo-input" type="email" name="email" placeholder="Ingrese su email"
-                value="<%= locals.old && old.email ? old.email : ''%>">
-            <label for="password" class="label">Contraseña *</label>
+                value="<%= locals.old && old.email ? old.email : user.email %>"> 
+
+<!--        <label for="password" class="label">Contraseña *</label>
                 <input class="campo-input" type="password" name="password" placeholder="Ingrese su contraseña">
             <label for="confPassword" class="label">Confirme su contraseña *</label>
                 <input class="campo-input" type="password" name="confPassword" placeholder="Confirme su contraseña">
+-->
 
-<!--           <div class="g-recaptcha" old-sitekey="your_site_key"></div>
-               <input type="submit" value="Submit">-->
 
             <div class="botonera">
                 <button class="button-registro" type="submit">Aceptar</button>
-                <button class="button-registro" type="reset">Borrar</button> 
+                
             </div>
         </form>
     </main> 

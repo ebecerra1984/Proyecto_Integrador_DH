@@ -14,6 +14,10 @@ const indexController = {
     );
     res.render("index", { robotsFijos, robotsMoviles });
   },
+
+  aboutUs: (req,res) => {
+    res.render("aboutUs");
+  }
 };
 
 module.exports = indexController;

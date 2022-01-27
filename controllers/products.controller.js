@@ -1,15 +1,14 @@
 const { validationResult } = require("express-validator");
 const fs = require("fs");
 const path = require("path");
-const multer = require("multer");
 const productsFilePath = path.join(__dirname, "../data/products.json");
-
-const image = multer({ dest: "/static/images/products" });
+const db = require("../database/models/product.model");
 
 const productsCtrl = {
   all: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    res.render("prodAll", { products });
+    db.Product.findAll().then((products) => {
+      res.render("prodAll", { products });
+    });
   },
 
   fijos: (req, res) => {
@@ -27,6 +26,7 @@ const productsCtrl = {
     );
     res.render("prodMoviles", { robotsMoviles });
   },
+
   repuestos: (req, res) => {
     let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     const repuestos = products.filter(
@@ -36,29 +36,23 @@ const productsCtrl = {
   },
 
   detail: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    idProd = req.params.id;
-    producto = products.find(function (product) {
-      return product.id == idProd;
+    db.Product.findByPk(req.params.id).then((producto) => {
+      res.render("prodDetail", { producto });
     });
-    res.render("prodDetail", { producto });
   },
 
   create: (req, res) => {
     let errors = validationResult(req);
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+    console.log(req.body);
     if (errors.isEmpty()) {
-      let newProducto = {
-        id: parseInt(req.body.sku),
-        name: req.body.nombre,
-        description: req.body.descripcion,
-        category: req.body.categoria,
-        image: req.file.filename,
-        price: req.body.precio,
-        discount: req.body.descuento,
-      };
-      products.push(newProducto);
-      fs.writeFileSync(productsFilePath, JSON.stringify(products));
+      db.Product.create({
+        nombre: req.body.nombre,
+        descripcion: req.body.descripcion,
+        categoria: parseInt(req.body.categoria),
+        imagen: req.file.filename,
+        precio: req.body.precio,
+        descuento: req.body.descuento,
+      });
       res.redirect("prodAll");
     } else {
       res.render("./prodCRUD", {
@@ -69,53 +63,36 @@ const productsCtrl = {
   },
 
   edit: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    idProd = req.params.id;
-    producto = products.find(function (product) {
-      return product.id == idProd;
+    db.Product.findByPk(req.params.id).then((producto) => {
+      res.render("prodEdit", { producto });
     });
-    res.render("prodEdit", { producto });
   },
 
   update: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    idProd = req.params.id;
-    const { name, description, category, newCategory, price, discount } =
-      req.body;
-    const newProd = [];
-
-    products.map(function (producto) {
-      if (producto.id == idProd) {
-        if (newCategory != "Seleccione nueva") {
-          producto.category = newCategory;
-        } else {
-          producto.category = category;
-        }
-        (producto.name = name),
-          (producto.description = description),
-          (producto.price = price),
-          (producto.discount = discount);
-      }
-      newProd.push(producto);
-    });
-    fs.writeFileSync(productsFilePath, JSON.stringify(products));
+    db.Product.update(
+      {
+        nombre: req.body.name,
+        descripcion: req.body.description,
+        categoria: parseInt(req.body.categoria),
+        precio: req.body.price,
+        descuento: req.body.discount,
+      },
+      { where: { id: req.params.id } }
+    );
     res.redirect("/");
   },
 
   detailDelete: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    idProd = req.params.id;
-    producto = products.find(function (product) {
-      return product.id == idProd;
+    db.Product.findByPk(req.params.id).then((producto) => {
+      res.render("prodDelete", { producto });
     });
-    res.render("prodDelete", { producto });
   },
 
   delete: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    let idProd = req.params.id;
-    products = products.filter((product) => product.id != idProd);
-    fs.writeFileSync(productsFilePath, JSON.stringify(products));
+    const idProd = req.params.id;
+    db.Product.destroy({
+      where: { id: idProd },
+    });
     res.redirect("/");
   },
 
