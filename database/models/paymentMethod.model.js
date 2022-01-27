@@ -19,23 +19,21 @@ const config = {
 
 const Payment_method = sqlize.define(alias, cols, config);
 
-Payment_method.associate = function(models){
-  Payment_method.hasMany (models.Order,{
-    as: 'Payment',
-    foreignKey: 'delivery_id'
-  })
-}
-
+Payment_method.associate = function (models) {
+  Payment_method.hasMany(models.Order, {
+    as: "Payment",
+    foreignKey: "delivery_id",
+  });
+};
 
 //----- creacion de la tabla -----
 const paymentMethodSync = async (switchTF) => {
-
-    try {
-      await Payment_method.sync({ force: switchTF });
-//      console.log('Creacón de payment_methods exitosa');
-    } catch (err) {
-        console.log("Error en creacion de 'payment_methods': ", err);
-    }
-  };
+  try {
+    await Payment_method.sync({ force: switchTF });
+    //      console.log('Creacón de payment_methods exitosa');
+  } catch (err) {
+    console.log("Error en creacion de 'payment_methods': ", err);
+  }
+};
 
 module.exports = { Payment_method, paymentMethodSync };

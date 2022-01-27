@@ -19,26 +19,21 @@ const config = {
 
 const Delivery_method = sqlize.define(alias, cols, config);
 
-Delivery_method.associate = function(models){
-  Delivery_method.hasMany (models.Order,{
-    as: 'Delivery',
-    foreignKey: 'delivery_id'
-  })
-}
-
+Delivery_method.associate = function (models) {
+  Delivery_method.hasMany(models.Order, {
+    as: "Delivery",
+    foreignKey: "delivery_id",
+  });
+};
 
 //----- creacion de la tabla -----
 const deliveryMethodSync = async (switchTF) => {
-
-    try {
-      await Delivery_method.sync({ force: switchTF });
-//      console.log('Creacón de delivery_methods exitosa');
-    } catch (err) {
-        console.log("Error en creacion de 'delivery_methods': ", err);
-    }
-  };
-
-
-
+  try {
+    await Delivery_method.sync({ force: switchTF });
+    //      console.log('Creacón de delivery_methods exitosa');
+  } catch (err) {
+    console.log("Error en creacion de 'delivery_methods': ", err);
+  }
+};
 
 module.exports = { Delivery_method, deliveryMethodSync };

@@ -28,13 +28,12 @@ Product_category.associate = function (models) {
 
 //----- creacion de la tabla -----
 const productCategorySync = async (switchTF) => {
-
-    try {
-      await Product_category.sync({ force: switchTF });
-//      console.log('Creacón de Product_categories exitosa');
-    } catch (err) {
-        console.log("Error en creacion de 'Product_categories': ", err);
-    }
-  };
+  try {
+    await Product_category.sync({ force: switchTF });
+    //      console.log('Creacón de Product_categories exitosa');
+  } catch (err) {
+    console.log("Error en creacion de 'Product_categories': ", err);
+  }
+};
 
 module.exports = { Product_category, productCategorySync };

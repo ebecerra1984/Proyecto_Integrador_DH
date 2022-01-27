@@ -19,24 +19,22 @@ const config = {
 
 const User_category = sqlize.define(alias, cols, config);
 
-
 // ----- Relaciones de la tabla -----
-User_category.associate = function(models){
-  User_category.hasMany (models.User,{
-    as: 'User_category',
-    foreignKey: 'categoria_id'
-  })
-}
-
+User_category.associate = function (models) {
+  User_category.hasMany(models.User, {
+    as: "User_category",
+    foreignKey: "categoria_id",
+  });
+};
 
 //----- creacion de la tabla -----
 const userCategorySync = async (switchTF) => {
-    try {
-      await User_category.sync({ force: switchTF });
-//      console.log('Creacón de Users_categories exitosa');
-    } catch (err) {
-        console.log("Error en creacion de 'Users_categories': ", err);
-    }
-  };
+  try {
+    await User_category.sync({ force: switchTF });
+    //      console.log('Creacón de Users_categories exitosa');
+  } catch (err) {
+    console.log("Error en creacion de 'Users_categories': ", err);
+  }
+};
 
 module.exports = { User_category, userCategorySync };
