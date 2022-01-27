@@ -4,7 +4,7 @@ const { sqlize } = require("../config/dbConfig");
 //----- definiciñon del modelo -----
 const alias = "User";
 const cols = {
-  user_id: {
+  id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
     allowNull: false,
@@ -19,6 +19,7 @@ const cols = {
   password: { type: Sequelize.STRING(50), allowNull: false },
   avatar: { type: Sequelize.STRING(50), allowNull: false },
   categoria_id: { type: Sequelize.SMALLINT, allowNull: false },
+  empresa: { type: Sequelize.STRING(50), allowNull: true },
 };
 const config = {
   tablename: "users",

@@ -28,6 +28,7 @@ Payment_method.associate = function (models) {
 
 //----- creacion de la tabla -----
 const paymentMethodSync = async (switchTF) => {
+<<<<<<< HEAD
   try {
     await Payment_method.sync({ force: switchTF });
     //      console.log('Creacón de payment_methods exitosa');
@@ -35,5 +36,15 @@ const paymentMethodSync = async (switchTF) => {
     console.log("Error en creacion de 'payment_methods': ", err);
   }
 };
+=======
+
+    try {
+      await Payment_method.sync({ force: switchTF });
+//      console.log('Creacón de payment_methods exitosa');
+    } catch (err) {
+        console.log("Error en creacion de 'payment_methods': ", err);
+    }
+  };
+>>>>>>> 92b36295fc310bb169ae6493c8d92b43af272c4c
 
 module.exports = { Payment_method, paymentMethodSync };
