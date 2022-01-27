@@ -1,15 +1,20 @@
-const Sequelize =require('sequelize');
-const {sqlize} = require('../config/dbConfig');
+const Sequelize = require("sequelize");
+const { sqlize } = require("../config/dbConfig");
 
 //----- definiciñon del modelo -----
-const alias = 'User_category';
+const alias = "User_category";
 const cols = {
-    id:{ type: Sequelize.SMALLINT, primaryKey: true, allowNull: false, autoIncrement: true },
-    nombre:{ type: Sequelize.STRING(50), allowNull: false }
+  id: {
+    type: Sequelize.SMALLINT,
+    primaryKey: true,
+    allowNull: false,
+    autoIncrement: true,
+  },
+  nombre: { type: Sequelize.STRING(50), allowNull: false },
 };
 const config = {
-    tablename: 'user_categories',
-    timestamps: false
+  tablename: "user_categories",
+  timestamps: false,
 };
 
 const User_category = sqlize.define(alias, cols, config);
@@ -33,7 +38,5 @@ const userCategorySync = async (switchTF) => {
         console.log("Error en creacion de 'Users_categories': ", err);
     }
   };
-    
 
-
-module.exports ={ User_category, userCategorySync };
+module.exports = { User_category, userCategorySync };

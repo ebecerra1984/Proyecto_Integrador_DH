@@ -1,15 +1,20 @@
-const Sequelize =require('sequelize');
-const {sqlize} = require('../config/dbConfig');
+const Sequelize = require("sequelize");
+const { sqlize } = require("../config/dbConfig");
 
 //----- definiciñon del modelo -----
-const alias = 'Delivery_method';
-const cols= {
-    id:{ type: Sequelize.SMALLINT, primaryKey: true, allowNull: false, autoIncrement: true },
-    nombre:{ type: Sequelize.STRING(50), allowNull: false }
+const alias = "Delivery_method";
+const cols = {
+  id: {
+    type: Sequelize.SMALLINT,
+    primaryKey: true,
+    allowNull: false,
+    autoIncrement: true,
+  },
+  nombre: { type: Sequelize.STRING(50), allowNull: false },
 };
 const config = {
-    tablename: 'delivery_methods',
-    timestamps: false
+  tablename: "delivery_methods",
+  timestamps: false,
 };
 
 const Delivery_method = sqlize.define(alias, cols, config);
@@ -24,6 +29,7 @@ Delivery_method.associate = function(models){
 
 //----- creacion de la tabla -----
 const deliveryMethodSync = async (switchTF) => {
+
     try {
       await Delivery_method.sync({ force: switchTF });
 //      console.log('Creacón de delivery_methods exitosa');
@@ -34,4 +40,5 @@ const deliveryMethodSync = async (switchTF) => {
 
 
 
-module.exports ={Delivery_method, deliveryMethodSync};
+
+module.exports = { Delivery_method, deliveryMethodSync };
