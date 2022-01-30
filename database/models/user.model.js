@@ -16,7 +16,7 @@ const cols = {
   telefono: { type: Sequelize.INTEGER, allowNull: false },
   empresa: { type: Sequelize.STRING(50), allowNull: true },
   email: { type: Sequelize.STRING(50), allowNull: false },
-  password: { type: Sequelize.STRING(50), allowNull: false },
+  password: { type: Sequelize.STRING(256), allowNull: false },
   avatar: { type: Sequelize.STRING(50), allowNull: false },
   categoria_id: { type: Sequelize.SMALLINT, allowNull: false },
   empresa: { type: Sequelize.STRING(50), allowNull: true },
