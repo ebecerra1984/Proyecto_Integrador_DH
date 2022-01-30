@@ -11,13 +11,9 @@ const userCTRL = {
   },
 
   login: (req, res) => {
-    //    let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-    //    let userLogin = users.find((user) => user["email"] == req.body.email);
-
     let userBody = req.body.email;
     db.User.findOne({ where: { email: userBody } }).then((userLogin) => {
       if (userLogin) {
-        // *********** BCRYPT NO VALIDA Y RETORNA SIMPRE FALSE **********
         bcrypt
           .compare(req.body.password, userLogin.password)
           .then((passwordOk) => {
