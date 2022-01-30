@@ -17,29 +17,26 @@ const userCTRL = {
     let userBody = req.body.email;
     db.User.findOne({ where: { email: userBody } }).then((userLogin) => {
       if (userLogin) {
-        console.log(req.body.password);
-        console.log(userLogin.password);
-
         // *********** BCRYPT NO VALIDA Y RETORNA SIMPRE FALSE **********
-
-        let passwordOk = bcrypt.compare(req.body.password, userLogin.password);
-
-        if (passwordOk) {
-          req.session.userLogged = userLogin;
-
-          console.log(req.session.userLogged.email);
-
-          if (req.body.mantenerLogin) {
-            res.cookie("userEmail", req.body.email, { maxAge: 900000 });
-            console.log(req.cookies.userEmail);
-          }
-          res.redirect("/");
-        } else {
-          let errUserLogin = "La contraseña ingresada no es válida.";
-          res.render("./users/login", { errUserLogin });
-        }
-
-        //        });
+        bcrypt.hash(req.body.password, 6).then((hash) => {
+          console.log(hash);
+          bcrypt
+            .compare(req.body.password, userLogin.password)
+            .then((passwordOk) => {
+              if (passwordOk) {
+                req.session.userLogged = userLogin;
+                console.log(req.session.userLogged.email);
+                if (req.body.mantenerLogin) {
+                  res.cookie("userEmail", req.body.email, { maxAge: 900000 });
+                  console.log(req.cookies.userEmail);
+                }
+                res.redirect("/");
+              } else {
+                let errUserLogin = "La contraseña ingresada no es válida.";
+                res.render("./users/login", { errUserLogin });
+              }
+            });
+        });
       } else {
         let errUserLogin = "El email ingresado no está registrado";
         res.render("./users/login", { errUserLogin, old: req.body });

@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `telefono` int(11) NOT NULL,
   `empresa` varchar(50) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(256) NOT NULL,
   `avatar` varchar(50) NOT NULL,
   `categoria_id` smallint(6) NOT NULL,
   PRIMARY KEY (`user_id`)
