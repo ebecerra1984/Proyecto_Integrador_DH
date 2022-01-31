@@ -2,21 +2,30 @@ const { validationResult } = require("express-validator");
 const fs = require("fs");
 const path = require("path");
 const productsFilePath = path.join(__dirname, "../data/products.json");
-const db = require("../database/models/product.model");
+const dbTodos = require("../database/models/product.model");
+const dbFijos = require("../database/models/productCategory.model");
 
 const productsCtrl = {
   all: (req, res) => {
-    db.Product.findAll().then((products) => {
+    dbTodos.Product.findAll().then((products) => {
       res.render("prodAll", { products });
     });
   },
 
   fijos: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    const robotsFijos = products.filter(
-      (producto) => producto.category == "robot-fijo"
-    );
-    res.render("prodFijos", { robotsFijos });
+    dbFijos.Product_category.findAll({
+      where: {
+        nombre: "Fijo",
+      },
+    }).then((robotsFijos) => {
+      console.log(robotsFijos);
+      res.render("prodFijos", { robotsFijos });
+    });
+    // let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+    // const robotsFijos = products.filter(
+    //   (producto) => producto.category == "robot-fijo"
+    // );
+    // res.render("prodFijos", { robotsFijos });
   },
 
   moviles: (req, res) => {
@@ -36,7 +45,7 @@ const productsCtrl = {
   },
 
   detail: (req, res) => {
-    db.Product.findByPk(req.params.id).then((producto) => {
+    dbTodos.Product.findByPk(req.params.id).then((producto) => {
       res.render("prodDetail", { producto });
     });
   },
@@ -45,7 +54,7 @@ const productsCtrl = {
     let errors = validationResult(req);
     console.log(req.body);
     if (errors.isEmpty()) {
-      db.Product.create({
+      dbTodos.Product.create({
         nombre: req.body.nombre,
         descripcion: req.body.descripcion,
         categoria: parseInt(req.body.categoria),
@@ -63,13 +72,13 @@ const productsCtrl = {
   },
 
   edit: (req, res) => {
-    db.Product.findByPk(req.params.id).then((producto) => {
+    dbTodos.Product.findByPk(req.params.id).then((producto) => {
       res.render("prodEdit", { producto });
     });
   },
 
   update: (req, res) => {
-    db.Product.update(
+    dbTodos.Product.update(
       {
         nombre: req.body.name,
         descripcion: req.body.description,
@@ -83,14 +92,14 @@ const productsCtrl = {
   },
 
   detailDelete: (req, res) => {
-    db.Product.findByPk(req.params.id).then((producto) => {
+    dbTodos.Product.findByPk(req.params.id).then((producto) => {
       res.render("prodDelete", { producto });
     });
   },
 
   delete: (req, res) => {
     const idProd = req.params.id;
-    db.Product.destroy({
+    dbTodos.Product.destroy({
       where: { id: idProd },
     });
     res.redirect("/");

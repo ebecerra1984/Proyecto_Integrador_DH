@@ -22,7 +22,7 @@ const Product_category = sqlize.define(alias, cols, config);
 Product_category.associate = function (models) {
   Product_category.hasMany(models.Product, {
     as: "Product_category",
-    foreignKey: "categoria_id",
+    foreignKey: "categoria",
   });
 };
 
@@ -30,7 +30,6 @@ Product_category.associate = function (models) {
 const productCategorySync = async (switchTF) => {
   try {
     await Product_category.sync({ force: switchTF });
-    //      console.log('Creacón de Product_categories exitosa');
   } catch (err) {
     console.log("Error en creacion de 'Product_categories': ", err);
   }
