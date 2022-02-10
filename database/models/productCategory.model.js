@@ -1,5 +1,6 @@
 const Sequelize = require("sequelize");
 const { sqlize } = require("../config/dbConfig");
+const Product = require("./product.model");
 
 //----- definiciñon del modelo -----
 const alias = "Product_category";
@@ -15,13 +16,14 @@ const cols = {
 const config = {
   tablename: "product_categories",
   timestamps: false,
+  underscore: true,
 };
 
 const Product_category = sqlize.define(alias, cols, config);
 
 Product_category.associate = function (models) {
   Product_category.hasMany(models.Product, {
-    as: "Product_category",
+    as: "categorias",
     foreignKey: "categoria",
   });
 };

@@ -64,9 +64,6 @@ const userCTRL = {
           avatar: req.file.filename,
           categoria_id: 1,
         };
-        console.log(newUser);
-        // users.push(newUser);
-        // fs.writeFileSync(usersFilePath, JSON.stringify(users));
 
         db.User.create(newUser);
 

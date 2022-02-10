@@ -20,14 +20,15 @@ const cols = {
 const config = {
   tablename: "products",
   timestamps: false,
+  underscore: true,
 };
 
 const Product = sqlize.define(alias, cols, config);
 
 // ----- Relaciones de la tabla -----
 Product.associate = function (models) {
-  Product.belongsTo(models.Product_category, {
-    as: "Product_category",
+  Product.hasOne(models.Product_category, {
+    as: "categorias",
     foreignKey: "categoria",
   }),
     Product.belongsToMany(models.Order, {
