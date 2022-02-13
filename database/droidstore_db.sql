@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   `descripcion` varchar(50) NOT NULL,
-  `categoria` varchar(50) NOT NULL,
+  `categoria` smallint(6) NOT NULL,
   `precio` float(11) NOT NULL,
   `descuento` float(11) NOT NULL DEFAULT 0,
   `imagen` varchar(50) NOT NULL DEFAULT '0',

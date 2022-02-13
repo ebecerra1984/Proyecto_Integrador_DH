@@ -1,6 +1,5 @@
 const Sequelize = require("sequelize");
 const { sqlize } = require("../config/dbConfig");
-const Product = require("./product.model");
 
 //----- definiciñon del modelo -----
 const alias = "Product_category";
@@ -16,14 +15,14 @@ const cols = {
 const config = {
   tablename: "product_categories",
   timestamps: false,
-  underscore: true,
+  underscored: true,
 };
 
-const Product_category = sqlize.define(alias, cols, config);
+const ProductCategory = sqlize.define(alias, cols);
 
-Product_category.associate = function (models) {
-  Product_category.hasMany(models.Product, {
-    as: "categorias",
+ProductCategory.associate = function (models) {
+  ProductCategory.hasMany(models.Product, {
+    as: "productos",
     foreignKey: "categoria",
   });
 };
@@ -31,10 +30,10 @@ Product_category.associate = function (models) {
 //----- creacion de la tabla -----
 const productCategorySync = async (switchTF) => {
   try {
-    await Product_category.sync({ force: switchTF });
+    await ProductCategory.sync({ force: switchTF });
   } catch (err) {
     console.log("Error en creacion de 'Product_categories': ", err);
   }
 };
 
-module.exports = { Product_category, productCategorySync };
+module.exports = { ProductCategory, productCategorySync };

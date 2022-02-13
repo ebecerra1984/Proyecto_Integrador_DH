@@ -1,7 +1,7 @@
 const { chkConnection } = require("../config/dbConfig");
 const { userSync } = require("./user.model");
 const { userCategorySync } = require("./userCategory.model");
-const { productSync } = require("./product.model");
+const { productSync } = require("./product.model.new");
 const { productCategorySync } = require("./productCategory.model");
 const { paymentMethodSync } = require("./paymentMethod.model");
 const { orderSync } = require("./order.model");
