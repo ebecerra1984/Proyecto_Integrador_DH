@@ -30,7 +30,6 @@ Product.associate = function (models) {
   Product.belongsTo(models.Product_category, {
     as: "categorias",
     foreignKey: "categoria",
-    tagetKey: "id",
   });
 };
 // Product.belongsToMany(models.Order, {

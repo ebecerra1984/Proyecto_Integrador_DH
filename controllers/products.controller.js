@@ -3,6 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const productsFilePath = path.join(__dirname, "../data/products.json");
 const db = require("../database/models/product.model");
+const categorias = require("../database/models/productCategory.model");
 
 const productsCtrl = {
   all: (req, res) => {
@@ -13,32 +14,26 @@ const productsCtrl = {
 
   fijos: (req, res) => {
     db.Product.findAll({
-      include: [
-        {
-          model: "Product:-category",
-          as: "categorias",
-        },
-      ],
+      where: { categoria: 1 },
     }).then((robotsFijos) => {
-      console.log(robotsFijos);
       res.render("prodFijos", { robotsFijos });
     });
   },
 
   moviles: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    const robotsMoviles = products.filter(
-      (producto) => producto.category == "robot-movil"
-    );
-    res.render("prodMoviles", { robotsMoviles });
+    db.Product.findAll({
+      where: { categoria: 2 },
+    }).then((robotsMoviles) => {
+      res.render("prodMoviles", { robotsMoviles });
+    });
   },
 
   repuestos: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    const repuestos = products.filter(
-      (producto) => producto.category == "repuesto"
-    );
-    res.render("prodRepuestos", { repuestos });
+    db.Product.findAll({
+      where: { categoria: 3 },
+    }).then((repuestos) => {
+      res.render("prodRepuestos", { repuestos });
+    });
   },
 
   detail: (req, res) => {

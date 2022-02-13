@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const db = require("../database/models/product.model.new");
+const db = require("../database/models/product.model");
 
 const productsFilePath = path.join(__dirname, "../data/products.json");
 
