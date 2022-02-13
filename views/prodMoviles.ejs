@@ -15,17 +15,17 @@
           <% robotsMoviles.forEach(function(robotsMoviles){ %>
             <article class='art'>
               <a href="/products/prodDetail/<%= robotsMoviles.id %>"><img height="200px"
-                  src="/static/images/products/<%= robotsMoviles.image %>" alt="Imagen de producto"></a>
+                  src="/static/images/products/<%= robotsMoviles.imagen %>" alt="Imagen de producto"></a>
               <span class=precio-descuento-descrip>
                 <p><i class="fas fa-robot"></i></p>
                 <p class='precios'>
-                  <%= robotsMoviles.price %>
+                  <%= robotsMoviles.precio %>
                 </p>
                 <p class='descuentos'>
-                  <%= robotsMoviles.discount %>% OFF
+                  <%= robotsMoviles.descuento %>% OFF
                 </p>
                 <p class='detalle'>
-                  <%= robotsMoviles.name %>
+                  <%= robotsMoviles.nombre %>
                 </p>
               </span>
             </article>
