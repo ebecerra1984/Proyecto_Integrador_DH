@@ -1,8 +1,5 @@
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
-//const fs = require("fs");
-//const path = require("path");
-//const usersFilePath = path.join(__dirname, "../data/users.json");
 const db = require("../database/models/user.model");
 
 const userCTRL = {
@@ -19,10 +16,8 @@ const userCTRL = {
           .then((passwordOk) => {
             if (passwordOk) {
               req.session.userLogged = userLogin;
-              console.log(req.session.userLogged.email);
               if (req.body.mantenerLogin) {
-                res.cookie("userEmail", req.body.email, { maxAge: 900000 });
-                console.log(req.cookies.userEmail);
+                res.cookie("userEmail", req.body.email, { maxAge: 12000 });
               }
               res.redirect("/");
             } else {
