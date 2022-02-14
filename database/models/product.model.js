@@ -20,25 +20,25 @@ const cols = {
 const config = {
   tablename: "products",
   timestamps: false,
-  underscore: true,
+  underscored: true,
 };
 
 const Product = sqlize.define(alias, cols, config);
 
 // ----- Relaciones de la tabla -----
 Product.associate = function (models) {
-  Product.hasOne(models.Product_category, {
+  Product.belongsTo(models.Product_category, {
     as: "categorias",
     foreignKey: "categoria",
-  }),
-    Product.belongsToMany(models.Order, {
-      as: "Order",
-      through: "orders_products",
-      foreignKey: "sku",
-      otherKey: "order_id",
-      timestamps: false,
-    });
+  });
 };
+// Product.belongsToMany(models.Order, {
+//   as: "Order",
+//   through: "orders_products",
+//   foreignKey: "sku",
+//   otherKey: "order_id",
+//   timestamps: false,
+// });
 
 //----- creacion de la tabla -----
 const productSync = async (switchTF) => {
