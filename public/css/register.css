@@ -76,13 +76,28 @@ form {
   padding: 5px;
   border-radius: 5px;
 }
-.errorsForm{
+.errorsForm {
   text-align: center;
   color: #ff0000;
   font-weight: bold;
   padding-top: 5px;
 }
 
+.errorFront {
+  border: 1px solid #ff0000;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 5px;
+}
+
+.checkFront {
+  border: 1px solid green;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 5px;
+}
 @media (max-width: 368px) {
   .label {
     font-size: 0.8rem;
