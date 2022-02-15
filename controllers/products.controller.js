@@ -3,6 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const productsFilePath = path.join(__dirname, "../data/products.json");
 const db = require("../database/models/product.model");
+const categorias = require("../database/models/productCategory.model");
 
 const productsCtrl = {
   all: (req, res) => {
@@ -12,27 +13,27 @@ const productsCtrl = {
   },
 
   fijos: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    const robotsFijos = products.filter(
-      (producto) => producto.category == "robot-fijo"
-    );
-    res.render("prodFijos", { robotsFijos });
+    db.Product.findAll({
+      where: { categoria: 1 },
+    }).then((robotsFijos) => {
+      res.render("prodFijos", { robotsFijos });
+    });
   },
 
   moviles: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    const robotsMoviles = products.filter(
-      (producto) => producto.category == "robot-movil"
-    );
-    res.render("prodMoviles", { robotsMoviles });
+    db.Product.findAll({
+      where: { categoria: 2 },
+    }).then((robotsMoviles) => {
+      res.render("prodMoviles", { robotsMoviles });
+    });
   },
 
   repuestos: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    const repuestos = products.filter(
-      (producto) => producto.category == "repuesto"
-    );
-    res.render("prodRepuestos", { repuestos });
+    db.Product.findAll({
+      where: { categoria: 3 },
+    }).then((repuestos) => {
+      res.render("prodRepuestos", { repuestos });
+    });
   },
 
   detail: (req, res) => {
@@ -52,8 +53,9 @@ const productsCtrl = {
         imagen: req.file.filename,
         precio: req.body.precio,
         descuento: req.body.descuento,
+      }).then(() => {
+        res.redirect("prodAll");
       });
-      res.redirect("prodAll");
     } else {
       res.render("./prodCRUD", {
         errors: errors.array(),
@@ -102,3 +104,70 @@ const productsCtrl = {
 };
 
 module.exports = productsCtrl;
+
+// module.exports = (sequelize, dataTypes) => { (alias producto)
+//   let alias = 'Dish';
+//   let cols = {
+//       id: {
+//           type: dataTypes.INTEGER,
+//           primaryKey: true,
+//           autoIncrement: true
+//       },
+//       name: dataTypes.STRING,
+//       description: dataTypes.STRING,
+//       price: dataTypes.DECIMAL,
+//       discount: dataTypes.INTEGER,
+//       recommended: dataTypes.INTEGER,
+//       image: dataTypes.STRING
+//   };
+//   /*let config = {
+//       tableName: 'Papachos',
+//       timestamps: false
+//   };*/
+
+//   const Dish = sequelize.define(alias, cols)
+//   //Aquí creo mi relación entre Platos (Diskes) y Categorias (Categories)
+//   Dish.associate = function(models) {
+//       Dish.belongsTo(models.Category, {
+//               as : 'category',
+//               foreignKey: 'categoryId'
+
+//       });
+
+//       //Aquí hago la relación entre mi módelo Dish y mi tabla items  la cual contiene todo lo que el usuario está comprando
+//       Dish.hasMany(models.Item, {
+//           as: "items",
+//           foreignKey: "productId",
+//       });
+
+//       /*Dish.belongsTo(models.User, {
+//           as: "user",
+//           foreignKey: "userId",
+//       });*/
+
+//   };
+//   return Dish
+// }
+
+// module.exports = (sequelize, dataTypes) => { (alias categoria)
+//   let alias = 'Category';
+//   let cols = {
+//       id: {
+//           type: dataTypes.INTEGER,
+//           primaryKey: true,
+//           autoIncrement: true
+//       },
+//       name: dataTypes.STRING,
+//   };
+//   /*let config = {
+//       tableName: 'categories',
+//       timestamps: false
+//   };*/
+//   const Category = sequelize.define(alias, cols)
+//   //Aquí creo la relación con la tabla Dishes  - OJo: Relación de 1 a muchos
+//   Category.associate = function(models){
+//       Category.hasMany(models.Dish,{
+//               as: 'dishes',
+//               foreignKey: 'categoryId'})}
+//   return Category
+// }

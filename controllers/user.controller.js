@@ -11,32 +11,25 @@ const userCTRL = {
   },
 
   login: (req, res) => {
-    //    let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-    //    let userLogin = users.find((user) => user["email"] == req.body.email);
-
     let userBody = req.body.email;
     db.User.findOne({ where: { email: userBody } }).then((userLogin) => {
       if (userLogin) {
-        // *********** BCRYPT NO VALIDA Y RETORNA SIMPRE FALSE **********
-        bcrypt.hash(req.body.password, 6).then((hash) => {
-          console.log(hash);
-          bcrypt
-            .compare(req.body.password, userLogin.password)
-            .then((passwordOk) => {
-              if (passwordOk) {
-                req.session.userLogged = userLogin;
-                console.log(req.session.userLogged.email);
-                if (req.body.mantenerLogin) {
-                  res.cookie("userEmail", req.body.email, { maxAge: 900000 });
-                  console.log(req.cookies.userEmail);
-                }
-                res.redirect("/");
-              } else {
-                let errUserLogin = "La contraseña ingresada no es válida.";
-                res.render("./users/login", { errUserLogin });
+        bcrypt
+          .compare(req.body.password, userLogin.password)
+          .then((passwordOk) => {
+            if (passwordOk) {
+              req.session.userLogged = userLogin;
+              console.log(req.session.userLogged.email);
+              if (req.body.mantenerLogin) {
+                res.cookie("userEmail", req.body.email, { maxAge: 900000 });
+                console.log(req.cookies.userEmail);
               }
-            });
-        });
+              res.redirect("/");
+            } else {
+              let errUserLogin = "La contraseña ingresada no es válida.";
+              res.render("./users/login", { errUserLogin });
+            }
+          });
       } else {
         let errUserLogin = "El email ingresado no está registrado";
         res.render("./users/login", { errUserLogin, old: req.body });
@@ -71,9 +64,6 @@ const userCTRL = {
           avatar: req.file.filename,
           categoria_id: 1,
         };
-        console.log(newUser);
-        // users.push(newUser);
-        // fs.writeFileSync(usersFilePath, JSON.stringify(users));
 
         db.User.create(newUser);
 

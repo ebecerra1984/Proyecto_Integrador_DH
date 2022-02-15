@@ -63,22 +63,6 @@ CREATE TABLE IF NOT EXISTS `payment_methods` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table droidstore_db.payment_methods: ~0 rows (approximately)
-/*!40000 ALTER TABLE `payment_methods` DISABLE KEYS */;
-/*!40000 ALTER TABLE `payment_methods` ENABLE KEYS */;
-
--- Dumping structure for table droidstore_db.products
-CREATE TABLE IF NOT EXISTS `products` (
-  `sku` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(50) NOT NULL,
-  `descripcion` varchar(50) NOT NULL,
-  `categoria_id` smallint(6) NOT NULL,
-  `precio` int(11) NOT NULL,
-  `descuento` int(11) NOT NULL,
-  `imagen` varchar(50) NOT NULL,
-  PRIMARY KEY (`sku`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 -- Dumping data for table droidstore_db.products: ~0 rows (approximately)
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
@@ -88,6 +72,23 @@ CREATE TABLE IF NOT EXISTS `product_categories` (
   `id` smallint(6) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Dumping data for table droidstore_db.payment_methods: ~0 rows (approximately)
+/*!40000 ALTER TABLE `payment_methods` DISABLE KEYS */;
+/*!40000 ALTER TABLE `payment_methods` ENABLE KEYS */;
+
+-- Dumping structure for table droidstore_db.products
+CREATE TABLE IF NOT EXISTS `products` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) NOT NULL,
+  `descripcion` varchar(50) NOT NULL,
+  `precio` int(11) NOT NULL,
+  `descuento` int(11) NOT NULL,
+  `imagen` varchar(50) NOT NULL,
+  `categoria` smallint(6) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`categoria`) REFERENCES `product_categories`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table droidstore_db.product_categories: ~0 rows (approximately)
