@@ -37,17 +37,14 @@ const userCTRL = {
   },
 
   create: (req, res) => {
+    
     let errors = validationResult(req);
-
-    //    let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-    //    let userExist = users.find((user) => user["email"] == req.body.email);
-
     db.User.findOne({ where: { email: req.body.email } }).then((userExist) => {
       if (userExist != null) {
         let errUserExist = "Ya existe un usuario con este email";
         res.render("./users/register", { errUserExist, old: req.body });
       } else if (errors.isEmpty()) {
-        // let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+       
         let newUser = {
           nombre: req.body.nombre,
           apellido: req.body.apellido,
