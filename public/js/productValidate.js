@@ -55,9 +55,9 @@ form.addEventListener("submit", function (event) {
     descuento.classList.add("is-valid-campo-input");
   }
 
-  let erroresUL = document.getElementById("errorsForm");
+  let erroresUL = document.getElementById("erroresFront");
 
-  erroresUL.classList.add("errorsForm");
+  erroresUL.classList.add("erroresFront");
   if (errores.length > 0) {
     event.preventDefault();
     erroresUL.innerHTML = "";
