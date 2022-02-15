@@ -77,19 +77,19 @@ form {
   border-radius: 5px;
 }
 
-/*----------------------clases para vlidaciones de formularios en front---------*/
-.errorsForm {
+/*----------------------clases para validaciones de formularios en front---------*/
+#errorsForm .errorsForm {
   text-align: center;
   color: #ff0000;
   font-weight: bold;
   padding-top: 5px;
 }
-.erroresFront{
+/* .erroresFront {
   text-align: right;
   color: rgb(0, 38, 255);
   font-weight: bold;
   padding-top: 5px;
-}
+} */
 
 .is-invalid-campo-input {
   margin-bottom: 20px;

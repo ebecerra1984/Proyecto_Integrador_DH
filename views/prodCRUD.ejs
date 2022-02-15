@@ -4,7 +4,7 @@
     <%- include('./partials/head')%>
     
     <link rel="stylesheet" href="/static/css/register.css">
-    <title>Dorid Mantenimiento</title>
+    <title>Droid Mantenimiento</title>
 </head>
 <body>
     <header>
@@ -14,15 +14,24 @@
     <main class="main-registro">
             <h3 class="titulo-registro">Mantenimiento de productos</h3    >
             <h5 class="titulo-registro">Los campos marcados con * son requeridos</h5>
+
+            <!-- errores del backend -->
             <% if(locals.errors){
                 errors.forEach(errors => { %>
                     <p class="errorsForm"> <%= errors.msg %></p>
              <% })
             } %> 
+
+            <!-- // Errores del frontend -->
+        <div>
+            <ul id="errorsForm" > </ul>
+        </div>
+
+
             <% if(locals.errUserExist != ''){%>
                 <p class="errorsForm"> <%= locals.errUserExist %></p>
             <% } %> 
-            <form method="POST" action="/products/crear" enctype="multipart/form-data">
+            <form method="POST" action="/products/crear" enctype="multipart/form-data" class="prodForm">
                 <label for="nombre" class="label">Nombre Producto *</label>
                     <input class="campo-input" type="text" name="nombre" placeholder="Nombre del producto">
                 <label for="descripcion" class="label">Descripción *</label>
@@ -45,7 +54,7 @@
                 <div class="botonera">
                     <button class="button-registro" type="">Buscar</button>
                     <button class="button-registro" type="submit">Agregar</button>
-                    <button class="button-registro" type="">Editar</button>
+                    <button class="button-registro" type="modify">Editar</button>
                     <button class="button-registro" type="reset">Borrar</button>
                     <button class="button-registro" type="">Eliminar</button>
                 </div>
@@ -55,5 +64,8 @@
     <footer>
         <%- include('./partials/footer')%>
     </footer>
+
+    <script src="/static/js/productValidate.js"></script>
+
 </body>
 </html>
