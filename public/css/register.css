@@ -76,6 +76,8 @@ form {
   padding: 5px;
   border-radius: 5px;
 }
+
+/*----------------------clases para vlidaciones de formularios en front---------*/
 .errorsForm {
   text-align: center;
   color: #ff0000;
@@ -83,21 +85,55 @@ form {
   padding-top: 5px;
 }
 
-.errorFront {
-  border: 1px solid #ff0000;
+.is-invalid-campo-input {
+  margin-bottom: 20px;
+  width: 60%;
+  padding: 10px;
+  border: 2.5px solid #ff0000;
   border-radius: 5px;
-  text-align: center;
-  font-weight: bold;
-  padding-top: 5px;
+  font-size: 0.7rem;
 }
 
-.checkFront {
-  border: 1px solid green;
+.is-valid-campo-input {
+  margin-bottom: 20px;
+  width: 60%;
+  padding: 10px;
+  border: 2.5px solid green;
   border-radius: 5px;
-  text-align: center;
-  font-weight: bold;
-  padding-top: 5px;
+  font-size: 0.7rem;
 }
+
+.is-invalid-codigo-pais {
+  width: 30%;
+  padding: 10px;
+  border: 2.5px solid #ff0000;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+
+.is-valid-codigo-pais {
+  width: 30%;
+  padding: 10px;
+  border: 2.5px solid green;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+
+.is-invalid-nro-telefono {
+  width: 60%;
+  padding: 10px;
+  border: 2.5px solid #ff0000;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+.is-valid-nro-telefono {
+  width: 60%;
+  padding: 10px;
+  border: 2.5px solid green;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+
 @media (max-width: 368px) {
   .label {
     font-size: 0.8rem;
