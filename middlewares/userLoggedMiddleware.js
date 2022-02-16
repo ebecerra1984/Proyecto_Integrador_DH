@@ -8,7 +8,7 @@ function userLoggedMiddleware(req, res, next) {
   if (req.cookies.userEmail) {
 
     db.User.findOne({ where: { email: req.cookies.userEmail } }).then((userCooky) => {
-      console.log('**************** userCooky: ', userCooky);
+      //console.log('**************** userCooky: ', userCooky);
       req.session.userLogged = userCooky[0]
 
 

@@ -1,5 +1,5 @@
-// window.addEventListener("load", function () {
-let form = document.querySelector(".userForm");
+window.addEventListener("load", function () {
+let form = document.querySelector(".userEditForm");
 console.log(form.elements);
 
 form.addEventListener("submit", function (event) {
@@ -12,10 +12,9 @@ form.addEventListener("submit", function (event) {
     apellido,
     codigo_pais,
     telefono,
+    empresa,
     avatar,
     email,
-    password,
-    confPassword,
   } = form.elements;
 
   if (nombre.value.length < 2) {
@@ -31,6 +30,13 @@ form.addEventListener("submit", function (event) {
   } else {
     apellido.classList.remove("is-invalid-campo-input");
     apellido.classList.add("is-valid-campo-input");
+  }
+  if (empresa.value.length < 2) {
+    errores.push("El apellido debe tener al menos 2 caracteres");
+    empresa.classList.add("is-invalid-campo-input");
+  } else {
+    empresa.classList.remove("is-invalid-campo-input");
+    empresa.classList.add("is-valid-campo-input");
   }
   if (codigo_pais.value == "") {
     errores.push("El código pais debe ser un numero válido");
@@ -58,30 +64,7 @@ form.addEventListener("submit", function (event) {
     email.classList.add("is-valid-campo-input");
   }
 
-  let passwordOk = true;
-  let regPassword =
-    /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
-  if (!regPassword.test(password.value)) {
-    errores.push(
-      "La contraseña debe tener 8 caracteres mínimo, con mayuscula, numero y caracter especial"
-    );
-    passwordOk = false;
-    password.classList.add("is-invalid-campo-input");
-  } else {
-    password.classList.remove("is-invalid-campo-input");
-    password.classList.add("is-valid-campo-input");
-  }
-
-  if (confPassword.value != password.value) {
-    errores.push("Debes confirmar la misma contraseña ingresada");
-    confPassword.classList.add("is-invalid-campo-input");
-  } else if (!passwordOk) {
-    confPassword.classList.remove("is-valid-campo-input");
-    confPassword.classList.add("is-invalid-campo-input");
-  } else {
-    confPassword.classList.remove("is-invalid-campo-input");
-    confPassword.classList.add("is-valid-campo-input");
-  }
+  
   if (avatar.value == "") {
     errores.push(
       "Debes seleccionar una imagen de perfil (.jpg, .jpeg, .png, .gif)"
@@ -106,5 +89,5 @@ form.addEventListener("submit", function (event) {
     return true;
   }
 });
-//});
+});
 
