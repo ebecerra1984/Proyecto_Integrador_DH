@@ -64,7 +64,7 @@ form.addEventListener("submit", function (event) {
     email.classList.add("is-valid-campo-input");
   }
   let regPassword =
-    /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[$@$!%?&])[A-Za-z\d$@$!%?&]{8,15}$/;
+    /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
   if (!regPassword.test(password.value)) {
     errores.push(
       "La contraseña debe ser de 8 caracteres, con mayuscula, numero y caracter especial"
