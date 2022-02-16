@@ -15,6 +15,7 @@
         <h3 class="titulo-registro">Modifica tus datos</h3    >
         <h5 class="titulo-registro">Los campos marcados con * son requeridos</h5>
         
+         <!-- Errores del backend -->
         <% if(locals.errors){
             errors.forEach(errors => { %>
                 <p class="errorsForm"> <%= errors.msg %></p>
@@ -23,8 +24,13 @@
         <% if(locals.errUserExist != ''){%>
             <p class="errorsForm"> <%= locals.errUserExist %></p>
         <% } %> 
-                       
-        <form action="/users/edit/<%= user.user_id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                     
+        <!-- // Errores del frontend -->
+        <div>
+            <ul id="erroresFront"> </ul>
+        </div>
+
+        <form action="/users/edit/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="userEditForm">
         
             <label for="nombre" class="label">Nombre *</label>
                 <input class="campo-input" type="text" name="nombre" placeholder="Ingrese su nombre"
@@ -44,7 +50,7 @@
                 value="<%= locals.old && old.empresa ? old.empresa : user.empresa %>">
 
             <label for="avatar" class="label">Seleccione una imagen de perfil *</label>
-                <input class="campo-input" type="file" name="avatar" accept= ".jpg , .png" required>
+                <input class="campo-input" type="file" name="avatar" accept= ".jpg , .png">
 
             <label for="usuario" class="label">Usuario (email) *</label>
                 <input class="campo-input" type="email" name="email" placeholder="Ingrese su email"
@@ -67,5 +73,6 @@
     <footer>
         <%- include('../partials/footer')%>
     </footer>
+    <script src="/static/js/profileEditValidate.js"></script>
 </body>
 </html>

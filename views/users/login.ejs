@@ -4,6 +4,7 @@
     <%- include('../partials/head')%>
     
     <link rel="stylesheet" href="/static/css/login.css">
+
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>Dorid Login</title>
 </head>
@@ -20,7 +21,13 @@
                 <p class="errorsForm"> <%= locals.errUserLogin %></p>
             <% } %> 
 
-            <form action="/users/login" method="POST">
+                    <!-- // Errores del frontend -->
+        <div>
+            <ul id="erroresFront"> </ul>
+        </div>
+
+
+            <form action="/users/login" method="POST" class="loginForm">
                 <label for="usuario" class="label">Usuario </label>
                     <input class="campo-input" type="text" name="email" placeholder="Ingrese su email">
                     <p class="login-link"><a href="#">¿Olvidaste tu email?</a></p>
@@ -44,5 +51,8 @@
     <footer>
         <%- include('../partials/footer')%>
     </footer>
+
+    <script src="/static/js/loginValidate.js"></script>
+
 </body>
 </html>

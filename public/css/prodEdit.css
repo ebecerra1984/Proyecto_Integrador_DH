@@ -72,6 +72,70 @@ form {
   border-radius: 5px;
 }
 
+/*----------------------clases para validaciones de formularios en front---------*/
+.errorsForm {
+  text-align: center;
+  color: #ff0000;
+  font-weight: bold;
+  padding-top: 5px;
+}
+
+.erroresFront {
+  text-align: center;
+  color: #ff0000;
+  font-weight: bold;
+  padding-top: 5px;
+}
+
+.is-invalid-campo-input {
+  margin-bottom: 20px;
+  width: 60%;
+  padding: 10px;
+  border: 2.5px solid #ff0000;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+
+.is-valid-campo-input {
+  margin-bottom: 20px;
+  width: 60%;
+  padding: 10px;
+  border: 2.5px solid green;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+
+.is-invalid-category {
+  width: 45%;
+  padding: 10px;
+  border: 2.5px solid #ff0000;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+
+.is-valid-category {
+  width: 45%;
+  padding: 10px;
+  border: 2.5px solid green;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+
+.is-invalid-newCategory {
+  width: 45%;
+  padding: 10px;
+  border: 2.5px solid #ff0000;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+.is-valid-newCategory {
+  width: 45%;
+  padding: 10px;
+  border: 2.5px solid green;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+
 @media (max-width: 368px) {
   .label {
     font-size: 0.8rem;
