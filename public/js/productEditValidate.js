@@ -3,11 +3,11 @@ let form = document.querySelector(".prodEditForm");
 console.log(form.elements);
 
 form.addEventListener("submit", function (event) {
-  event.preventDefault();
+  //event.preventDefault();
 
   let errores = [];
 
-  let { name, description,  price, discount } = form.elements;
+  let { name, description, category, newCategory,  price, discount } = form.elements;
 
   if (name.value.length < 5) {
     errores.push("El nombre del producto debe tener al menos 5 caracteres");
@@ -26,6 +26,15 @@ form.addEventListener("submit", function (event) {
     description.classList.remove("is-invalid-campo-input");
     description.classList.add("is-valid-campo-input");
   }
+  if (newCategory.value =="Seleccione nueva") {
+    errores.push("La nueva categoría no fue seleccionada");
+    // description.classList.remove("is-valid-campo-input");
+    newCategory.classList.add("is-invalid-newCategory");
+  } else {
+    newCategory.classList.remove("is-invalid-newCategory");
+    newCategory.classList.add("is-valid-newCategory");
+  }
+
 
   // if (image.value == "") {
   //   errores.push(
