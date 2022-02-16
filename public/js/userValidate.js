@@ -47,7 +47,7 @@ form.addEventListener("submit", function (event) {
   if (telefono.value == "") {
     errores.push("El teléfono debe ser un numero válido");
     //  nombre.classList.remove("is-valid-nro-telefono");
-    telefono.classList.add("is-Invalid-nro-telefono");
+    telefono.classList.add("is-invalid-nro-telefono");
   } else {
     telefono.classList.remove("is-invalid-nro-telefono");
     telefono.classList.add("is-valid-nro-telefono");
@@ -64,7 +64,7 @@ form.addEventListener("submit", function (event) {
     email.classList.add("is-valid-campo-input");
   }
   let regPassword =
-    /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,8}$/;
+    /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[$@$!%?&])[A-Za-z\d$@$!%?&]{8,15}$/;
   if (!regPassword.test(password.value)) {
     errores.push(
       "La contraseña debe ser de 8 caracteres, con mayuscula, numero y caracter especial"
@@ -88,10 +88,10 @@ form.addEventListener("submit", function (event) {
       "Debes seleccionar una imagen de perfil (.jpg, .jpeg, .png, .gif)"
     );
     //  nombre.classList.remove("is-valid-campo-input");
-    apellido.classList.add("is-invalid-campo-input");
+    avatar.classList.add("is-invalid-campo-input");
   } else {
-    apellido.classList.remove("is-invalid-campo-input");
-    apellido.classList.add("is-valid-campo-input");
+    avatar.classList.remove("is-invalid-campo-input");
+    avatar.classList.add("is-valid-campo-input");
   }
 
   let erroresUL = document.getElementById("erroresFront");
