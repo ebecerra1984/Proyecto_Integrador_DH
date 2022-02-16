@@ -1,10 +1,7 @@
-// window.addEventListener("load", function () {
 let form = document.querySelector(".loginForm");
 console.log(form.elements);
 
 form.addEventListener("submit", function (event) {
-  event.preventDefault();
-
   let errores = [];
 
   let { email, password } = form.elements;
@@ -39,4 +36,3 @@ form.addEventListener("submit", function (event) {
     return true;
   }
 });
-// });

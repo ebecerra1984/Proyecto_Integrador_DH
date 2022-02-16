@@ -1,9 +1,8 @@
-// window.addEventListener("load", function () {
 let form = document.querySelector(".userForm");
 console.log(form.elements);
 
 form.addEventListener("submit", function (event) {
-  event.preventDefault();
+  // event.preventDefault();
 
   let errores = [];
 
@@ -88,14 +87,16 @@ form.addEventListener("submit", function (event) {
     password.classList.add("is-valid-campo-input");
   }
 
-  if (password.value == confPassword.value) {
+  if (confPassword.value !== password.value) {
+    console.log(password.value, confPassword.value);
     errores.push("Debes confirmar la misma contraseña ingresada");
     //  nombre.classList.remove("is-valid-campo-input");
-    confPassword.classList.add("is-valid-campo-input");
-  } else {
-    confPassword.classList.remove("is-valid-campo-input");
     confPassword.classList.add("is-invalid-campo-input");
+  } else {
+    confPassword.classList.remove("is-invalid-campo-input");
+    confPassword.classList.add("is-valid-campo-input");
   }
+
   if (avatar.value == "") {
     errores.push(
       "Debes seleccionar una imagen de perfil (.jpg, .jpeg, .png, .gif)"
@@ -121,4 +122,3 @@ form.addEventListener("submit", function (event) {
     return true;
   }
 });
-// });
