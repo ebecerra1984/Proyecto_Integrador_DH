@@ -17,7 +17,7 @@ const userCTRL = {
             if (passwordOk) {
               req.session.userLogged = userLogin;
               if (req.body.mantenerLogin) {
-                res.cookie("userEmail", req.body.email, { maxAge: 12000 });
+                res.cookie("userEmail", req.body.email, { maxAge: 30000 });
               }
               res.redirect("/");
             } else {
@@ -75,16 +75,11 @@ const userCTRL = {
 
   edit: (req, res) => {
     res.render("./users/profileEdit", { user: req.session.userLogged });
-    console.log(req.session.userLogged);
+    //console.log(req.session.userLogged);
   },
 
   update: (req, res) => {
-    // if (req.file.filename == undefined) {
-    //   avatarName = req.session.userLogged.avatar;
-    // }else{
-    //   avatarName = req.file.filename;
-    // }
-
+  
     let newData = {
       nombre: req.body.nombre,
       apellido: req.body.apellido,
@@ -97,14 +92,13 @@ const userCTRL = {
 
     db.User.update(newData, {
       where: {
-        user_id: req.params.id,
+        id: req.params.id,
       },
     });
 
     req.session.userLogged = newData;
-    console.log("cambios:  ", req.session.userLogged);
-
-    res.redirect("/");
+    
+    res.redirect("/users/profile");
   },
 
   logout: (req, res) => {
