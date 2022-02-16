@@ -63,8 +63,20 @@ form.addEventListener("submit", function (event) {
     email.classList.remove("is-invalid-campo-input");
     email.classList.add("is-valid-campo-input");
   }
+  //   let regPassword =
+  //     /(?=^.{8,}$)((?=.\d)|(?=.\W+))(?![.\n])(?=.[A-Z])(?=.[a-z]).*$/;
+  //   if (!regPassword.test(password.value)) {
+  //     errores.push(
+  //       "La contraseña debe ser de 8 caracteres, con mayuscula, numero y caracter especial"
+  //     );
+  //     //  nombre.classList.remove("is-valid-campo-input");
+  //     password.classList.add("is-invalid-campo-input");
+  //   } else {
+  //     password.classList.remove("is-invalid-campo-input");
+  //     password.classList.add("is-valid-campo-input");
+  //   }
   let regPassword =
-    /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[$@$!%?&])[A-Za-z\d$@$!%?&]{8,15}$/;
+    /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
   if (!regPassword.test(password.value)) {
     errores.push(
       "La contraseña debe ser de 8 caracteres, con mayuscula, numero y caracter especial"
@@ -75,13 +87,14 @@ form.addEventListener("submit", function (event) {
     password.classList.remove("is-invalid-campo-input");
     password.classList.add("is-valid-campo-input");
   }
-  if (password.value != confPassword) {
+
+  if (password.value == confPassword.value) {
     errores.push("Debes confirmar la misma contraseña ingresada");
     //  nombre.classList.remove("is-valid-campo-input");
-    confPassword.classList.add("is-invalid-campo-input");
-  } else {
-    confPassword.classList.remove("is-invalid-campo-input");
     confPassword.classList.add("is-valid-campo-input");
+  } else {
+    confPassword.classList.remove("is-valid-campo-input");
+    confPassword.classList.add("is-invalid-campo-input");
   }
   if (avatar.value == "") {
     errores.push(
