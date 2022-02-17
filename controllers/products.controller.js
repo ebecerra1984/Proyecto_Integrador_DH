@@ -75,7 +75,7 @@ const productsCtrl = {
       {
         nombre: req.body.name,
         descripcion: req.body.description,
-        categoria: parseInt(req.body.categoria),
+        categoria: parseInt(req.body.newCategory),
         precio: req.body.price,
         descuento: req.body.discount,
       },

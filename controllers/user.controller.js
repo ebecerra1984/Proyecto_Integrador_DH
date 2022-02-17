@@ -37,14 +37,14 @@ const userCTRL = {
   },
 
   create: (req, res) => {
-    
+
     let errors = validationResult(req);
     db.User.findOne({ where: { email: req.body.email } }).then((userExist) => {
       if (userExist != null) {
         let errUserExist = "Ya existe un usuario con este email";
         res.render("./users/register", { errUserExist, old: req.body });
       } else if (errors.isEmpty()) {
-       
+
         let newUser = {
           nombre: req.body.nombre,
           apellido: req.body.apellido,
@@ -70,17 +70,26 @@ const userCTRL = {
   },
 
   profile: (req, res) => {
-    res.render("./users/profile", { user: req.session.userLogged });
+     db.User.findByPk( req.session.userLogged.id ).then((user) => {
+    //   console.log(user.id)
+    res.render("./users/profile", { user }); 
+    })
   },
 
   edit: (req, res) => {
-    res.render("./users/profileEdit", { user: req.session.userLogged });
-    //console.log(req.session.userLogged);
+    db.User.findOne({ where: { id: req.params.id }}).then((user) => { //, include: [{ association: 'user_category' }]
+     console.log('*****para editar:  ',req.params.id)
+      res.render("./users/profileEdit", { user }); //user: req.session.userLogged
+      
+
+    })
   },
 
+
   update: (req, res) => {
-  
+
     let newData = {
+      id: req.params.id,
       nombre: req.body.nombre,
       apellido: req.body.apellido,
       codigo_pais: req.body.codigo_pais,
@@ -92,12 +101,12 @@ const userCTRL = {
 
     db.User.update(newData, {
       where: {
-        id: req.params.id,
+        id: req.session.userLogged.id,
       },
     });
 
     req.session.userLogged = newData;
-    
+
     res.redirect("/users/profile");
   },
 
