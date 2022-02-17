@@ -15,17 +15,17 @@
           <% repuestos.forEach(function(repuestos){ %>
             <article class='art'>
               <a href="/products/prodDetail/<%= repuestos.id %>"><img height="200px"
-                  src="/static/images/products/<%= repuestos.image %>" alt="Imagen de producto"></a>
+                  src="/static/images/products/<%= repuestos.imagen %>" alt="Imagen de producto"></a>
               <span class=precio-descuento-descrip>
                 <p><i class="fas fa-robot"></i></p>
                 <p class='precios'>
-                  <%= repuestos.price %>
+                  <%= repuestos.precio %>
                 </p>
                 <p class='descuentos'>
-                  <%= repuestos.discount %>% OFF
+                  <%= repuestos.descuento %>% OFF
                 </p>
                 <p class='detalle'>
-                  <%= repuestos.name %>
+                  <%= repuestos.nombre %>
                 </p>
               </span>
             </article>

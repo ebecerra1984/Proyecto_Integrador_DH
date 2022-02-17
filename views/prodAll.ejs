@@ -11,7 +11,6 @@
     <main>
       <section class='seccion-productos'>
         <h2 class='titulares'>Todos los productos</h2>
-
         <div class="container">
           <% products.forEach(function(products){ %>
             <article class='art'>
@@ -19,7 +18,7 @@
                   src="/static/images/products/<%= products.imagen %>" alt="Imagen de producto"></a>
               <span class=precio-descuento-descrip>
                 <p><i class="fas fa-robot"></i></p>
-                <p class='precios'>
+                <p class='precios'>US$
                   <%= products.precio %>
                 </p>
                 <p class='descuentos'>

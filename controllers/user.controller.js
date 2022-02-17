@@ -1,8 +1,5 @@
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
-//const fs = require("fs");
-//const path = require("path");
-//const usersFilePath = path.join(__dirname, "../data/users.json");
 const db = require("../database/models/user.model");
 
 const userCTRL = {
@@ -19,10 +16,8 @@ const userCTRL = {
           .then((passwordOk) => {
             if (passwordOk) {
               req.session.userLogged = userLogin;
-              console.log(req.session.userLogged.email);
               if (req.body.mantenerLogin) {
-                res.cookie("userEmail", req.body.email, { maxAge: 900000 });
-                console.log(req.cookies.userEmail);
+                res.cookie("userEmail", req.body.email, { maxAge: 30000 });
               }
               res.redirect("/");
             } else {
@@ -42,17 +37,14 @@ const userCTRL = {
   },
 
   create: (req, res) => {
+
     let errors = validationResult(req);
-
-    //    let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-    //    let userExist = users.find((user) => user["email"] == req.body.email);
-
     db.User.findOne({ where: { email: req.body.email } }).then((userExist) => {
       if (userExist != null) {
         let errUserExist = "Ya existe un usuario con este email";
         res.render("./users/register", { errUserExist, old: req.body });
       } else if (errors.isEmpty()) {
-        // let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+
         let newUser = {
           nombre: req.body.nombre,
           apellido: req.body.apellido,
@@ -64,9 +56,6 @@ const userCTRL = {
           avatar: req.file.filename,
           categoria_id: 1,
         };
-        console.log(newUser);
-        // users.push(newUser);
-        // fs.writeFileSync(usersFilePath, JSON.stringify(users));
 
         db.User.create(newUser);
 
@@ -81,22 +70,26 @@ const userCTRL = {
   },
 
   profile: (req, res) => {
-    res.render("./users/profile", { user: req.session.userLogged });
+     db.User.findByPk( req.session.userLogged.id ).then((user) => {
+    //   console.log(user.id)
+    res.render("./users/profile", { user }); 
+    })
   },
 
   edit: (req, res) => {
-    res.render("./users/profileEdit", { user: req.session.userLogged });
-    console.log(req.session.userLogged);
+    db.User.findOne({ where: { id: req.params.id }}).then((user) => { //, include: [{ association: 'user_category' }]
+     console.log('*****para editar:  ',req.params.id)
+      res.render("./users/profileEdit", { user }); //user: req.session.userLogged
+      
+
+    })
   },
 
+
   update: (req, res) => {
-    // if (req.file.filename == undefined) {
-    //   avatarName = req.session.userLogged.avatar;
-    // }else{
-    //   avatarName = req.file.filename;
-    // }
 
     let newData = {
+      id: req.params.id,
       nombre: req.body.nombre,
       apellido: req.body.apellido,
       codigo_pais: req.body.codigo_pais,
@@ -108,14 +101,13 @@ const userCTRL = {
 
     db.User.update(newData, {
       where: {
-        user_id: req.params.id,
+        id: req.session.userLogged.id,
       },
     });
 
     req.session.userLogged = newData;
-    console.log("cambios:  ", req.session.userLogged);
 
-    res.redirect("/");
+    res.redirect("/users/profile");
   },
 
   logout: (req, res) => {

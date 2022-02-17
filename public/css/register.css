@@ -76,11 +76,69 @@ form {
   padding: 5px;
   border-radius: 5px;
 }
-.errorsForm{
+
+/*----------------------clases para validaciones de formularios en front---------*/
+.errorsForm {
   text-align: center;
   color: #ff0000;
   font-weight: bold;
   padding-top: 5px;
+}
+
+.erroresFront {
+  text-align: center;
+  color: #ff0000;
+  font-weight: bold;
+  padding-top: 5px;
+}
+
+.is-invalid-campo-input {
+  margin-bottom: 20px;
+  width: 60%;
+  padding: 10px;
+  border: 2.5px solid #ff0000;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+
+.is-valid-campo-input {
+  margin-bottom: 20px;
+  width: 60%;
+  padding: 10px;
+  border: 2.5px solid green;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+
+.is-invalid-codigo-pais {
+  width: 30%;
+  padding: 10px;
+  border: 2.5px solid #ff0000;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+
+.is-valid-codigo-pais {
+  width: 30%;
+  padding: 10px;
+  border: 2.5px solid green;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+
+.is-invalid-nro-telefono {
+  width: 60%;
+  padding: 10px;
+  border: 2.5px solid #ff0000;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+.is-valid-nro-telefono {
+  width: 60%;
+  padding: 10px;
+  border: 2.5px solid green;
+  border-radius: 5px;
+  font-size: 0.7rem;
 }
 
 @media (max-width: 368px) {

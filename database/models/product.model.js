@@ -20,6 +20,7 @@ const cols = {
 const config = {
   tablename: "products",
   timestamps: false,
+  underscored: true,
 };
 
 const Product = sqlize.define(alias, cols, config);
@@ -27,23 +28,22 @@ const Product = sqlize.define(alias, cols, config);
 // ----- Relaciones de la tabla -----
 Product.associate = function (models) {
   Product.belongsTo(models.Product_category, {
-    as: "Product_category",
-    foreignKey: "categoria_id",
-  }),
-    Product.belongsToMany(models.Order, {
-      as: "Order",
-      through: "orders_products",
-      foreignKey: "sku",
-      otherKey: "order_id",
-      timestamps: false,
-    });
+    as: "categorias",
+    foreignKey: "categoria",
+  });
 };
+// Product.belongsToMany(models.Order, {
+//   as: "Order",
+//   through: "orders_products",
+//   foreignKey: "sku",
+//   otherKey: "order_id",
+//   timestamps: false,
+// });
 
 //----- creacion de la tabla -----
 const productSync = async (switchTF) => {
   try {
     await Product.sync({ force: switchTF });
-    //      console.log('Creacón de Products exitosa');
   } catch (err) {
     console.log("Error en creacion de 'Products': ", err);
   }

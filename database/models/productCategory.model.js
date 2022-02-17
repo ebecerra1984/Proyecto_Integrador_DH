@@ -15,25 +15,25 @@ const cols = {
 const config = {
   tablename: "product_categories",
   timestamps: false,
+  underscored: true,
 };
 
-const Product_category = sqlize.define(alias, cols, config);
+const ProductCategory = sqlize.define(alias, cols);
 
-Product_category.associate = function (models) {
-  Product_category.hasMany(models.Product, {
-    as: "Product_category",
-    foreignKey: "categoria_id",
+ProductCategory.associate = function (models) {
+  ProductCategory.hasMany(models.Product, {
+    as: "productos",
+    foreignKey: "categoria",
   });
 };
 
 //----- creacion de la tabla -----
 const productCategorySync = async (switchTF) => {
   try {
-    await Product_category.sync({ force: switchTF });
-    //      console.log('Creacón de Product_categories exitosa');
+    await ProductCategory.sync({ force: switchTF });
   } catch (err) {
     console.log("Error en creacion de 'Product_categories': ", err);
   }
 };
 
-module.exports = { Product_category, productCategorySync };
+module.exports = { ProductCategory, productCategorySync };

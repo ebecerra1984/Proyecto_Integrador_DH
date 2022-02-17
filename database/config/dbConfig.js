@@ -26,14 +26,4 @@ const chkConnection = async () => {
   }
 };
 
-// ----- sincroniza todos los modelos -----
-// const modelsSync = async () => {
-//     try {
-//         await sqlize.sync();
-//         console.log('Creacón de tablas exitosa');
-//     }catch (error) {
-//         console.log('No se pudo crear las tablas en la base de datos, error: ', error);
-//     }
-// };
-
 module.exports = { sqlize, chkConnection };

@@ -16,20 +16,25 @@
         <h5 class="titulo-edit">Los campos marcados con * son requeridos</h5>
         <h4 class="titulo-edit">SKU Nº <%= producto.id %></h4>
 
-        <form action="/products/edit/<%= producto.id %>?_method=PUT" method="POST">
+        <!-- // Errores del frontend -->
+        <div>
+            <ul id="erroresFront" > </ul>
+        </div>
+
+        <form action="/products/edit/<%= producto.id %>?_method=PUT" method="POST" class= 'prodEditForm'>
 <!--            <label for="id" class="label">SKU *</label>
                 <input class="campo-input" type="text" name="id" placeholder="<%= producto.id %>" required minlength=2>-->
             <label for="name" class="label">Nombre Producto *</label>
-                <input class="campo-input" type="text" name="name" value="<%= producto.name %>" required minlength=2>
+                <input class="campo-input" type="text" name="name" value="<%= producto.nombre %>" >
             <label for="description" class="label">Descripción *</label>
-                <textarea class="campo-input" name="description" ><%= producto.description %></textarea>
+                <textarea class="campo-input" name="description" ><%= producto.descripcion %></textarea>
 <!--             <label for="image" class="label">Seleccione las imagenes del producto </label>
                 <input class="campo-input" type="file" name="image" accept= ".jpg .png" multiple>
  -->
             <label for="category" class="label">Categoría *</label>
 
             <div class="categoria">
-                <input class="categoria-selector" type="text" name="category" value="<%= producto.category %>" >
+                <input class="categoria-selector" type="text" name="category" value="<%= producto.categoria %>" >
                 <select name="newCategory" class="categoria-selector" >
                     <option selected>Seleccione nueva</option>
                     <option value="1">Robot fijo</option>
@@ -38,9 +43,9 @@
                 </select>
             </div>
             <label for="price" class="label">Precio *</label>
-                <input class="campo-input" type="number" name="price" value="<%= producto.price %>" required>
+                <input class="campo-input" type="number" name="price" value="<%= producto.precio %>" >
             <label for="discount" class="label">Descuento *</label>
-                <input class="campo-input" type="number" name="discount" value="<%= producto.discount %>">
+                <input class="campo-input" type="number" name="discount" value="<%= producto.descuento %>">
             
 
 <!--           <div class="g-recaptcha" data-sitekey="your_site_key"></div>
@@ -56,5 +61,6 @@
     <footer>
         <%- include('./partials/footer')%>
     </footer>
+    <script src="/static/js/productEditValidate.js" ></script>
 </body>
 </html>
