@@ -1,6 +1,6 @@
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
-const db = require("../database/models/user.model");
+const db = require("../database/models/index");
 
 const userCTRL = {
   loginForm: (req, res) => {
@@ -37,14 +37,12 @@ const userCTRL = {
   },
 
   create: (req, res) => {
-
     let errors = validationResult(req);
     db.User.findOne({ where: { email: req.body.email } }).then((userExist) => {
       if (userExist != null) {
         let errUserExist = "Ya existe un usuario con este email";
         res.render("./users/register", { errUserExist, old: req.body });
       } else if (errors.isEmpty()) {
-
         let newUser = {
           nombre: req.body.nombre,
           apellido: req.body.apellido,
@@ -70,24 +68,21 @@ const userCTRL = {
   },
 
   profile: (req, res) => {
-     db.User.findByPk( req.session.userLogged.id ).then((user) => {
-    //   console.log(user.id)
-    res.render("./users/profile", { user }); 
-    })
+    db.User.findByPk(req.session.userLogged.id).then((user) => {
+      //   console.log(user.id)
+      res.render("./users/profile", { user });
+    });
   },
 
   edit: (req, res) => {
-    db.User.findOne({ where: { id: req.params.id }}).then((user) => { //, include: [{ association: 'user_category' }]
-     console.log('*****para editar:  ',req.params.id)
+    db.User.findOne({ where: { id: req.params.id } }).then((user) => {
+      //, include: [{ association: 'user_category' }]
+      console.log("*****para editar:  ", req.params.id);
       res.render("./users/profileEdit", { user }); //user: req.session.userLogged
-      
-
-    })
+    });
   },
 
-
   update: (req, res) => {
-
     let newData = {
       id: req.params.id,
       nombre: req.body.nombre,

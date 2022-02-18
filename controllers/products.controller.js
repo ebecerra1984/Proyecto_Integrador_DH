@@ -2,8 +2,7 @@ const { validationResult } = require("express-validator");
 const fs = require("fs");
 const path = require("path");
 const productsFilePath = path.join(__dirname, "../data/products.json");
-const db = require("../database/models/product.model");
-const categorias = require("../database/models/productCategory.model");
+const db = require("../database/models/index");
 
 const productsCtrl = {
   all: (req, res) => {

@@ -1,53 +1,27 @@
-const Sequelize = require("sequelize");
-const { sqlize } = require("../config/dbConfig");
-
-//----- definiciñon del modelo -----
-const alias = "User";
-const cols = {
-  id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-    allowNull: false,
-    autoIncrement: true,
-  },
-  nombre: { type: Sequelize.STRING(50), allowNull: false },
-  apellido: { type: Sequelize.STRING(50), allowNull: false },
-  codigo_pais: { type: Sequelize.SMALLINT, allowNull: false },
-  telefono: { type: Sequelize.INTEGER, allowNull: false },
-  empresa: { type: Sequelize.STRING(50), allowNull: true },
-  email: { type: Sequelize.STRING(50), allowNull: false },
-  password: { type: Sequelize.STRING(256), allowNull: false },
-  avatar: { type: Sequelize.STRING(50), allowNull: false },
-  categoria_id: { type: Sequelize.SMALLINT, allowNull: false },
-  empresa: { type: Sequelize.STRING(50), allowNull: true },
+module.exports = (sequelize, dataTypes) => {
+  const alias = "User";
+  const cols = {
+    id: {
+      type: dataTypes.INTEGER,
+      primaryKey: true,
+      allowNull: false,
+      autoIncrement: true,
+    },
+    nombre: { type: dataTypes.STRING(50), allowNull: false },
+    apellido: { type: dataTypes.STRING(50), allowNull: false },
+    codigo_pais: { type: dataTypes.SMALLINT, allowNull: false },
+    telefono: { type: dataTypes.INTEGER, allowNull: false },
+    empresa: { type: dataTypes.STRING(50), allowNull: true },
+    email: { type: dataTypes.STRING(50), allowNull: false },
+    password: { type: dataTypes.STRING(256), allowNull: false },
+    avatar: { type: dataTypes.STRING(50), allowNull: false },
+    categoria_id: { type: dataTypes.SMALLINT, allowNull: false },
+    empresa: { type: dataTypes.STRING(50), allowNull: true },
+  };
+  const config = {
+    tablename: "users",
+    timestamps: false,
+  };
+  const User = sequelize.define(alias, cols, config);
+  return User;
 };
-const config = {
-  tablename: "users",
-  timestamps: false,
-};
-
-const User = sqlize.define(alias, cols, config);
-
-// ----- Relaciones de la tabla -----
-User.associate = function (models) {
-  User.belongsTo(models.User_category, {
-    as: "user_category",
-    foreignKey: "categoria_id",
-  }),
-    User.hasMany(models.Order, {
-      as: "User",
-      foreignKey: "user_id",
-    });
-};
-
-//----- creacion de la tabla -----
-const userSync = async (switchTF) => {
-  try {
-    await User.sync({ force: switchTF });
-    //      console.log('Creacón de Users exitosa');
-  } catch (err) {
-    console.log("Error en creacion de 'Users': ", err);
-  }
-};
-
-module.exports = { User, userSync };

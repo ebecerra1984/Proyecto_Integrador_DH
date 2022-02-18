@@ -5,7 +5,7 @@ const session = require("express-session");
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
 const cookies = require("cookie-parser");
 
-const createModels = require("./database/models/create.models");
+// const createModels = require("./database/models/create.models");
 
 const usersRouter = require("./routes/users.routes");
 const productsRouter = require("./routes/products.routes");
@@ -26,7 +26,7 @@ app.use(cookies());
 app.use(userLoggedMiddleware);
 
 // ----- Conexión y sinconización a base de datos y modelos -----
-createModels();
+// createModels();
 
 // ----- Uso de rutas -----
 app.use("//", indexController.index);
