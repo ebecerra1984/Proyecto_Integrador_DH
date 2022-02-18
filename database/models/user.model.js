@@ -23,13 +23,5 @@ module.exports = (sequelize, dataTypes) => {
     timestamps: false,
   };
   const User = sequelize.define(alias, cols, config);
-  const userSync = async (switchTF) => {
-    try {
-      await User.sync({ force: switchTF });
-      //      console.log('Creacón de Users exitosa');
-    } catch (err) {
-      console.log("Error en creacion de 'Users': ", err);
-    }
-  };
   return User;
 };

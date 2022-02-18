@@ -22,12 +22,5 @@ module.exports = (sequelize, dataTypes) => {
   };
   const Product = sequelize.define(alias, cols, config);
 
-  const productSync = async (switchTF) => {
-    try {
-      await Product.sync({ force: switchTF });
-    } catch (err) {
-      console.log("Error en creacion de 'Products': ", err);
-    }
-  };
   return Product;
 };
