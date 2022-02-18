@@ -15,5 +15,13 @@ module.exports = (sequelize, dataTypes) => {
     underscored: true,
   };
   const Product_category = sequelize.define(alias, cols, config);
+  const productCategorySync = async (switchTF) => {
+    try {
+      await ProductCategory.sync({ force: switchTF });
+    } catch (err) {
+      console.log("Error en creacion de 'Product_categories': ", err);
+    }
+  };
+
   return Product_category;
 };

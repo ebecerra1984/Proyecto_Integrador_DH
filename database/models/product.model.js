@@ -13,6 +13,7 @@ module.exports = (sequelize, dataTypes) => {
     precio: { type: dataTypes.INTEGER, allowNull: false },
     descuento: { type: dataTypes.INTEGER, allowNull: false },
     imagen: { type: dataTypes.STRING(50), allowNull: false },
+    cantidad: { type: dataTypes.INTEGER, allowNull: true },
   };
   const config = {
     tablename: "products",
@@ -20,5 +21,13 @@ module.exports = (sequelize, dataTypes) => {
     underscored: true,
   };
   const Product = sequelize.define(alias, cols, config);
+
+  const productSync = async (switchTF) => {
+    try {
+      await Product.sync({ force: switchTF });
+    } catch (err) {
+      console.log("Error en creacion de 'Products': ", err);
+    }
+  };
   return Product;
 };
