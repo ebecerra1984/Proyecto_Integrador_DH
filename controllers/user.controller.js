@@ -17,7 +17,10 @@ const userCTRL = {
             if (passwordOk) {
               req.session.userLogged = userLogin;
               if (req.body.mantenerLogin) {
-                res.cookie("userEmail", req.body.email, { maxAge: 30000 });
+                res.cookie("userEmail", req.body.email, { maxAge: 60000 });
+
+               //console.log('**************** res.cookie: ', req.cookies.userEmail);
+
               }
               res.redirect("/");
             } else {
@@ -68,7 +71,8 @@ const userCTRL = {
   },
 
   profile: (req, res) => {
-    db.User.findByPk(req.session.userLogged.id).then((user) => {
+    db.User.findByPk(req.session.userLogged.id, { include: [{ association : "UserCategory"}]} )
+    .then((user) => {
       //   console.log(user.id)
       res.render("./users/profile", { user });
     });

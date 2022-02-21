@@ -22,7 +22,9 @@
         <br>
         <p class='datos'>Email: <%= user.email%></p>
         <br>
-        <p class='datos'>Teléfono: <%= user.codigoPais%><%= user.telefono%></p>
+        <p class='datos'>Teléfono: <%= user.codigo_pais%><%= user.telefono%></p>
+        <br>
+        <p class='datos'>Categoría: <%= user.UserCategory.name%></p>
         <br>
         
           <a href="/users/edit/<%= user.id%>"><button type="submit">Editar perfil</button></a>
