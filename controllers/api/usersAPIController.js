@@ -19,7 +19,7 @@ const usersAPIController = {
             name: user.nombre,
             lastName: user.apellido,
             email: user.email,
-            // URL: ???????
+            URL: "http://localhost:3000/users/profile",
           };
         }),
       };
@@ -34,7 +34,15 @@ const usersAPIController = {
           status: 200,
           url: "/api/users/:id",
         },
-        data: users,
+        data: users.map((user) => {
+          return {
+            id: user.id,
+            name: user.nombre,
+            lastName: user.apellido,
+            email: user.email,
+            URL: "http://localhost:3000/users/profile",
+          };
+        }),
       };
       res.json(respuesta);
     });
