@@ -16,7 +16,6 @@ module.exports = (sequelize, dataTypes) => {
     password: { type: dataTypes.STRING(256), allowNull: false },
     avatar: { type: dataTypes.STRING(50), allowNull: false },
     categoria_id: { type: dataTypes.SMALLINT, allowNull: false },
-    empresa: { type: dataTypes.STRING(50), allowNull: true },
   };
   const config = {
     tablename: "users",
@@ -25,12 +24,11 @@ module.exports = (sequelize, dataTypes) => {
   const User = sequelize.define(alias, cols, config);
 
   User.associate = function (models) {
-
-    User.belongsTo(models.User_category,{
-      as:"UserCategory",
-      foreignKey:"categoria_id",
-    })
-  }
+    User.belongsTo(models.User_category, {
+      as: "UserCategory",
+      foreignKey: "categoria_id",
+    });
+  };
 
   return User;
 };
