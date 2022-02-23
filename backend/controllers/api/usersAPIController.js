@@ -35,7 +35,13 @@ const usersAPIController = {
           url: "/api/users/:id",
         },
 
-        data: users
+        data: {
+          id: users.id,
+          name: users.nombre,
+          lastName: users.apellido,
+          email: users.email,
+          URL: "http://localhost:3000/users/profile"
+        }
 
         // data: users.map((user) => {
         //   return {
