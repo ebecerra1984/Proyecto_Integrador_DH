@@ -1,0 +1,169 @@
+* {
+  /*  border: 1px solid red;     */
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  color: #31356e;
+  text-decoration: none;
+}
+
+/*------------------------------------------------------------------------------------------------*/
+body {
+  padding-top: 184px;
+  background-color: rgba(222, 226, 230, 0.3);
+}
+.main-edit {
+  padding: 2% 0;
+}
+.titulo-edit {
+  text-align: center;
+}
+form {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.label {
+  text-align: end;
+  padding-top: 1%;
+  width: 35%;
+}
+.campo-input {
+  margin-bottom: 20px;
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #31356e;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+.categoria {
+  margin-bottom: 20px;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+.categoria-selector {
+  width: 45%;
+  padding: 10px;
+  border: 1px solid #31356e;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+
+.g-recaptcha {
+  margin-left: auto;
+  margin-right: auto;
+}
+.botonera {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-registro {
+  margin: 15px 40px 40px 0;
+  width: 20%;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/*----------------------clases para validaciones de formularios en front---------*/
+.errorsForm {
+  text-align: center;
+  color: #ff0000;
+  font-weight: bold;
+  padding-top: 5px;
+}
+
+.erroresFront {
+  text-align: center;
+  color: #ff0000;
+  font-weight: bold;
+  padding-top: 5px;
+}
+
+.is-invalid-campo-input {
+  margin-bottom: 20px;
+  width: 60%;
+  padding: 10px;
+  border: 2.5px solid #ff0000;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+
+.is-valid-campo-input {
+  margin-bottom: 20px;
+  width: 60%;
+  padding: 10px;
+  border: 2.5px solid green;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+
+.is-invalid-category {
+  width: 45%;
+  padding: 10px;
+  border: 2.5px solid #ff0000;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+
+.is-valid-category {
+  width: 45%;
+  padding: 10px;
+  border: 2.5px solid green;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+
+.is-invalid-newCategory {
+  width: 45%;
+  padding: 10px;
+  border: 2.5px solid #ff0000;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+.is-valid-newCategory {
+  width: 45%;
+  padding: 10px;
+  border: 2.5px solid green;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+
+@media (max-width: 368px) {
+  .label {
+    font-size: 0.8rem;
+  }
+}
+@media (min-width: 369px) {
+  .footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px 0;
+  }
+  .texto-footer1 {
+    width: 40%;
+    text-align: left;
+    padding: 8px;
+  }
+}
+@media (min-width: 769px) {
+  form {
+    width: 70%;
+  }
+}
+@media (min-width: 1024px) {
+  form {
+    width: 40%;
+  }
+  .texto-footer1 {
+    width: 30%;
+  }
+}

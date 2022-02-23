@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/head')%>
+    
+    <link rel="stylesheet" href="/static/css/register.css">
+    <title>Droid Mantenimiento</title>
+</head>
+<body>
+    <header>
+        <%- include('./partials/header')%>
+    </header>
+
+    <main class="main-registro">
+            <h3 class="titulo-registro">Mantenimiento de productos</h3    >
+            <h5 class="titulo-registro">Los campos marcados con * son requeridos</h5>
+
+            <!-- errores del backend -->
+            <% if(locals.errors){
+                errors.forEach(errors => { %>
+                    <p class="errorsForm"> <%= errors.msg %></p>
+             <% })
+            } %> 
+
+            <!-- // Errores del frontend -->
+        <div>
+            <ul id="erroresFront" > </ul>
+        </div>
+
+
+            <% if(locals.errUserExist != ''){%>
+                <p class="errorsForm"> <%= locals.errUserExist %></p>
+            <% } %> 
+            <form method="POST" action="/products/crear" enctype="multipart/form-data" class="prodForm">
+                <label for="nombre" class="label">Nombre Producto *</label>
+                    <input class="campo-input" type="text" name="nombre" placeholder="Nombre del producto">
+                <label for="descripcion" class="label">Descripción *</label>
+                    <textarea class="campo-input" name="descripcion" placeholder="Descripcion del producto"></textarea>
+                <label for="imagen" class="label">Seleccione las imagenes del producto *</label>
+                    <input class="campo-input" type="file" name="imagen" accept= ".jpg,.png" multiple>
+                <label for="categoria" class="label">Categoría *</label>
+                <div class="telefono">
+                    <select name="categoria" class="codigo-pais">
+                        <option value="1">Robot fijo</option>
+                        <option value="2">Robot móvil</option>
+                        <option value="3">Repuesto</option>
+                    </select>
+                </div>
+                <label for="precio" class="label">Precio *</label>
+                    <input class="campo-input" type="number" name="precio" placeholder="Precio">
+                <label for="descuento" class="label">Descuento *</label>
+                    <input class="campo-input" type="number" name="descuento" placeholder="Descuento">
+
+                <div class="botonera">
+                    <!--<button class="button-registro" type="">Buscar</button>-->
+                    <button class="button-registro" type="submit">Agregar</button>
+                    <!--<button class="button-registro" type="modify">Editar</button>-->
+                    <button class="button-registro" type="reset">Borrar</button>
+                    <!--<button class="button-registro" type="">Eliminar</button>-->
+                </div>
+            </form>
+    </main>
+
+    <footer>
+        <%- include('./partials/footer')%>
+    </footer>
+
+    <script src="/static/js/productValidate.js"></script>
+
+</body>
+</html>

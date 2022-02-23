@@ -1,0 +1,180 @@
+* {
+  /*border: 1px solid red; */
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  color: #31356e;
+  text-decoration: none;
+}
+a {
+  color: #000;
+}
+
+h4 {
+  margin: 0 0 15px;
+}
+
+#seccion-carrito {
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 114px;
+}
+
+#opciones-compra {
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.container-bordered {
+  width: 100%;
+  margin-bottom: 2rem;
+  border: 2px solid #000;
+  border-radius: 5px;
+  padding: 0.5rem 1rem 1rem 0.5rem;
+}
+
+.container-bordered-wide {
+  width: 100%;
+  margin-bottom: 2rem;
+  border: 2px solid #000;
+  border-radius: 5px;
+  padding: 0.5rem 1rem 1rem 0.5rem;
+}
+
+.container-fluid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#resumen-compra {
+  margin-bottom: 2rem;
+  border: 2px solid #000;
+}
+
+#comprar-seguir {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#comprar-seguir button {
+  width: 90%;
+  padding: 1rem;
+  border-radius: 3px;
+  border: none;
+}
+
+.sub-encabezado {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  border-bottom: #31356e solid 0.3rem;
+  margin-bottom: 2rem;
+}
+
+#boton_arrepentimiento {
+  margin: 1%;
+  max-height: 50%;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+}
+
+@media (min-width: 361px) {
+  .sub-encabezado {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    border-bottom: #31356e solid 0.3rem;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+
+  section {
+    width: 100%;
+  }
+
+  #seccion-carrito {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: baseline;
+    margin-top: 154px;
+  }
+
+  #comprar-seguir {
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  #comprar-seguir button {
+    width: 90%;
+    padding: 1rem;
+    border-radius: 3px;
+    border: none;
+  }
+
+  .container-bordered {
+    width: 100%;
+  }
+
+  .container-fluid {
+    flex-direction: column;
+    justify-content: center;
+    width: 45%;
+  }
+}
+
+@media (min-width: 769px) {
+  .container {
+    width: 45%;
+  }
+
+  #seccion-carrito {
+    margin-top: 184px;
+  }
+
+  .container-bordered-wide {
+    width: 100%;
+    margin-bottom: 2rem;
+    border: 2px solid #000;
+    border-radius: 5px;
+    padding: 0.5rem 1rem 1rem 0.5rem;
+  }
+
+  .container-fluid:nth-child(2) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 70%;
+  }
+
+  .container-fluid:nth-child(3) {
+    width: 30%;
+  }
+
+  .container-bordered {
+    width: 100%;
+  }
+
+  #comprar-seguir button {
+    width: 90%;
+    padding: 1rem;
+    border-radius: 3px;
+    border: none;
+  }
+}

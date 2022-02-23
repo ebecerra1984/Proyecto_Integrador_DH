@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/head')%>
+    
+    <link rel="stylesheet" href="/static/css/register.css">
+    <title>Dorid Profile</title>
+</head>
+<body>
+    <header>
+        <%- include('../partials/header')%>
+    </header>
+
+    <main class="main-registro">
+        <h3 class="titulo-registro">Modifica tus datos</h3    >
+        <h5 class="titulo-registro">Los campos marcados con * son requeridos</h5>
+        
+         <!-- Errores del backend -->
+        <% if(locals.errors){
+            errors.forEach(errors => { %>
+                <p class="errorsForm"> <%= errors.msg %></p>
+         <% })
+        } %> 
+        <% if(locals.errUserExist != ''){%>
+            <p class="errorsForm"> <%= locals.errUserExist %></p>
+        <% } %> 
+                     
+        <!-- // Errores del frontend -->
+        <div>
+            <ul id="erroresFront"> </ul>
+        </div>
+
+        <form action="/users/edit/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="userEditForm">
+        
+            <label for="nombre" class="label">Nombre *</label>
+                <input class="campo-input" type="text" name="nombre" placeholder="Ingrese su nombre"
+                value="<%= locals.old && locals.old.nombre ? locals.old.nombre : user.nombre %>">
+            <label for="apellido" class="label">Apellido *</label>
+                <input class="campo-input" type="text" name="apellido" placeholder="Ingrese su apellido"
+                value="<%= locals.old && locals.old.apellido ? locals.old.apellido : user.apellido %>">
+            <label for="" class="label">Teléfono *</label>
+            <div class="telefono">
+                <input class="codigo-pais" type="number" name="codigo_pais" placeholder="Código país"
+                value="<%= locals.old && old.codigo_pais ? old.codigo_pais : user.codigo_pais %>">
+                <input class="nro-telefono" type="number" name="telefono" placeholder="Teléfono"
+                value="<%= locals.old && old.telefono ? old.telefono : user.telefono %>">
+            </div>
+            <label for="empresa" class="label">Empresa a la que pertenece</label>
+                <input class="campo-input" type="text" name="empresa" placeholder="Empresa"
+                value="<%= locals.old && old.empresa ? old.empresa : user.empresa %>">
+
+            <label for="avatar" class="label">Seleccione una imagen de perfil *</label>
+                <input class="campo-input" type="file" name="avatar" accept= ".jpg , .png">
+
+            <label for="usuario" class="label">Usuario (email) *</label>
+                <input class="campo-input" type="email" name="email" placeholder="Ingrese su email"
+                value="<%= locals.old && old.email ? old.email : user.email %>"> 
+
+<!--        <label for="password" class="label">Contraseña *</label>
+                <input class="campo-input" type="password" name="password" placeholder="Ingrese su contraseña">
+            <label for="confPassword" class="label">Confirme su contraseña *</label>
+                <input class="campo-input" type="password" name="confPassword" placeholder="Confirme su contraseña">
+-->
+
+
+            <div class="botonera">
+                <button class="button-registro" type="submit">Aceptar</button>
+                
+            </div>
+        </form>
+    </main> 
+
+    <footer>
+        <%- include('../partials/footer')%>
+    </footer>
+    <script src="/static/js/profileEditValidate.js"></script>
+</body>
+</html>
