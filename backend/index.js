@@ -12,6 +12,7 @@ const cartController = require("./controllers/cart.controller");
 
 const userAPIRoutes = require("./routes/api/usersAPIRoutes");
 const productsAPIRoutes = require("./routes/api/productsAPIRoutes");
+const categoriesAPIRoutes = require("./routes/api/categoriesAPIRoutes");
 
 
 //const createModels = require("./database/models/Create.models");
@@ -42,6 +43,7 @@ app.use("/products", productsRouter);
 // ----- Uso de rutas APIs -----
 app.use("/api/users", userAPIRoutes);
 app.use("/api/products", productsAPIRoutes);
+app.use("/api/categories", categoriesAPIRoutes);
 
 
 // ----- Server -----
