@@ -1,5 +1,5 @@
 import React from 'react';
-import ContentRowMovies from './ContentRowMovies';
+import ContentRowMovies from './ContentRowCards';
 import LastMovieInDb from './LastMovieInDb';
 import GenresInDb from './CategoriesInDb';
 import MoviesInDb from './ProductsInDb ';

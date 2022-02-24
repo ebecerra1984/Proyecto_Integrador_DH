@@ -8,7 +8,7 @@ import {Route, Routes, Link} from 'react-router-dom'
 import Error404 from './Error404';
 import CategoriesInDb from './CategoriesInDb';
 import ProductsInDb  from './ProductsInDb ';
-import ContentRowMovies from './ContentRowMovies';
+import ContentRowMovies from './ContentRowCards';
 import CategoriesDetail from './CategoriesDetail';
 import ContentWrapper from './ContentWrapper';
 // import SearchMovies from './SearchMovies';
