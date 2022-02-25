@@ -17,6 +17,7 @@ const productsAPIController = {
             name: product.nombre,
             description: product.descripcion,
             category: product.ProductCategory.nombre,
+            stock: product.cantidad
             //URL:?????????????????
           };
         }),
