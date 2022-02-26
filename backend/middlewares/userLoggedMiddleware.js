@@ -1,5 +1,5 @@
 
-const db = require("../database/models/user.model");
+const db = require("../database/models/");
 
 function userLoggedMiddleware(req, res, next) {
   res.locals.logged = false;
