@@ -5,12 +5,17 @@ const session = require("express-session");
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
 const cookies = require("cookie-parser");
 
-const createModels = require("./database/models/Create.models");
-
 const usersRouter = require("./routes/users.routes");
 const productsRouter = require("./routes/products.routes");
 const indexController = require("./controllers/index.controller");
 const cartController = require("./controllers/cart.controller");
+
+const userAPIRoutes = require("./routes/api/usersAPIRoutes");
+const productsAPIRoutes = require("./routes/api/productsAPIRoutes");
+const categoriesAPIRoutes = require("./routes/api/categoriesAPIRoutes");
+
+
+//const createModels = require("./database/models/Create.models");
 
 // ----- Seteo -----
 app.set("view engine", "ejs");
@@ -34,6 +39,12 @@ app.use("/aboutUs", indexController.aboutUs);
 app.use("/cart", cartController.cart);
 app.use("/users", usersRouter);
 app.use("/products", productsRouter);
+
+// ----- Uso de rutas APIs -----
+app.use("/api/users", userAPIRoutes);
+app.use("/api/products", productsAPIRoutes);
+app.use("/api/categories", categoriesAPIRoutes);
+
 
 // ----- Server -----
 app.listen(3000, () => {

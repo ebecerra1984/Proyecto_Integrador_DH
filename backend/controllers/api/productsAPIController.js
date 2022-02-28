@@ -17,7 +17,8 @@ const productsAPIController = {
             name: product.nombre,
             description: product.descripcion,
             category: product.ProductCategory.nombre,
-            //URL:?????????????????
+            stock: product.cantidad,
+            URL: 'http://localhost:3000/static/images/products/'+product.imagen
           };
         }),
       };

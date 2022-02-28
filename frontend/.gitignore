@@ -1,6 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
+<<<<<<< HEAD
 node_modules
 /.pnp
 .pnp.js
@@ -24,3 +25,6 @@ yarn-error.log*
 # node_modules/
 images/
 frontend/node_modules
+=======
+/node_modules
+>>>>>>> 947e2fcf0fd1214f3bdf4afcc9ceb4136ea74d7b

@@ -53,6 +53,7 @@ const productsCtrl = {
         imagen: req.file.filename,
         precio: req.body.precio,
         descuento: req.body.descuento,
+        cantidad: req.body.cantidad,
       }).then(() => {
         res.redirect("prodAll");
       });
