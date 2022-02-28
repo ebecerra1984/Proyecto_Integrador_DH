@@ -2,7 +2,10 @@
 
 # dependencies
 node_modules
+<<<<<<< HEAD
 "frontend/node_modules"
+=======
+>>>>>>> 17689812881af38e87e3713e99b795ae79201888
 /.pnp
 .pnp.js
 
