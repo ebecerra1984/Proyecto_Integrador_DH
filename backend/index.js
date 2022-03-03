@@ -4,6 +4,7 @@ const methodOverride = require("method-override");
 const session = require("express-session");
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
 const cookies = require("cookie-parser");
+const cors = require("cors");
 
 const usersRouter = require("./routes/users.routes");
 const productsRouter = require("./routes/products.routes");
@@ -14,10 +15,10 @@ const userAPIRoutes = require("./routes/api/usersAPIRoutes");
 const productsAPIRoutes = require("./routes/api/productsAPIRoutes");
 const categoriesAPIRoutes = require("./routes/api/categoriesAPIRoutes");
 
-
 //const createModels = require("./database/models/Create.models");
 
 // ----- Seteo -----
+app.use(cors());
 app.set("view engine", "ejs");
 app.set("views", "./views");
 app.use(express.urlencoded({ extended: false }));
@@ -44,7 +45,6 @@ app.use("/products", productsRouter);
 app.use("/api/users", userAPIRoutes);
 app.use("/api/products", productsAPIRoutes);
 app.use("/api/categories", categoriesAPIRoutes);
-
 
 // ----- Server -----
 app.listen(3000, () => {

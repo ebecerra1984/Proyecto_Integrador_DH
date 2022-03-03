@@ -83,15 +83,36 @@ function SideBar() {
         <Route
           path="/stats"
           element={
-            <div className="col-8">
+            <div className="col">
               {" "}
               <ContentRowMovies />
             </div>
           }
         />
-        <Route path="/categories" element={<CategoriesInDb />} />
-        <Route path="/products" element={<ProductsInDb />} />
-        <Route path="/categories/:id" element={<CategoriesDetail />} />
+        <Route
+          path="/categories"
+          element={
+            <div className="col">
+              <CategoriesInDb />
+            </div>
+          }
+        />
+        <Route
+          path="/products"
+          element={
+            <div className="col">
+              <ProductsInDb />{" "}
+            </div>
+          }
+        />
+        <Route
+          path="/categories/:id"
+          element={
+            <div className="col">
+              <CategoriesDetail />
+            </div>
+          }
+        />
         {/* <Route path="/search" element = {<SearchMovies />} /> */}
 
         {/*<Route path='*' element= {<Error404 />} /> */}
