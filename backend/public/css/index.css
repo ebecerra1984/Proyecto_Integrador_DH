@@ -1,0 +1,163 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  
+}
+a {
+  text-decoration: none;
+}
+body{
+  background-color: #ebebeb;
+}
+div {
+  text-align: center;
+  width: 100vw;
+}
+main section {
+  text-align: center;
+  width: 100vw;
+}
+
+/*main*/
+main {
+  text-align: center;
+  width: 100%;
+  padding-top: 114px;
+  background-color: #ebebeb;
+}
+.banner {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.seccion-productos {
+    background-color: #ebebeb;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+main section i {
+  display: block;
+  font-size: ​16​px​;
+  padding: ​5​px​;
+  width: ​30​px​;
+  height: ​30​px​;
+  border: ​1​px​ ​solid​ ​#33346c;
+  background-color: #fff;
+  border-radius: ​50;
+  position: absolute​;
+  right: ​20​px​;
+  top: ​-15​px​;
+}
+
+main article {
+  width: 300px;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #ebebeb;
+  background-color: white;
+}
+main article p {
+  background-color: white;
+}
+
+.art-detalle {
+  width: 600px;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #ebebeb;
+  background-color: white;
+}
+.detalle-individual {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.about-us {
+  margin-top: 60px;
+  margin-bottom: 90px;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.titulares {
+  font-size: 24px;
+}
+.precios {
+  font-size: 18px;
+}
+.descuentos {
+  font-size: 16px;
+  color: #33346c;
+}
+
+main article span p i {
+  display: block;
+  font-size: 16px;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #33346c;
+  background-color: #fff;
+  color: #33346c;
+  border-radius: 50%;
+  position: relative;
+  transition: 450ms;
+}
+main article:hover {
+  box-shadow: 0 0 16px 12px rgba(0, 0, 0, 0.74);
+}
+
+.detalle:hover {
+  color: #666;
+}
+.detalle {
+  display: none;
+}
+main article span p i:hover {
+  transform: rotateZ(-45deg);
+}
+
+@media (min-width: 361px) {
+  main article {
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  }
+
+  .detalle {
+    display: inline;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  main {
+    padding-top: 154px;
+  }
+}
+
+@media (min-width: 769px) {
+  main article {
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  }
+
+  .detalle {
+    display: inline;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  main {
+    padding-top: 184px;
+  }
+}
