@@ -72,8 +72,8 @@ CREATE TABLE IF NOT EXISTS `products` (
   `nombre` varchar(50) NOT NULL,
   `descripcion` varchar(50) NOT NULL,
   `categoria` smallint(6) NOT NULL,
-  `precio` decimal(20,6) NOT NULL DEFAULT 0.000000,
-  `descuento` decimal(20,6) NOT NULL DEFAULT 0.000000,
+  `precio` decimal(20,2) NOT NULL DEFAULT 0.00,
+  `descuento` decimal(20,2) NOT NULL DEFAULT 0.00,
   `imagen` varchar(50) NOT NULL,
   `cantidad` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -82,23 +82,23 @@ CREATE TABLE IF NOT EXISTS `products` (
 -- Dumping data for table droidstore_db.products: ~15 rows (approximately)
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
 REPLACE INTO `products` (`id`, `nombre`, `descripcion`, `categoria`, `precio`, `descuento`, `imagen`, `cantidad`) VALUES
-	(1, 'Producto 1', 'Descripción del producto 1', 1, 1000.000000, 0.000000, 'product_1645015302938.jpg', 5),
-	(2, 'Producto 2', 'Des cripci{om del producto 2', 2, 2000.000000, 20.000000, 'product_1645020867784.jpg', 3),
-	(3, 'Producto 3', 'Descripci{on del producto 3', 3, 3000.000000, 0.000000, 'product_1645021135444.jpg', 8),
-	(4, 'Producto 4', 'Descripción del producto 4', 2, 4000.000000, 0.000000, 'product_1645750784487.png', 6),
-	(5, 'Producto 5', 'Descripción del producto 5', 1, 5000.000000, 5.000000, 'product_1645751226404.jpg', 10),
-	(6, 'Producto 6', 'Descripción del Producto 6', 3, 6000.000000, 0.000000, 'product_1645888031133.png', 25),
-	(7, 'Producto 7', 'Descripción del Producto 7', 1, 7000.000000, 7.000000, 'product_1645888390288.jpg', 12),
-	(8, 'Producto 8', 'Descripción del Producto 8', 2, 8000.000000, 0.000000, 'product_1645888790188.jpg', 8),
-	(9, 'Producto 9', 'Descripción del Producto 9', 1, 5500.000000, 0.000000, 'product_1645889762176.jpg', 6),
-	(10, 'Producto 10', 'Descripción del Producto 10', 1, 110200.000000, 0.000000, 'product_1645889901707.jpg', 1),
-	(11, 'Producto11', 'Descripción del procucto 11', 3, 1200.000000, 2.000000, 'product_1645893905964.jpg', 3),
-	(12, 'Producto 12', 'Descripción del procucto 11', 3, 2300.000000, 0.000000, 'product_1645893979702.jpg', 5),
-	(13, 'Producto 12', 'Descripción del producto 12', 3, 15000.000000, 0.000000, 'product_1645894894945.png', 5),
-	(14, 'Producto 13', 'Descripción del producto 13', 3, 1450.000000, 5.000000, 'product_1645895273584.jpg', 12),
-	(15, 'Producto 14', 'Descripción del producto 14', 1, 6000.000000, 0.000000, 'product_1645895930303.jpg', 12),
-	(16, 'Producto 15', 'Descripción del producto 15', 2, 35000.000000, 0.000000, 'product_1645896002117.jpg', 2),
-	(17, 'Producto 16', 'Descripción del producto 16', 2, 48000.000000, 0.000000, 'product_1645896100780.jpg', 3);
+	(1, 'Producto 1', 'Descripción del producto 1', 1, 1000.00, 0.00, 'product_1645015302938.jpg', 5),
+	(2, 'Producto 2', 'Des cripci{om del producto 2', 2, 2000.00, 20.00, 'product_1645020867784.jpg', 3),
+	(3, 'Producto 3', 'Descripci{on del producto 3', 3, 3000.00, 0.00, 'product_1645021135444.jpg', 8),
+	(4, 'Producto 4', 'Descripción del producto 4', 2, 4000.00, 0.00, 'product_1645750784487.png', 6),
+	(5, 'Producto 5', 'Descripción del producto 5', 1, 5000.00, 5.00, 'product_1645751226404.jpg', 10),
+	(6, 'Producto 6', 'Descripción del Producto 6', 3, 6000.00, 0.00, 'product_1645888031133.png', 25),
+	(7, 'Producto 7', 'Descripción del Producto 7', 1, 7000.00, 7.00, 'product_1645888390288.jpg', 12),
+	(8, 'Producto 8', 'Descripción del Producto 8', 2, 8000.00, 0.00, 'product_1645888790188.jpg', 8),
+	(9, 'Producto 9', 'Descripción del Producto 9', 1, 5500.00, 0.00, 'product_1645889762176.jpg', 6),
+	(10, 'Producto 10', 'Descripción del Producto 10', 1, 110200.00, 0.00, 'product_1645889901707.jpg', 1),
+	(11, 'Producto11', 'Descripción del procucto 11', 3, 1200.00, 2.00, 'product_1645893905964.jpg', 3),
+	(12, 'Producto 12', 'Descripción del procucto 11', 3, 2300.00, 0.00, 'product_1645893979702.jpg', 5),
+	(13, 'Producto 12', 'Descripción del producto 12', 3, 15000.00, 0.00, 'product_1645894894945.png', 5),
+	(14, 'Producto 13', 'Descripción del producto 13', 3, 1450.00, 5.00, 'product_1645895273584.jpg', 12),
+	(15, 'Producto 14', 'Descripción del producto 14', 1, 6000.00, 0.00, 'product_1645895930303.jpg', 12),
+	(16, 'Producto 15', 'Descripción del producto 15', 2, 35000.00, 0.00, 'product_1645896002117.jpg', 2),
+	(17, 'Producto 16', 'Descripción del producto 16', 2, 48000.00, 0.00, 'product_1645896100780.jpg', 3);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 
 -- Dumping structure for table droidstore_db.product_categories
