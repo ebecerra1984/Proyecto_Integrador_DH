@@ -1,7 +1,9 @@
 // const path = require("path");
 const db = require("../../database/models");
+const sequelize= require('sequelize')
 
 const productsAPIController = {
+
   list: (req, res) => {
     db.Product.findAll({ include: ["ProductCategory"] }).then((products) => {
       let respuesta = {
@@ -26,6 +28,37 @@ const productsAPIController = {
     });
   },
 
+
+
+  listByCategory: (req, res) => {
+    db.Product.findAll({ include: [ "ProductCategory"] }).then((products) => {
+      let respuesta = {
+        meta: {
+          status: 200,
+          total: products.length,
+          url: "api/products/prod/:id",
+        },
+
+        data: products.filter((product=> product.ProductCategory.id == req.params.id))  
+      
+      };
+      res.json(respuesta);
+    });
+  },
+
+  totalByCategory: (req, res) => {
+    db.Product.findAll({ include: ["ProductCategory"] }).then((products) => {
+      
+      let catsInDb = products.map((prods) => {
+        return {
+          CatName:prods.ProductCategory.nombre
+        }
+      })      
+       res.json(catsInDb);
+
+    });
+  },
+  
   detail: (req, res) => {
     db.Product.findByPk(req.params.id, {
       include: ["ProductCategory"],
@@ -33,8 +66,8 @@ const productsAPIController = {
       let respuesta = {
         meta: {
           status: 200,
-          total: product.length,
-          url: "/api/product/:id",
+          
+          url: "/api/products/:id",
         },
         data: product,
       };
