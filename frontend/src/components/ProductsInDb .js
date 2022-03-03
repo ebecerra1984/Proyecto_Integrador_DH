@@ -27,6 +27,9 @@ class ProductsInDb  extends Component {
         <div className="card shadow mb-4">
             <div className="card-body">
                 <div className="table-responsive">
+                    <div className="card-header py-3">
+                        <h5 className="m-0 font-weight-bold text-gray-800"> Productos en stock </h5>
+                    </div>
                     <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
                         <thead>
                             <tr>

@@ -1,61 +1,133 @@
-import React, { Component } from "react";
+import { useEffect, useState } from 'react';
 import SmallCard from "./SmallCard"
+
+function ContentRowCards() {
+    const [productos, setProductos] = useState([])
+    const [categorias, setCategorias] = useState([])
+    const [usuarios, setUsuarios] = useState([])
+    const [fijos, setFijos] = useState([])
+    const [moviles, setMoviles] = useState([])
+    const [repuestos, setRepuestos] = useState([])
+    const [cardsProps, setCardProps] = useState([])
+
+
+    async function getData(){
+        try{
+            await fetch("http://localhost:3000/api/products")
+                    .then(res => res.json())
+                    .then(prods => {
+        
+                        setProductos({
+                            title: 'Variedad de productos',
+                            color: 'primary',
+                            icon: 'fa-robot',
+                            quantity: prods.data.length
+                        })
+                    })
+                    .catch(error => console.log(error))
+
+        } catch(err) { console.log(err)}
+    };
+
+    useEffect(()=> {
+        getData()
+        setCardProps([productos,categorias,usuarios,fijos,moviles,repuestos])
+        console.log(productos)
+    },[])
+   
+    // useEffect(() => {
+
+    //     // ----- levanto las cantidades de la BD y cargo valores de las tarjetas -----
+    //     fetch("http://localhost:3000/api/products")
+    //         .then(res => res.json())
+    //         .then(prods => {
+
+    //             setProductos({
+    //                 title: 'Variedad de productos',
+    //                 color: 'primary',
+    //                 icon: 'fa-robot',
+    //                 quantity: prods.data.length
+    //             })
+    //         })
+    //         .catch(error => console.log(error))
+
+    //     fetch("http://localhost:3000/api/categories")
+    //         .then(res => res.json())
+    //         .then(cat => {
+
+    //             setCategorias({
+    //                 title: 'categorias',
+    //                 color: 'info',
+    //                 icon: 'fa-list',
+    //                 quantity: cat.data.length
+    //             })
+                
+    //             setFijos({
+    //                 title: 'robots fijos en stock',
+    //                 color: 'primary',
+    //                 icon: 'fa-robot',
+    //                 quantity: cat.data[0].cantProd
+    //             })
+
+    //             setMoviles({
+    //                 title: 'robots moviles en stock',
+    //                 color: 'primary',
+    //                 icon: 'fa-robot',
+    //                 quantity: cat.data[1].cantProd
+    //             })
+               
+    //             setRepuestos({
+    //                 title: 'repuestos',
+    //                 color: 'primary',
+    //                 icon: 'fa-robot',
+    //                 quantity: cat.data[2].cantProd
+    //              })
+
+    //         })
+    //     .catch(error => console.log(error))
+
+    //     fetch("http://localhost:3000/api/users")
+    //         .then(res => res.json())
+    //         .then(user => {
+
+    //             setUsuarios({
+    //                 title: 'usuarios registrados',
+    //                 color: 'secondary',
+    //                 icon: 'fa-user',
+    //                 quantity: user.data.length
+    //             })
+
+    //         })
+    //     .catch(error => console.log(error))
+
+    //     // ----- actualizo cardsProps -----
+    //     setCardProps([productos,categorias,usuarios,fijos,moviles,repuestos])
+        
+    // },[])
     
-
-
-
-let moviesInDb = {
-
-    // title: 'Movies in Data Base',
-    title: 'productosssssss',
-    color: 'primary',
-    icon: 'fa-robot',
-    quantity: 10000
-
-}
-
-let totalAwards = {
-
-    //title: 'Total awards',
-    title: 'categoriassssssss',
-    color: 'success',
-    icon: 'fa-list',
-    quantity: 333333
-}
-
-let actorsQuantity = {
-
-    //title: 'Actors quantity',
-    title: 'usuariosssssssss',
-    color: 'warning',
-    icon: 'fa-user',
-    quantity: 2222
-}
-
-
-let cartProps = [moviesInDb, totalAwards, actorsQuantity]
-
-
-
-
-function ContentRowCards () {
+    
+ 
 
     return (
+        <div className="card shadow mb-4">
+            <div className="card-body">
 
-        <div className="row">
+                <div className="card-header py-3">
+                    <h5 className="m-0 font-weight-bold text-gray-800"> Indicadores </h5>
+                </div>
 
-        {cartProps.map( (data, i) => {
 
-            return <SmallCard {...data} key={i}/>
+                <div className="row">
+                    {cardsProps.map((data, i) => {
+                        //console.log('data ',data)
+                        return <SmallCard {...data} key={i} />
+                    })}
+                </div>
 
-        })}
-
+            </div>
         </div>
-  
-
-    
-
     )
+
 }
 
-export default ContentRowCards; 
+export default ContentRowCards;

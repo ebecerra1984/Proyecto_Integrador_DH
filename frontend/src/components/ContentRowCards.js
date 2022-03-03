@@ -1,7 +1,6 @@
-//import { render } from "@testing-library/react";
 import React, { Component } from "react";
 import SmallCard from "./SmallCard"
-//import{useState} from 'react'
+
 
 let productos = {
     title: 'Variedad de productos',
@@ -57,6 +56,9 @@ fetch("http://localhost:3000/api/categories")
     .then(res => res.json())
     .then(cat => {
        categorias.quantity = cat.data.length
+       fijos.quantity=cat.data[0].cantProd
+       moviles.quantity=cat.data[1].cantProd
+       repuestos.quantity=cat.data[2].cantProd
        console.log(categorias)
     })
 .catch(error => console.log(error))
@@ -85,13 +87,27 @@ class ContentRowCards extends Component {
             
     }
 
+    
     render() {
     return (
-        <div className="row">
-            {this.state.cardsProps.map((data, i) => {
-                return <SmallCard {...data} key={i} />
-            })}
+        <div className="card shadow mb-4">
+            <div className="card-body">
+                
+                    <div className="card-header py-3">
+                        <h5 className="m-0 font-weight-bold text-gray-800"> Indicadores </h5>
+                    </div>
+                    
+                    
+                       <div className="row">
+                       {this.state.cardsProps.map((data, i) => {
+                           return <SmallCard {...data} key={i} />
+                       })}
+                   </div>
+    
+            </div>
         </div>
+
+       
     )
     }
 }

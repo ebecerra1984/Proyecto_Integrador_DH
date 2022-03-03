@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Link } from 'react-router-dom'
 
 
@@ -10,7 +11,7 @@ function Category(props) {
                 <div className="card bg-dark text-white shadow" style={{ marginLeft: 8, marginRight: 8, }}>
                     <div className="card-body">
                         <Link to={`/categories/${props.id}`} style={{ color: "white", textDecoration: 'none' }}>
-                            {props.name}
+                            {props.name} - ({props.cantProd})
                         </Link>
                     </div>
                 </div>
