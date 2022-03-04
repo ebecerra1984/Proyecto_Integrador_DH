@@ -3,7 +3,7 @@ import React from 'react';
 
 function ChartRow(props){
 
-  
+
 
     return (
                 <tr>
@@ -11,7 +11,7 @@ function ChartRow(props){
                     <td>{props.description}</td>
                     <td>{props.category}</td>
                     <td>{props.stock} </td>
-                    {/* <td>{props.awards}</td> */}
+                    
                 </tr>
             )
     }

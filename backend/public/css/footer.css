@@ -10,7 +10,7 @@ footer {
   width: 100%;
   text-align: center;
   font-size: 0.7rem;
-  /* position: fixed; */
+  position: relative;
 }
 .texto-footer1 {
   padding-top: 10px;

@@ -9,10 +9,11 @@
 }
 body {
   padding-top: 114px;
-  background-color: rgba(222, 226, 230, 0.3);
+  background-color: #ebebeb;
 }
 .main-login {
   padding: 5% 10%;
+  margin-bottom: 40px;
 }
 .titulo-login {
   text-align: center;

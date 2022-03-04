@@ -15,6 +15,7 @@ const categoriesAPIController = {
           return {
             id: category.id,
             name: category.nombre,
+            cantProd: category.product.length
           };
         }),
       };

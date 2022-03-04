@@ -10,7 +10,10 @@
 a {
   color: #000;
 }
+body {
+  background-color: #ebebeb;
 
+}
 h4 {
   margin: 0 0 15px;
 }
@@ -22,6 +25,7 @@ h4 {
   flex-direction: column;
   justify-content: center;
   margin-top: 114px;
+  margin-bottom: 140px;
 }
 
 #opciones-compra {
@@ -66,6 +70,7 @@ h4 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  
 }
 
 #comprar-seguir button {

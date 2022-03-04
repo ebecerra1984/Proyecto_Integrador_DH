@@ -16,7 +16,7 @@ header {
   );
 }
 
-.footer {
+/* .footer {
   background: linear-gradient(
     0deg,
     rgba(180, 180, 181, 1) 0%,
@@ -37,7 +37,7 @@ header {
 footer img {
   width: 20px;
   padding: 2px;
-}
+} */
 @media (min-width: 369px) {
   .footer {
     display: flex;
