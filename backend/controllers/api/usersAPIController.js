@@ -1,8 +1,4 @@
-// const path = require("path");
 const db = require("../../database/models/index");
-//const sequelize = db.sequelize;
-// const { Op } = require("sequelize");
-// const moment = require("moment");
 
 const usersAPIController = {
   list: (req, res) => {
@@ -40,8 +36,8 @@ const usersAPIController = {
           name: users.nombre,
           lastName: users.apellido,
           email: users.email,
-          URL: "http://localhost:3000/users/profile"
-        }
+          URL: "http://localhost:3000/users/profile",
+        },
 
         // data: users.map((user) => {
         //   return {
